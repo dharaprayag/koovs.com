@@ -75,7 +75,7 @@ public class LoginStepDefination extends base
     	men = new MenCategory(driver);
 		action = new Actions(driver);
 		Thread.sleep(3000);
-		WebElement menlink = men.getMensCategoryLink();
+		WebElement menlink = men.getMensCategoryLink1();
 		action.moveToElement(menlink).build().perform();
     }
     
@@ -166,7 +166,7 @@ public class LoginStepDefination extends base
     public void and_mousehover_on_image_select_size_and_added_into_cart(String jeans) throws Throwable
     {
     	Thread.sleep(2000);
-    	WebElement menlink = men.getMensCategoryLink();
+    	WebElement menlink = men.getMensCategoryLink1();
 		action.moveToElement(menlink).build().perform();
 		int count = men.getMenProductsLinksCount().size();
     	System.out.println(count);		

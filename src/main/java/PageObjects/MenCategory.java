@@ -12,7 +12,7 @@ import Resources.base;
 
 public class MenCategory extends base
 {
-	By menLink = By.xpath("//a[@href='/men']");
+	By menLink1 = By.xpath("//a[@href='/men']");
 	By linksCount = By.xpath("//*[@id='app']/div/div/div/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div/ul/li[1]");
 	By menProductsLinksCount = By.xpath("//*[@class='header_menu_Title']/li[1]/div/ul[1]/li[3]/div/ul/li");
 	By shirtsOrJeansText = By.xpath("//*[@class='header_menu_Title']/li[1]/div/ul[1]/li[3]/div/ul/li");
@@ -125,7 +125,7 @@ public class MenCategory extends base
 	}
 	public WebElement getMenLink()
 	{
-		 return driver.findElement(menLink);
+		 return driver.findElement(menLink1);
 	}
 	public WebElement getLoadMoreButton()
 	{
@@ -168,9 +168,9 @@ public class MenCategory extends base
 		 return driver.findElements(clickOnShirtsOrJeansLink);
 	}
 	
-	public WebElement getMensCategoryLink()
+	public WebElement getMensCategoryLink1()
 	{
-	return driver.findElement(menLink);
+	return driver.findElement(menLink1);
 	}
 	
 }
