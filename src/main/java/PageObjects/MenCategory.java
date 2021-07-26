@@ -33,6 +33,7 @@ public class MenCategory extends base
 	By clickOnPriceRangeCheckbox = By.xpath("//div[@id='filterView']/div/div[8]/ul/li/label/div");
 	By shirtOrJeansName = By.xpath("//*[@id=\"prodBox\"]/li/div[3]/a/div[4]/span[2]");
 	By mouseHoverOnShirtOrJeans = By.xpath("//*[@id='prodBox']/li");
+	By mouseHoverOnJeansAddtoBag = By.xpath("//*[@id='prodBox']/li/div[3]/a/div[3]/div[1]/button[1]");
 	By clickOnAddToCart = By.xpath("//*[@id='prodBox']/li/div[3]/a/div[3]/div[1]/button[1]");
 	By totalSize = By.xpath("//*[@class='size-lists']/div");
 	By size = By.xpath("//*[@class='size-lists']/div/span");
@@ -55,6 +56,10 @@ public class MenCategory extends base
 	public List<WebElement> getSize()
 	{
 		 return driver.findElements(size);
+	}
+	public WebElement getMouseHoverOnJeansAddtoBag()
+	{
+		 return driver.findElement(mouseHoverOnJeansAddtoBag);
 	}
 	public WebElement getCloseProductPopup()
 	{

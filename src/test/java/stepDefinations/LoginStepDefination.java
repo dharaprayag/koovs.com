@@ -186,7 +186,7 @@ public class LoginStepDefination extends base
 			if(Jeans.equalsIgnoreCase(jeans))
 			{
 				Thread.sleep(3000);
-				WebElement mouseHoverOnjeans = men.getMouseHoverOnShirtOrJeans();
+				WebElement mouseHoverOnjeans = men.getMouseHoverOnJeansAddtoBag();
 				action.moveToElement(mouseHoverOnjeans).build().perform();
 				break;
 			}
