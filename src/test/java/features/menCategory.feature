@@ -13,5 +13,5 @@ Given and <jeans> mousehover on image, select size and added into cart
 When Mousehover on cart
 Then Check number of items added into cart and badge digit are equal
 Examples:
-|shirtName|							|jeans|
-|Floral Printed Casual Shirt|		|Distressed Embroidered Tapered Fit Jeans|
+|shirtName|								|jeans|
+|Printed Casual Shirt|		|Distressed Ripped Knee Slim Fit Jeans|

@@ -7,6 +7,8 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -20,6 +22,7 @@ public class LoginStepDefination extends base
 	Login login;
 	MenCategory men;
 	Actions action;
+	JavascriptExecutor javascript;
 	
 	@Before(value="@firstScenario,@secondScenario", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
@@ -34,13 +37,15 @@ public class LoginStepDefination extends base
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
+		javascript = (JavascriptExecutor) driver;
     	Thread.sleep(5000);    	
     	
     		login.getLoginLink().click();
     		login.getEnterEmail().sendKeys(Email);
         	login.getEnterPassword().sendKeys(Password);
         	login.getAcceptButton().click();
-        	Thread.sleep(3000);
+        	javascript.executeScript("scroll(0, 200);");
+        	Thread.sleep(4000);
         	login.getLoginButton().click();
         	
         	
@@ -83,7 +88,7 @@ public class LoginStepDefination extends base
     @When("^Select a shirt Section$")
     public void Select_a_shirt_Section() throws Throwable
     {
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
     	//click on shirt link
     	int count = men.getMenProductsLinksCount().size();
     	System.out.println(count);		
@@ -138,21 +143,25 @@ public class LoginStepDefination extends base
     	int shirtCount = men.getTotalShirtOrJeansCount().size();
 		for(int j=0; j<shirtCount; j++)
 		{
-			String shirt = men.getShirtOrJeansName().get(j).getText();
-			if(shirt.equalsIgnoreCase(shirtName))
+			String shirtname = men.getShirtOrJeansName().get(j).getText();
+			if(shirtname.equalsIgnoreCase(shirtName))
 			{
-				Thread.sleep(3000);
-				WebElement mouseHoverOnShirt = men.getMouseHoverOnShirtOrJeans();
+				WebElement mouseHoverOnShirt = men.getMouseHoverOnShirtOrJeans().get(j);
+				//WebElement click = men.getAddToCart().get(j);
 				action.moveToElement(mouseHoverOnShirt).build().perform();
+				men.getAddToCart().get(j).click();
 				break;
 			}
+			
 		}
-		men.getClickOnAddToCart().click();
+		Thread.sleep(2000);
+	//	men.getClickOnAddToCart().click();
+		
     	int sizes = men.getTotalSize().size();
     	for(int k=0; k<sizes; k++)
     	{
     		String Size = men.getSize().get(k).getText();
-    		if(Size.equalsIgnoreCase(size))
+    		if(Size.equalsIgnoreCase(shirtSize))
     		{
     			men.getTotalSize().get(k).click();
     			break;
@@ -186,11 +195,22 @@ public class LoginStepDefination extends base
 			if(Jeans.equalsIgnoreCase(jeans))
 			{
 				Thread.sleep(3000);
-				WebElement mouseHoverOnjeans = men.getMouseHoverOnJeansAddtoBag();
-				action.moveToElement(mouseHoverOnjeans).build().perform();
+				WebElement mouseHoverOnJeans = men.getMouseHoverOnShirtOrJeans().get(j);
+				action.moveToElement(mouseHoverOnJeans).build().perform();
+				men.getAddToCart().get(j).click();
 				break;
 			}
 		}
+		int sizes = men.getTotalSize().size();
+    	for(int k=0; k<sizes; k++)
+    	{
+    		String Size = men.getSize().get(k).getText();
+    		if(Size.equalsIgnoreCase(jeansSize))
+    		{
+    			men.getTotalSize().get(k).click();
+    			break;
+    		}
+    	}
 		Thread.sleep(2000);
 		men.getClickOnAddToBag().click();
     	men.getCloseProductPopup().click();  	
