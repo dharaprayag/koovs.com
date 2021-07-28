@@ -14,4 +14,4 @@ When Mousehover on cart
 Then Check number of items added into cart and badge digit are equal
 Examples:
 |shirtName|								|jeans|
-|Printed Casual Shirt|		|Distressed Ripped Knee Slim Fit Jeans|
+|Essential All Over Print Shirt|		|Mid Rise Stretchable Jeans|

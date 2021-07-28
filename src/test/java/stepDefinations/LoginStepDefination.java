@@ -147,7 +147,7 @@ public class LoginStepDefination extends base
 			if(shirtname.equalsIgnoreCase(shirtName))
 			{
 				WebElement mouseHoverOnShirt = men.getMouseHoverOnShirtOrJeans().get(j);
-				//WebElement click = men.getAddToCart().get(j);
+				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnShirt);
 				action.moveToElement(mouseHoverOnShirt).build().perform();
 				men.getAddToCart().get(j).click();
 				break;
@@ -169,6 +169,7 @@ public class LoginStepDefination extends base
     	}
     	men.getClickOnAddToBag().click();
     	men.getCloseProductPopup().click();
+    	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
     }
 	
     @Given("^and (.+) mousehover on image, select size and added into cart$")
@@ -196,6 +197,7 @@ public class LoginStepDefination extends base
 			{
 				Thread.sleep(3000);
 				WebElement mouseHoverOnJeans = men.getMouseHoverOnShirtOrJeans().get(j);
+				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnJeans);
 				action.moveToElement(mouseHoverOnJeans).build().perform();
 				men.getAddToCart().get(j).click();
 				break;
