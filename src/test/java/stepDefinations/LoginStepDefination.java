@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import PageObjects.Login;
 import PageObjects.MenCategory;
@@ -44,7 +45,7 @@ public class LoginStepDefination extends base
     		login.getEnterEmail().sendKeys(Email);
         	login.getEnterPassword().sendKeys(Password);
         	login.getAcceptButton().click();
-        	javascript.executeScript("scroll(0, 200);");
+        	javascript.executeScript("scroll(0, 150);");
         	Thread.sleep(4000);
         	login.getLoginButton().click();
         	
@@ -215,21 +216,29 @@ public class LoginStepDefination extends base
     	}
 		Thread.sleep(2000);
 		men.getClickOnAddToBag().click();
-    	men.getCloseProductPopup().click();  	
+    	men.getCloseProductPopup().click(); 
+    	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
     	
     }
 
     @When("^Mousehover on cart$")
     public void mousehover_on_cart() throws Throwable
     {
-    	
+    	WebElement mouseHoverOncart = men.getMouseHoverOnCart();
+    	action.moveToElement(mouseHoverOncart).build().perform();	
     }
-
     
     @Then("^Check number of items added into cart and badge digit are equal$")
     public void check_number_of_items_added_into_cart_and_badge_digit_are_equal() throws Throwable
     {
-    	System.out.println("Check number of items added into cart and badge digit are equal");
+    	String badgeText = men.getBadgeDigit().getText();
+    	System.out.println("Badge number is " + badgeText);
+    	int numberOfItemsInCart = men.getNumberOfItemsInCart().size();
+    	System.out.println("Total Numbers of added items are " + numberOfItemsInCart);
+    	
+    	//Assert.assertEquals(badgeText, numberOfItemsInCart);
+    	//Assert.assertTrue(true, budge);
+    	
     	driver.quit();
     }
     

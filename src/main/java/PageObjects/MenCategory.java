@@ -38,7 +38,9 @@ public class MenCategory extends base
 	By size = By.xpath("//*[@class='size-lists']/div/span");
 	By clickOnAddToBag = By.xpath("//div[@class='pd-right-side']/div[3]/div/button[1]");
 	By closeProductPopup =By.xpath("//div[@class='modal-content-wrap']/span");
-	
+	By mouseHoverOnCart = By.xpath("//*[@class='header__wishlist-bag']/div[2]/a/div");
+	By badgeDigit = By.xpath("//span[@id='cart_total_items']");
+	By numberOfItemsInCart = By.xpath("//div[@id='hcartItems']/div[1]/div[2]/div/div");
 	
 	public MenCategory(WebDriver driver) 
 	{
@@ -52,11 +54,22 @@ public class MenCategory extends base
 	{
 		 return driver.findElements(totalSize);
 	}
+	public List<WebElement> getNumberOfItemsInCart()
+	{
+		 return driver.findElements(numberOfItemsInCart);
+	}
 	public List<WebElement> getSize()
 	{
 		 return driver.findElements(size);
 	}
-	
+	public WebElement getBadgeDigit()
+	{
+		 return driver.findElement(badgeDigit);
+	}
+	public WebElement getMouseHoverOnCart()
+	{
+		 return driver.findElement(mouseHoverOnCart);
+	}
 	public WebElement getCloseProductPopup()
 	{
 		 return driver.findElement(closeProductPopup);
