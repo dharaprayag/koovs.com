@@ -151,25 +151,25 @@ public class LoginStepDefination extends base
 				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnShirt);
 				action.moveToElement(mouseHoverOnShirt).build().perform();
 				men.getAddToCart().get(j).click();
-				break;
+				Thread.sleep(2000);					
+			    //SELECT SHIRT SIZE
+				int sizes = men.getTotalSize().size();
+			    for(int k=0; k<sizes; k++)
+			   	{
+			   		String Size = men.getSize().get(k).getText();
+			   		if(Size.equalsIgnoreCase(shirtSize))
+			   		{
+		    			men.getTotalSize().get(k).click();
+		    			break;
+		    		}
+			   	}
+			    men.getClickOnAddToBag().click();
+			   	men.getCloseProductPopup().click();
+			   	break;
 			}
 			
 		}
-		Thread.sleep(2000);
-	//	men.getClickOnAddToCart().click();
 		
-    	int sizes = men.getTotalSize().size();
-    	for(int k=0; k<sizes; k++)
-    	{
-    		String Size = men.getSize().get(k).getText();
-    		if(Size.equalsIgnoreCase(shirtSize))
-    		{
-    			men.getTotalSize().get(k).click();
-    			break;
-    		}
-    	}
-    	men.getClickOnAddToBag().click();
-    	men.getCloseProductPopup().click();
     	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
     }
 	
@@ -179,6 +179,7 @@ public class LoginStepDefination extends base
     	Thread.sleep(2000);
     	WebElement menlink = men.getMensCategoryLink1();
 		action.moveToElement(menlink).build().perform();
+		//SELECT JEANS SECTION
 		int count = men.getMenProductsLinksCount().size();
     	System.out.println(count);		
     	for(int i=0; i<count; i++)
@@ -190,6 +191,7 @@ public class LoginStepDefination extends base
    				break;
    			}
    		}
+    	//SELECT JEANS
     	int jeansCount = men.getTotalShirtOrJeansCount().size();
 		for(int j=0; j<jeansCount; j++)
 		{
@@ -201,22 +203,23 @@ public class LoginStepDefination extends base
 				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnJeans);
 				action.moveToElement(mouseHoverOnJeans).build().perform();
 				men.getAddToCart().get(j).click();
+				int sizes = men.getTotalSize().size();
+		    	for(int k=0; k<sizes; k++)
+		    	{
+		    		String Size = men.getSize().get(k).getText();
+		    		if(Size.equalsIgnoreCase(jeansSize))
+		    		{
+		    			men.getTotalSize().get(k).click();
+		    			break;
+		    		}
+		    	}
+				Thread.sleep(2000);
+				men.getClickOnAddToBag().click();
+		    	men.getCloseProductPopup().click();
 				break;
 			}
 		}
-		int sizes = men.getTotalSize().size();
-    	for(int k=0; k<sizes; k++)
-    	{
-    		String Size = men.getSize().get(k).getText();
-    		if(Size.equalsIgnoreCase(jeansSize))
-    		{
-    			men.getTotalSize().get(k).click();
-    			break;
-    		}
-    	}
-		Thread.sleep(2000);
-		men.getClickOnAddToBag().click();
-    	men.getCloseProductPopup().click(); 
+		 
     	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
     	
     }
