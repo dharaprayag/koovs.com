@@ -15,6 +15,7 @@ import org.testng.Assert;
 
 import PageObjects.Login;
 import PageObjects.MenCategory;
+import PageObjects.WomenCategory;
 import Resources.base;
 
 @RunWith(Cucumber.class)
@@ -24,8 +25,9 @@ public class LoginStepDefination extends base
 	MenCategory men;
 	Actions action;
 	JavascriptExecutor javascript;
+	WomenCategory women;
 	
-	@Before(value="@firstScenario,@secondScenario", order=1)
+	@Before(value="@firstScenario,@secondScenario,@womenScenario", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -34,7 +36,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	@Before(value="@firstScenario,@secondScenario", order=2)
+	@Before(value="@firstScenario,@secondScenario,@womenScenario", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -91,8 +93,7 @@ public class LoginStepDefination extends base
     {
 		//Thread.sleep(3000);
     	//click on shirt link
-    	int count = men.getMenProductsLinksCount().size();
-    	System.out.println(count);		
+    	int count = men.getMenProductsLinksCount().size();		
     	for(int i=0; i<count; i++)
    		{
     		String text =men.getShirtsOrJeansText().get(i).getText();
@@ -110,28 +111,10 @@ public class LoginStepDefination extends base
     {
     	//int loadMoreCount = men.getLoadMoreButtonSize().size();
     	System.out.println("Total number of Shirts are " + men.getTotalShirtOrJeansCount().size());
+    	System.out.println("First scenario completed");
     	driver.quit();
     	
-    	/*for (int i=0; i<loadMoreCount; i++)
-		{
-			Thread.sleep(3000);
-			javascript.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			Thread.sleep(3000);
-			while(men.getLoadMoreButton().isDisplayed())
-			{
-				Thread.sleep(3000);
-				String button = men.getLoadMoreButtonSize().get(i).getText();
-				if(button.equalsIgnoreCase("Load More"))
-				{
-					men.getLoadMoreButtonSize().get(i).click();
-					Thread.sleep(3000);
-					javascript.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-					Thread.sleep(3000);
-				}
-			}
-			javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
-		}
-		System.out.println("Total number of Shirts are " + men.getTotalShirtCount().size());*/
+    	
     }
     
     
@@ -144,6 +127,29 @@ public class LoginStepDefination extends base
     	int shirtCount = men.getTotalShirtOrJeansCount().size();
 		for(int j=0; j<shirtCount; j++)
 		{
+			
+			//CLICK ON LOAD MORE BUTTON
+			/*for (int i=0; i<loadMoreCount; i++)
+			{
+				Thread.sleep(3000);
+				javascript.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+				Thread.sleep(3000);
+				while(men.getLoadMoreButton().isDisplayed())
+				{
+					Thread.sleep(3000);
+					String button = men.getLoadMoreButtonSize().get(i).getText();
+					if(button.equalsIgnoreCase("Load More"))
+					{
+						men.getLoadMoreButtonSize().get(i).click();
+						Thread.sleep(3000);
+						javascript.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+						Thread.sleep(3000);
+					}
+				}
+				javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+			}
+			System.out.println("Total number of Shirts are " + men.getTotalShirtCount().size());*/			
+			
 			String shirtname = men.getShirtOrJeansName().get(j).getText();
 			if(shirtname.equalsIgnoreCase(shirtName))
 			{
@@ -164,6 +170,7 @@ public class LoginStepDefination extends base
 		    		}
 			   	}
 			    men.getClickOnAddToBag().click();
+			    Thread.sleep(2000);
 			   	men.getCloseProductPopup().click();
 			   	break;
 			}
@@ -180,8 +187,7 @@ public class LoginStepDefination extends base
     	WebElement menlink = men.getMensCategoryLink1();
 		action.moveToElement(menlink).build().perform();
 		//SELECT JEANS SECTION
-		int count = men.getMenProductsLinksCount().size();
-    	System.out.println(count);		
+		int count = men.getMenProductsLinksCount().size();		
     	for(int i=0; i<count; i++)
    		{
     		String text =men.getShirtsOrJeansText().get(i).getText();
@@ -213,8 +219,8 @@ public class LoginStepDefination extends base
 		    			break;
 		    		}
 		    	}
-				Thread.sleep(2000);
 				men.getClickOnAddToBag().click();
+				Thread.sleep(2000);
 		    	men.getCloseProductPopup().click();
 				break;
 			}
@@ -242,8 +248,71 @@ public class LoginStepDefination extends base
     	//Assert.assertEquals(badgeText, numberOfItemsInCart);
     	//Assert.assertTrue(true, budge);
     	
+    	System.out.println("Second scenario completed");
     	driver.quit();
     }
     
+    //WOMEN CATEGORY
+    @Given("^Select (.+), (.+), (.+), (.+) and (.+) mousehover on image, Select size and click on add to bag$")
+    public void select_and_mousehover_on_image_select_size_and_click_on_add_to_bag(String topname, String dressname, String jumpsuit, String oxolloxo, String winteressential) throws Throwable
+    {
+        WebElement womenLink = women.getWomenLink();
+        action.moveToElement(womenLink).build().perform();
+        
+        //SELECT TOP SECTION
+        int count = women.getWomenProductsLinksCount().size();
+        for(int i=0; i<count; i++)
+   		{
+        	String text = women.getWomenProductsText().get(i).getText();
+  			if(text.equalsIgnoreCase(womenProductCategory))
+   			{
+  				women.getWomenProductLink().get(i).click();
+   				break;
+   			}
+   		}
+    	
+    	//SELECT TOP
+    	int topCount = women.getTotalNumberOfProductsCount().size();
+		for(int j=0; j<topCount; j++)
+		{
+			String top = women.getProductName().get(j).getText();
+			if(top.equalsIgnoreCase(topname))
+			{
+				Thread.sleep(3000);
+				WebElement mouseHoverOnTop = women.getMouseHoverOnProduct().get(j);
+				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnTop);
+				action.moveToElement(mouseHoverOnTop).build().perform();
+				women.getAddToCart().get(j).click();
+				int sizes = women.getTotalSize().size();
+		    	for(int k=0; k<sizes; k++)
+		    	{
+		    		String Size = women.getSize().get(k).getText();
+		    		if(Size.equalsIgnoreCase(topSize))
+		    		{
+		    			women.getTotalSize().get(k).click();
+		    			break;
+		    		}
+		    	}
+		    	women.getClickOnAddToBag().click();
+				Thread.sleep(2000);
+				women.getCloseProductPopup().click();
+				break;
+			}
+		}
+		javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+        
+    }
 
+    @When("^MouseHover On cart$")
+    public void MouseHover_On_cart() throws Throwable 
+    {
+        
+    }
+
+    @Then("^Verify number of items added into cart and badge digit are equal$")
+    public void Verify_number_of_items_added_into_cart_and_badge_digit_are_equal() throws Throwable
+    {
+    	
+    }
+    
 }
