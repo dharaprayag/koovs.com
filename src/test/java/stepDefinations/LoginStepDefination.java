@@ -169,8 +169,9 @@ public class LoginStepDefination extends base
 		    			break;
 		    		}
 			   	}
+			    Thread.sleep(3000);
 			    men.getClickOnAddToBag().click();
-			    Thread.sleep(2000);
+			    Thread.sleep(4000);
 			   	men.getCloseProductPopup().click();
 			   	break;
 			}
@@ -219,8 +220,9 @@ public class LoginStepDefination extends base
 		    			break;
 		    		}
 		    	}
+		    	Thread.sleep(3000);
 				men.getClickOnAddToBag().click();
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 		    	men.getCloseProductPopup().click();
 				break;
 			}
@@ -245,7 +247,7 @@ public class LoginStepDefination extends base
     	int numberOfItemsInCart = men.getNumberOfItemsInCart().size();
     	System.out.println("Total Numbers of added items are " + numberOfItemsInCart);
     	
-    	//Assert.assertEquals(badgeText, numberOfItemsInCart);
+    	Assert.assertEquals(badgeText, Integer.toString(numberOfItemsInCart));
     	//Assert.assertTrue(true, budge);
     	
     	System.out.println("Second scenario completed");
@@ -253,11 +255,17 @@ public class LoginStepDefination extends base
     }
     
     //WOMEN CATEGORY
-    @Given("^Select (.+), (.+), (.+), (.+) and (.+) mousehover on image, Select size and click on add to bag$")
-    public void select_and_mousehover_on_image_select_size_and_click_on_add_to_bag(String topname, String dressname, String jumpsuit, String oxolloxo, String winteressential) throws Throwable
+    @Given("^Select (.+) (.+) (.+) click on add to bag$")
+    public void select_click_on_add_to_bag(String product, String productname, String size) throws Throwable
     {
+    	women = new WomenCategory(driver);
+    	action = new Actions(driver);
         WebElement womenLink = women.getWomenLink();
         action.moveToElement(womenLink).build().perform();
+        
+        int count = women.getWomenProductsLinksCount().size();
+        for(int i=0
+        
         
         //SELECT TOP SECTION
         int count = women.getWomenProductsLinksCount().size();

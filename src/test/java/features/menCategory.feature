@@ -1,10 +1,10 @@
 Feature: select product from men's section
 
-@firstScenario
-Scenario: Get total number of shirts from Mens category
-Given Go to Mens category
-When Select a shirt Section
-Then Get total number of shirts
+#@firstScenario
+#Scenario: Get total number of shirts from Mens category
+#Given Go to Mens category
+#When Select a shirt Section
+#Then Get total number of shirts
 
 @secondScenario
 Scenario Outline: Select a Shirts and add to bag
@@ -14,4 +14,4 @@ When Mousehover on cart
 Then Check number of items added into cart and badge digit are equal
 Examples:
 |shirtName|								|jeans|
-|Essential All Over Print Shirt|		|Mid Rise Stretchable Jeans|
+|Basic Casual Shirt|		|Mid Rise Stretchable Jeans|
