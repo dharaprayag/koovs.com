@@ -255,8 +255,8 @@ public class LoginStepDefination extends base
     }
     
     //WOMEN CATEGORY
-    @Given("^Select (.+) (.+) (.+) click on add to bag$")
-    public void select_click_on_add_to_bag(String product, String productname, String size) throws Throwable
+    @Given("^Select (.+) and (.+) and (.+) click on add to bag$")
+    public void select_and_and_click_on_add_to_bag(String product, String productname, String size) throws Throwable
     {
     	women = new WomenCategory(driver);
     	action = new Actions(driver);
@@ -264,51 +264,48 @@ public class LoginStepDefination extends base
         action.moveToElement(womenLink).build().perform();
         
         int count = women.getWomenProductsLinksCount().size();
-        for(int i=0
-        
-        
-        //SELECT TOP SECTION
-        int count = women.getWomenProductsLinksCount().size();
         for(int i=0; i<count; i++)
    		{
         	String text = women.getWomenProductsText().get(i).getText();
-  			if(text.equalsIgnoreCase(womenProductCategory))
+  			if(text.equalsIgnoreCase(product))
    			{
   				women.getWomenProductLink().get(i).click();
-   				break;
+   				
    			}
+  		//SELECT TOP
+  	    	int topCount = women.getTotalNumberOfProductsCount().size();
+  			for(int j=0; j<topCount; j++)
+  			{
+  				String top = women.getProductName().get(j).getText();
+  				if(top.equalsIgnoreCase(productname))
+  				{
+  					Thread.sleep(3000);
+  					WebElement mouseHoverOnTop = women.getMouseHoverOnProduct().get(j);
+  					javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnTop);
+  					action.moveToElement(mouseHoverOnTop).build().perform();
+  					women.getAddToCart().get(j).click();
+  					int sizes = women.getTotalSize().size();
+  			    	for(int k=0; k<sizes; k++)
+  			    	{
+  			    		String Size = women.getSize().get(k).getText();
+  			    		if(Size.equalsIgnoreCase(size))
+  			    		{
+  			    			women.getTotalSize().get(k).click();
+  			    			break;
+  			    		}
+  			    	}
+  			    	women.getClickOnAddToBag().click();
+  					Thread.sleep(4000);
+  					women.getCloseProductPopup().click();
+  					break;
+  				}
+  				
+  			}
+  			javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+  			break;  			
    		}
-    	
-    	//SELECT TOP
-    	int topCount = women.getTotalNumberOfProductsCount().size();
-		for(int j=0; j<topCount; j++)
-		{
-			String top = women.getProductName().get(j).getText();
-			if(top.equalsIgnoreCase(topname))
-			{
-				Thread.sleep(3000);
-				WebElement mouseHoverOnTop = women.getMouseHoverOnProduct().get(j);
-				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnTop);
-				action.moveToElement(mouseHoverOnTop).build().perform();
-				women.getAddToCart().get(j).click();
-				int sizes = women.getTotalSize().size();
-		    	for(int k=0; k<sizes; k++)
-		    	{
-		    		String Size = women.getSize().get(k).getText();
-		    		if(Size.equalsIgnoreCase(topSize))
-		    		{
-		    			women.getTotalSize().get(k).click();
-		    			break;
-		    		}
-		    	}
-		    	women.getClickOnAddToBag().click();
-				Thread.sleep(2000);
-				women.getCloseProductPopup().click();
-				break;
-			}
-		}
-		javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
-        
+       
+      
     }
 
     @When("^MouseHover On cart$")

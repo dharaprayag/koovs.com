@@ -18,7 +18,7 @@ public class base
 	//protected String titleName;
 	protected String Email;
 	protected String Password;
-	protected String fileInputStream = "C://Users//dhara//eclipse-workspace//koov.com//src//main//java//Resources//data.properties";
+	protected String fileInputStream = "C:\\Users\\dhara\\eclipse-workspace\\koovs.com\\src\\main\\java\\Resources\\data.properties";
 	protected String mensProductCategory;
 	protected String mensProductCategory1;
 	protected String brandName;
