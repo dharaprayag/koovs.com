@@ -7,5 +7,5 @@ When MouseHover On cart
 Then Verify number of items added into cart and badge digit are equal
 Examples:
 |product|					|productName|						|size|
-|Tops|						|Eacno Striped Cold Shoulder Top|	|M|
-|Dresses|					|Halter Neck Fringe Bodycon Dress|		|L|
+|Tops|						|V-Neck Tribal Print Blouse|		|M|
+|Dresses|					|Solid Casual Shift Dress|			|L|

@@ -271,7 +271,6 @@ public class LoginStepDefination extends base
    			{
   				women.getWomenProductLink().get(i).click();
    				
-   			}
   		//SELECT TOP
   	    	int topCount = women.getTotalNumberOfProductsCount().size();
   			for(int j=0; j<topCount; j++)
@@ -303,6 +302,7 @@ public class LoginStepDefination extends base
   			}
   			javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
   			break;  			
+   		}
    		}
        
       
