@@ -1,5 +1,8 @@
 package PageObjects;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,6 +42,9 @@ public class MenCategory extends base
 	By badgeDigit = By.xpath("//span[@id='cart_total_items']");
 	By numberOfItemsInCart = By.xpath("//div[@id='hcartItems']/div[1]/div[2]/div/div");
 	
+	private Random randomGenerator;
+    private ArrayList<String> catalogue;
+    
 	public MenCategory(WebDriver driver) 
 	{
 		// TODO Auto-generated constructor stub
@@ -47,6 +53,17 @@ public class MenCategory extends base
 		//PAGE FACTORY
 		PageFactory.initElements(driver, this);
 	}
+	public String getRandomEmail()
+    {
+		catalogue = new ArrayList<String>();
+		//catalogue.add("dharagharshendiya@gmail.com");
+		catalogue.add("dharapatel80085@gmail.com");
+        randomGenerator = new Random();
+        int index = randomGenerator.nextInt(catalogue.size());
+        String item = catalogue.get(index);
+        System.out.println("Managers choice this week" + item + "our recommendation to you");
+        return item;
+    }
 	public List<WebElement> getTotalSize()
 	{
 		 return driver.findElements(totalSize);
@@ -119,12 +136,10 @@ public class MenCategory extends base
 	{
 		 return driver.findElements(colorName);
 	}
-	
 	public List<WebElement> getBrandName()
 	{
 		 return driver.findElements(brandName);
 	}
-	
 	public List<WebElement> getBrandCheckBox()
 	{
 		return driver.findElements(brandCheckBox);
@@ -141,17 +156,14 @@ public class MenCategory extends base
 	{
 		 return driver.findElement(loadMoreButton);
 	}
-	
 	public List<WebElement> getLoadMoreButtonSize()
 	{
 		 return driver.findElements(loadMoreButton);
 	}
-	
 	public List<WebElement> getNumberOfBrands()
 	{
 		 return driver.findElements(numberOfBrands);
 	}
-	
 	public List<WebElement> getTotalShirtOrJeansCount()
 	{
 		 return driver.findElements(totalShirtOrJeansCount);
@@ -177,7 +189,6 @@ public class MenCategory extends base
 	{
 		 return driver.findElements(clickOnShirtsOrJeansLink);
 	}
-	
 	public WebElement getMensCategoryLink1()
 	{
 	return driver.findElement(menLink1);

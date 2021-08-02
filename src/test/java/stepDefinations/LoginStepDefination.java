@@ -6,17 +6,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
 import PageObjects.Login;
 import PageObjects.MenCategory;
 import PageObjects.WomenCategory;
@@ -30,10 +27,9 @@ public class LoginStepDefination extends base
 	Actions action;
 	JavascriptExecutor javascript;
 	WomenCategory women;
-	private Random randomGenerator;
-    private ArrayList<String> catalogue;
 	
-	@Before(value="@menScenario,@womenScenario", order=1)
+	
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -42,7 +38,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	@Before(value="@menScenario,@womenScenario", order=2)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -51,26 +47,14 @@ public class LoginStepDefination extends base
     	
     	
     		login.getLoginLink().click();
-    		login.getEnterEmail().sendKeys(getRandomEmail());
+    		login.getEnterEmail().sendKeys(men.getRandomEmail());
         	login.getEnterPassword().sendKeys(Password);
         	login.getAcceptButton().click();
         	javascript.executeScript("scroll(0, 150);");
         	Thread.sleep(6000);
-        	login.getLoginButton().click();
-        	
-        	
+        	login.getLoginButton().click();   	
     }
-	public String getRandomEmail()
-    {
-		catalogue = new ArrayList<String>();
-		catalogue.add("dharagharshendiya@gmail.com");
-		catalogue.add("dharapatel80085@gmail.com");
-        randomGenerator = new Random();
-        int index = randomGenerator.nextInt(catalogue.size());
-        String item = catalogue.get(index);
-        System.out.println("Managers choice this week" + item + "our recommendation to you");
-        return item;
-    }
+	
 
     @Then("^Landed into home page$")
     public void landed_into_home_page() throws Throwable
@@ -100,9 +84,8 @@ public class LoginStepDefination extends base
         	String text =men.getShirtsOrJeansText().get(i).getText();
   			if(text.equalsIgnoreCase(mensproduct))
    			{
-  				men.getClickOnShirtsOrJeansLink().get(i).click();
-   				
-  		//SELECT PRODUCTNAME
+  				men.getClickOnShirtsOrJeansLink().get(i).click();				
+  				//SELECT PRODUCTNAME
   				int shirtCount = men.getTotalShirtOrJeansCount().size();
   				for(int j=0; j<shirtCount; j++)
   				{
@@ -183,8 +166,31 @@ public class LoginStepDefination extends base
 				}
 				javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
 			}
-			System.out.println("Total number of Shirts are " + men.getTotalShirtCount().size());*/			
-			
+			System.out.println("Total number of Shirts are " + men.getTotalShirtCount().size());*/
+    
+    
+	
+    //////////////////////////////////MEN SCENARIO WITH FILTER///////////////////////////////////////////
+    
+    @Given("^Select (.+)$")
+    public void select(String product) throws Throwable
+    {
+    	
+    }
+
+    @When("^Filter (.+), (.+), (.+) and (.+)$")
+    public void filter_and(String brand, String colors, String pricerange, String discount) throws Throwable
+    {
+    	
+    }
+
+    @Then("^Select (.+) and (.+) click on add to bag $")
+    public void select_and_click_on_add_to_bag(String mensproductname, String menssize) throws Throwable
+    {
+    	
+    }
+    
+
     
     //////////////////////WOMEN CATEGORY/////////////////////////
     @Given("^Select (.+) and (.+) and (.+) click on add to bag$")
