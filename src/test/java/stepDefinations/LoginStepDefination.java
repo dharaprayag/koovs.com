@@ -6,6 +6,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
+
+import java.util.ArrayList;
+import java.util.Random;
+
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -26,6 +30,8 @@ public class LoginStepDefination extends base
 	Actions action;
 	JavascriptExecutor javascript;
 	WomenCategory women;
+	private Random randomGenerator;
+    private ArrayList<String> catalogue;
 	
 	@Before(value="@menScenario,@womenScenario", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
@@ -45,7 +51,7 @@ public class LoginStepDefination extends base
     	
     	
     		login.getLoginLink().click();
-    		login.getEnterEmail().sendKeys(Email);
+    		login.getEnterEmail().sendKeys(getRandomEmail());
         	login.getEnterPassword().sendKeys(Password);
         	login.getAcceptButton().click();
         	javascript.executeScript("scroll(0, 150);");
@@ -53,6 +59,17 @@ public class LoginStepDefination extends base
         	login.getLoginButton().click();
         	
         	
+    }
+	public String getRandomEmail()
+    {
+		catalogue = new ArrayList<String>();
+		catalogue.add("dharagharshendiya@gmail.com");
+		catalogue.add("dharapatel80085@gmail.com");
+        randomGenerator = new Random();
+        int index = randomGenerator.nextInt(catalogue.size());
+        String item = catalogue.get(index);
+        System.out.println("Managers choice this week" + item + "our recommendation to you");
+        return item;
     }
 
     @Then("^Landed into home page$")
