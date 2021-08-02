@@ -22,7 +22,10 @@ public class WomenCategory extends base
 	By size = By.xpath("//*[@class='size-lists']/div/span");
 	By clickOnAddToBag = By.xpath("//div[@class='pd-right-side']/div[3]/div/button[1]");
 	By closeProductPopup =By.xpath("//div[@class='modal-content-wrap']/span");
-	
+	By closeButton = By.xpath("//div[@class='hcart-items']/div/div[1]/div/div/div/div/div/div/div[3]/img");
+	By mouseHoverOnCart = By.xpath("//*[@class='header__wishlist-bag']/div[2]/a/div");
+	By badgeDigit = By.xpath("//span[@id='cart_total_items']");
+	By numberOfItemsInCart = By.xpath("//div[@id='hcartItems']/div[1]/div[2]/div/div");
 	
 	
 	public WomenCategory(WebDriver driver) 
@@ -31,6 +34,26 @@ public class WomenCategory extends base
 		this.driver = driver;
 		//PAGE FACTORY
 		PageFactory.initElements(driver, this);
+	}
+	public List<WebElement> getNumberOfItemsInCart()
+	{
+		 return driver.findElements(numberOfItemsInCart);
+	}
+	public List<WebElement> getCloseButtoncount()
+	{
+		 return driver.findElements(closeButton);
+	}
+	public WebElement getBadgeDigit()
+	{
+		 return driver.findElement(badgeDigit);
+	}
+	public WebElement getMouseHoverOnCart()
+	{
+		 return driver.findElement(mouseHoverOnCart);
+	}
+	public WebElement getCloseButton()
+	{
+		 return driver.findElement(closeButton);
 	}
 	public WebElement getCloseProductPopup()
 	{
