@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="438895" started-at="2021-08-02T06:19:51 EDT" finished-at="2021-08-02T06:27:10 EDT">
+  <suite name="Default suite" duration-ms="142091" started-at="2021-08-03T08:11:14 EDT" finished-at="2021-08-03T08:13:36 EDT">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.testRunner@6989da5e]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="438895" started-at="2021-08-02T06:19:51 EDT" finished-at="2021-08-02T06:27:10 EDT">
+    <test name="Default test" duration-ms="142091" started-at="2021-08-03T08:11:14 EDT" finished-at="2021-08-03T08:13:36 EDT">
       <class name="testRunner.testRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="setUpClass" is-config="true" duration-ms="634" started-at="2021-08-02T06:19:51 EDT" finished-at="2021-08-02T06:19:52 EDT">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="setUpClass" is-config="true" duration-ms="232" started-at="2021-08-03T08:11:14 EDT" finished-at="2021-08-03T08:11:15 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.testRunner@6989da5e]" name="feature" duration-ms="437975" started-at="2021-08-02T06:19:52 EDT" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-08-02T06:27:10 EDT">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.testRunner@6989da5e]" name="feature" duration-ms="141754" started-at="2021-08-03T08:11:15 EDT" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-08-03T08:13:36 EDT">
           <params>
             <param index="0">
               <value>
@@ -24,10 +24,10 @@
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[java.lang.AssertionError: expected [0] but found [1]]]>
+              <![CDATA[java.lang.NullPointerException]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: expected [0] but found [1]
+              <![CDATA[cucumber.runtime.CucumberException: java.lang.NullPointerException
 at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -58,22 +58,16 @@ at org.testng.TestNG.run(TestNG.java:1037)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [0] but found [1]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-at org.testng.Assert.assertEquals(Assert.java:122)
-at org.testng.Assert.assertEquals(Assert.java:629)
-at org.testng.Assert.assertEquals(Assert.java:639)
-at stepDefinations.LoginStepDefination.mousehover_on_cart_and_verify_number_of_items_added_into_cart_and_badge_digit_are_equal(LoginStepDefination.java:137)
-at ✽.When mouseHover on cart and verify number of items added into cart and badge digit are equal(src/test/java/features/menCategory.feature:6)
+Caused by: java.lang.NullPointerException
+at stepDefinations.LoginStepDefination.filter_and(LoginStepDefination.java:201)
+at ✽.When Filter Blue Saint, Blue, Rs.401 - 550 and 30% - 39%(src/test/java/features/menCategoryWithFilter.feature:6)
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="tearDownClass" is-config="true" duration-ms="27" started-at="2021-08-02T06:27:10 EDT" finished-at="2021-08-02T06:27:10 EDT">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="tearDownClass" is-config="true" duration-ms="5" started-at="2021-08-03T08:13:36 EDT" finished-at="2021-08-03T08:13:36 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

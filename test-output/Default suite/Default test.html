@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 02 06:19:51 EDT 2021</td>
+<td>Started on:</td><td>Tue Aug 03 08:11:14 EDT 2021</td>
 </tr>
-<tr><td>Total time:</td><td>438 seconds (438895 ms)</td>
+<tr><td>Total time:</td><td>142 seconds (142091 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,7 +76,7 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='testRunner.testRunner.feature()'><b>feature</b><br>Test class: testRunner.testRunner<br>Test method: Runs Cucumber Feature<br>Parameters: select product from men's section</td>
-<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [0] but found [1]
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.NullPointerException
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -107,17 +107,11 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [0] but found [1]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at stepDefinations.LoginStepDefination.mousehover_on_cart_and_verify_number_of_items_added_into_cart_and_badge_digit_are_equal(LoginStepDefination.java:137)
-	at ?.When mouseHover on cart and verify number of items added into cart and badge digit are equal(src/test/java/features/menCategory.feature:6)
-</pre></div><a href='#' onClick='toggleBox("stack-trace880934808", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace880934808'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [0] but found [1]
+Caused by: java.lang.NullPointerException
+	at stepDefinations.LoginStepDefination.filter_and(LoginStepDefination.java:201)
+	at ?.When Filter Blue Saint, Blue, Rs.401 - 550 and 30% - 39%(src/test/java/features/menCategoryWithFilter.feature:6)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1406114969", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1406114969'><pre>cucumber.runtime.CucumberException: java.lang.NullPointerException
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -148,17 +142,11 @@ Caused by: java.lang.AssertionError: expected [0] but found [1]
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [0] but found [1]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at stepDefinations.LoginStepDefination.mousehover_on_cart_and_verify_number_of_items_added_into_cart_and_badge_digit_are_equal(LoginStepDefination.java:137)
-	at ?.When mouseHover on cart and verify number of items added into cart and badge digit are equal(src/test/java/features/menCategory.feature:6)
+Caused by: java.lang.NullPointerException
+	at stepDefinations.LoginStepDefination.filter_and(LoginStepDefination.java:201)
+	at ?.When Filter Blue Saint, Blue, Rs.401 - 550 and 30% - 39%(src/test/java/features/menCategoryWithFilter.feature:6)
 </pre></div></td>
-<td>437</td>
+<td>141</td>
 <td>testRunner.testRunner@6989da5e</td></tr>
 </table><p>
 </body>

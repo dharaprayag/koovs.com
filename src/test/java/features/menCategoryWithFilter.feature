@@ -6,6 +6,7 @@ Given Select <Product>
 When Filter <Brand>, <colors>, <priceRange> and <Discount>
 Then Select <mensproductName> and <mensSize> click on add to bag 
 Examples:
-|Product|					|Brand|			|colors|		|priceRange|		|Discount|		|mensproductName|				|mensSize|
-|T-Shirts & Polo Shirts|	|Blue Saint|	|Blue|			|Rs.401 - 550|		|30% - 39%|		|Solid Crew Neck T-shirt|		|M|
-|Trousers & Chinos|			|KOOVS|			||				||					|20% - 29%|		|Tapered Casual Trousers|		|32|
+|Product|					|Brand|			|colors|		|priceRange|		|Discount|		|mensproductName|						|mensSize|
+|T-Shirts & Polo Shirts|	|Blue Saint|	|Blue|			|Rs.401 - 500|		|30% - 39%|		|Solid Crew Neck T-shirt|				|M|
+|Trousers & Chinos|			|KOOVS|			||				||					|20% - 29%|		|Tapered Casual Trousers|				|32|
+|Coats & Jackets|			|SID & SOM|		|Multi|			||					|20% - 29%|		|All Over Multi Check Bomber Jacket|	|L|

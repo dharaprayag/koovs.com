@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -38,7 +39,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario", order=2)
+	@Before(value="@menScenario,@womenScenario", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -74,7 +75,7 @@ public class LoginStepDefination extends base
     {
     	men = new MenCategory(driver);
     	action = new Actions(driver);
-    	WebElement menlink = men.getMensCategoryLink1();
+    	WebElement menlink = men.getMensCategoryLink();
 		action.moveToElement(menlink).build().perform();
         
 		//SELECT PRODUCT
@@ -173,15 +174,91 @@ public class LoginStepDefination extends base
     //////////////////////////////////MEN SCENARIO WITH FILTER///////////////////////////////////////////
     
     @Given("^Select (.+)$")
-    public void select(String product) throws Throwable
-    {
-    	
+    public void select_(String product) throws Throwable
+    {    	
+    	men = new MenCategory(driver);
+    	action = new Actions(driver);
+    	javascript = (JavascriptExecutor) driver;
+    	WebElement menlink = men.getMensCategoryLink();
+		action.moveToElement(menlink).build().perform();
+		
+		//SELECT PRODUCT SECTION
+		int count = men.getMenProductsLinksCount().size();
+        for(int i=0; i<count; i++)
+   		{
+        	String text =men.getShirtsOrJeansText().get(i).getText();
+  			if(text.equalsIgnoreCase(product))
+   			{
+  				men.getClickOnShirtsOrJeansLink().get(i).click();
+  				break;
+   			}
+   		}  
+  				
     }
 
     @When("^Filter (.+), (.+), (.+) and (.+)$")
     public void filter_and(String brand, String colors, String pricerange, String discount) throws Throwable
     {
+    	men.getViewAllButton().click();
+    	//SELECT BRAND
+    	int brands = men.getBrands().size();
+    	for(int j=0; j<brands; j++)
+    	{
+    		String brandText = men.getBrandText().get(j).getText();
+    		if(brandText.equalsIgnoreCase(brand))
+    		{
+    			men.getBrandCheckBox().get(j).click();
+    			men.getClickOnApplyButton().click();
+    	    	Thread.sleep(2000);
+    	    	break;
+    		}
+    	}
+    	 
+    	//SELECT COLORS
+    	//WebElement colorsSection = men.getColorSection();
+    	//javascript.executeScript("arguments[0].scrollIntoView(true);",colorsSection);
     	
+    	int numberOfColors1 = men.getNumberOfColors().size();
+    	for(int k=0; k<numberOfColors1; k++)
+    	{
+    		String colorText = men.getColorName().get(k).getText();
+    		if(colorText.equalsIgnoreCase(colors))
+    		{
+    			men.getClickOnColor().get(k).click();
+    		}
+    	//SELECT PRICE RANGE
+    	WebElement pricerangeSection = men.getPriceRangeSection();
+    	javascript.executeScript("arguments[0].scrollIntoView(true);",pricerangeSection);
+    	
+    	int ranges = men.getPriceRanges().size();
+    	for(int l=0; l<ranges; l++)
+    	{
+    		String range = men.getPriceRange().get(l).getText();
+    		if(range.equalsIgnoreCase(pricerange))
+    		{
+    			men.getClickOnPriceRangeCheckbox().get(l).click();
+    			break;
+    		}
+    	}
+    	
+    	//SELECT DISCOUNT
+    	WebElement discountSection = men.getDiscountSection();
+    	javascript.executeScript("arguments[0].scrollIntoView(true);",discountSection);
+    	
+    	int discounts = men.getDiscounts().size();
+    	for(int m=0; m<discounts; m++)
+    	{
+    		String discountText = men.getDiscountText().get(m).getText();
+    		if(discountText.equalsIgnoreCase(discount))
+    		{
+    			men.getDiscountCheckBox().get(m).click();
+    			break;
+    		}
+    	}
+    		}
+    	
+    	
+    	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");   	
     }
 
     @Then("^Select (.+) and (.+) click on add to bag $")

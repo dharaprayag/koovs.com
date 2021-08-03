@@ -12,7 +12,7 @@ import Resources.base;
 
 public class MenCategory extends base
 {
-	By menLink1 = By.xpath("//a[@href='/men']");
+	By menLink = By.xpath("//a[@href='/men']");
 	By linksCount = By.xpath("//*[@id='app']/div/div/div/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div/ul/li[1]");
 	By menProductsLinksCount = By.xpath("//*[@class='header_menu_Title']/li[1]/div/ul[1]/li[3]/div/ul/li");
 	By shirtsOrJeansText = By.xpath("//*[@class='header_menu_Title']/li[1]/div/ul[1]/li[3]/div/ul/li");
@@ -20,14 +20,13 @@ public class MenCategory extends base
 	By shirtsCount = By.xpath("//*[@id='prodBox']/li");
 	By loadMoreButton = By.xpath("//*[@id='loadMoreList']");
 	By totalShirtOrJeansCount = By.xpath("//div[@class='row-base']/div[2]/ul/li");
-	By clickOnViewAllButton = By.xpath("//div[@id='filterRow']/div[4]/div");
+	By viewAllButton = By.xpath("//div[@id='filterRow']/div[4]/div");
 	By numberOfBrands = By.xpath("//div[@id='viewAll']/div[2]/div");
 	By brandName = By.xpath("//div[@id='viewAll']/div[2]/div/label/span[1]");
-	By brandCheckBox = By.xpath("//div[@id='viewAll']/div[2]/div/label/div");
 	By clickOnApplyButtonInSelectBrand = By.xpath("//div[@id='viewAll']/div[3]/div[2]");
-	By numberOfColors = By.xpath("//div[@id='filterRow']/div[6]/ul/li/label/span[1]");
-	By colorName = By.xpath("//div[@id='filterRow']/div[6]/ul/li/label/span[1]");
-	By clickOnColor = By.xpath("//div[@id='filterView']/div/div[6]/ul/li/label");
+	By numberOfColors = By.xpath("//div[@id='filterRow']/div[6]/ul/li");
+	By colorName = By.xpath("//div[@id='filterRow']/div[6]/ul/li/label/span[1]	");
+	By clickOnColor = By.xpath("//div[@id='filterView']/div/div[6]/ul/li/label/div");
 	By priceRanges = By.xpath("//div[@id='filterView']/div/div[8]/ul/li");
 	By priceRange = By.xpath("//div[@id='filterView']/div/div[8]/ul/li/label/span[1]");
 	By clickOnPriceRangeCheckbox = By.xpath("//div[@id='filterView']/div/div[8]/ul/li/label/div");
@@ -41,6 +40,17 @@ public class MenCategory extends base
 	By mouseHoverOnCart = By.xpath("//*[@class='header__wishlist-bag']/div[2]/a/div");
 	By badgeDigit = By.xpath("//span[@id='cart_total_items']");
 	By numberOfItemsInCart = By.xpath("//div[@id='hcartItems']/div[1]/div[2]/div/div");
+	By brands = By.xpath("//div[@id='viewAll']/div[2]/div");
+	By brandText = By.xpath("//div[@id='viewAll']/div[2]/div/label/span[1]");
+	By brandCheckBox = By.xpath("//div[@id='viewAll']/div[2]/div/label/div");
+	By discounts = By.xpath("//div[@id='filterRow']/div[10]/ul/li");
+	By discountText = By.xpath("//div[@id='filterRow']/div[10]/ul/li/label/span[1]");
+	By discountCheckBox = By.xpath("//div[@id='filterRow']/div[10]/ul/li/label/div");
+	By colorSection = By.xpath("//div[@id='filterRow']/div[5]");
+	By priceRangeSection = By.xpath("//div[@id='filterRow']/div[7]");
+	By discountSection = By.xpath("//div[@id='filterRow']/div[9]");
+	By sections = By.xpath("//div[@class='brand-menu']/ul/li");
+	By sectionText = By.xpath("//div[@class='brand-menu']/ul/li/a");
 	
 	private Random randomGenerator;
     private ArrayList<String> catalogue;
@@ -64,9 +74,57 @@ public class MenCategory extends base
         System.out.println("Managers choice this week" + item + "our recommendation to you");
         return item;
     }
+	public List<WebElement> getSections()
+	{
+		 return driver.findElements(sections);
+	}
+	public List<WebElement> getSectionLink()
+	{
+		 return driver.findElements(sectionText);
+	}
+	public List<WebElement> getSectionText()
+	{
+		 return driver.findElements(sectionText);
+	}
+	public WebElement getColorSection()
+	{
+		 return driver.findElement(colorSection);
+	}
+	public WebElement getDiscountSection()
+	{
+		 return driver.findElement(discountSection);
+	}
+	public WebElement getPriceRangeSection()
+	{
+		 return driver.findElement(priceRangeSection);
+	}
 	public List<WebElement> getTotalSize()
 	{
 		 return driver.findElements(totalSize);
+	}
+	public List<WebElement> getDiscountCheckBox()
+	{
+		 return driver.findElements(discountCheckBox);
+	}
+	public List<WebElement> getDiscountText()
+	{
+		 return driver.findElements(discountText);
+	}
+	public List<WebElement> getDiscounts()
+	{
+		 return driver.findElements(discounts);
+	}
+	public List<WebElement> getBrandCheckBox()
+	{
+		 return driver.findElements(brandCheckBox);
+	}
+	public List<WebElement> getBrands()
+	{
+		 return driver.findElements(brands);
+	}
+	public List<WebElement> getBrandText()
+	{
+		 return driver.findElements(brandText);
 	}
 	public List<WebElement> getNumberOfItemsInCart()
 	{
@@ -140,17 +198,13 @@ public class MenCategory extends base
 	{
 		 return driver.findElements(brandName);
 	}
-	public List<WebElement> getBrandCheckBox()
+	public WebElement getViewAllButton()
 	{
-		return driver.findElements(brandCheckBox);
-	}
-	public WebElement getClickOnViewAllButton()
-	{
-		 return driver.findElement(clickOnViewAllButton);
+		 return driver.findElement(viewAllButton);
 	}
 	public WebElement getMenLink()
 	{
-		 return driver.findElement(menLink1);
+		 return driver.findElement(menLink);
 	}
 	public WebElement getLoadMoreButton()
 	{
@@ -189,9 +243,9 @@ public class MenCategory extends base
 	{
 		 return driver.findElements(clickOnShirtsOrJeansLink);
 	}
-	public WebElement getMensCategoryLink1()
+	public WebElement getMensCategoryLink()
 	{
-	return driver.findElement(menLink1);
+	return driver.findElement(menLink);
 	}
 	
 }
