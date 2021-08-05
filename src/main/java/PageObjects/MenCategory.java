@@ -190,6 +190,10 @@ public class MenCategory extends base
 	{
 		 return driver.findElements(numberOfColors);
 	}
+	public WebElement getColorsName()
+	{
+		 return driver.findElement(colorName);
+	}
 	public List<WebElement> getColorName()
 	{
 		 return driver.findElements(colorName);

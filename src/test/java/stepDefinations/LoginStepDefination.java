@@ -39,7 +39,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	@Before(value="@menScenario,@womenScenario", order=2)
+	@Before(value="@menScenario,@womenScenario,@menScenarioWithFilter", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -48,7 +48,8 @@ public class LoginStepDefination extends base
     	
     	
     		login.getLoginLink().click();
-    		login.getEnterEmail().sendKeys(men.getRandomEmail());
+    		login.getEnterEmail().sendKeys(Email);
+    		//login.getEnterEmail().sendKeys(men.getRandomEmail());
         	login.getEnterPassword().sendKeys(Password);
         	login.getAcceptButton().click();
         	javascript.executeScript("scroll(0, 150);");
@@ -56,7 +57,6 @@ public class LoginStepDefination extends base
         	login.getLoginButton().click();   	
     }
 	
-
     @Then("^Landed into home page$")
     public void landed_into_home_page() throws Throwable
     {
@@ -196,8 +196,8 @@ public class LoginStepDefination extends base
   				
     }
 
-    @When("^Filter (.+), (.+), (.+) and (.+)$")
-    public void filter_and(String brand, String colors, String pricerange, String discount) throws Throwable
+    @When("^Filter (.+), (.+), (.+)$")
+    public void filter_(String brand, String colors, String pricerange) throws Throwable
     {
     	men.getViewAllButton().click();
     	//SELECT BRAND
@@ -215,17 +215,21 @@ public class LoginStepDefination extends base
     	}
     	 
     	//SELECT COLORS
-    	//WebElement colorsSection = men.getColorSection();
-    	//javascript.executeScript("arguments[0].scrollIntoView(true);",colorsSection);
+    	WebElement colorsSection = men.getColorSection();
+    	javascript.executeScript("arguments[0].scrollIntoView(true);",colorsSection);
     	
-    	int numberOfColors1 = men.getNumberOfColors().size();
+    	/*int numberOfColors1 = men.getNumberOfColors().size();
     	for(int k=0; k<numberOfColors1; k++)
     	{
-    		String colorText = men.getColorName().get(k).getText();
+    		//String colorText = men.getColorName().get(k).getText();
+    		String colorText = men.getColorsName().getText();
     		if(colorText.equalsIgnoreCase(colors))
     		{
     			men.getClickOnColor().get(k).click();
+    			break;
     		}
+    	}*/
+    	
     	//SELECT PRICE RANGE
     	WebElement pricerangeSection = men.getPriceRangeSection();
     	javascript.executeScript("arguments[0].scrollIntoView(true);",pricerangeSection);
@@ -241,6 +245,12 @@ public class LoginStepDefination extends base
     		}
     	}
     	
+    	
+    }
+
+    @Then("^(.+), (.+) and (.+) click on add to bag$")
+    public void _and_click_on_add_to_bag(String discount, String mensproductname, String menssize) throws Throwable
+    {
     	//SELECT DISCOUNT
     	WebElement discountSection = men.getDiscountSection();
     	javascript.executeScript("arguments[0].scrollIntoView(true);",discountSection);
@@ -251,19 +261,40 @@ public class LoginStepDefination extends base
     		String discountText = men.getDiscountText().get(m).getText();
     		if(discountText.equalsIgnoreCase(discount))
     		{
-    			men.getDiscountCheckBox().get(m).click();
-    			break;
-    		}
-    	}
-    		}
+    			men.getDiscountCheckBox().get(m).click();    	
     	
     	
-    	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");   	
-    }
-
-    @Then("^Select (.+) and (.+) click on add to bag $")
-    public void select_and_click_on_add_to_bag(String mensproductname, String menssize) throws Throwable
-    {
+    	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+    	int shirtCount = men.getTotalShirtOrJeansCount().size();
+		for(int j=0; j<shirtCount; j++)
+		{
+			String shirtname = men.getShirtOrJeansName().get(j).getText();
+			if(shirtname.equalsIgnoreCase(mensproductname))
+			{
+				WebElement mouseHoverOnShirt = men.getMouseHoverOnShirtOrJeans().get(j);
+				javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnShirt);
+				action.moveToElement(mouseHoverOnShirt).build().perform();
+				men.getAddToCart().get(j).click();
+				//SELECT SHIRT SIZE
+				int sizes = men.getTotalSize().size();
+				for(int k=0; k<sizes; k++)
+				{
+					String Size = men.getSize().get(k).getText();
+					if(Size.equalsIgnoreCase(menssize))
+					{
+				    	men.getTotalSize().get(k).click();
+				    	break;
+				    }
+				}
+				Thread.sleep(3000);
+				men.getClickOnAddToBag().click();
+				Thread.sleep(4000);
+				men.getCloseProductPopup().click();
+				break;
+			}
+		}
+		}
+		}
     	
     }
     
