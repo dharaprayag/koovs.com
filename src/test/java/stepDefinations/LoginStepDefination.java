@@ -218,17 +218,18 @@ public class LoginStepDefination extends base
     	WebElement colorsSection = men.getColorSection();
     	javascript.executeScript("arguments[0].scrollIntoView(true);",colorsSection);
     	
-    	/*int numberOfColors1 = men.getNumberOfColors().size();
+    	int numberOfColors1 = men.getNumberOfColors().size();
     	for(int k=0; k<numberOfColors1; k++)
     	{
-    		//String colorText = men.getColorName().get(k).getText();
-    		String colorText = men.getColorsName().getText();
-    		if(colorText.equalsIgnoreCase(colors))
+    		List<WebElement> colotname = men.getColorName();
+    				WebElement get = colotname.get(k);
+    				String gettext = get.getText();
+    		if(gettext.equalsIgnoreCase(colors))
     		{
     			men.getClickOnColor().get(k).click();
     			break;
     		}
-    	}*/
+    	}
     	
     	//SELECT PRICE RANGE
     	WebElement pricerangeSection = men.getPriceRangeSection();
@@ -293,7 +294,9 @@ public class LoginStepDefination extends base
 				break;
 			}
 		}
+		break;
 		}
+    		
 		}
     	
     }

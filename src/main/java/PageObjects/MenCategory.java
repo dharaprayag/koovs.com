@@ -25,7 +25,7 @@ public class MenCategory extends base
 	By brandName = By.xpath("//div[@id='viewAll']/div[2]/div/label/span[1]");
 	By clickOnApplyButtonInSelectBrand = By.xpath("//div[@id='viewAll']/div[3]/div[2]");
 	By numberOfColors = By.xpath("//div[@id='filterRow']/div[6]/ul/li");
-	By colorName = By.xpath("//div[@id='filterRow']/div[6]/ul/li/label/span[1]	");
+	By colorName = By.xpath("//div[@id='filterRow']/div[6]/ul/li/label/span[1]/text()");
 	By clickOnColor = By.xpath("//div[@id='filterView']/div/div[6]/ul/li/label/div");
 	By priceRanges = By.xpath("//div[@id='filterView']/div/div[8]/ul/li");
 	By priceRange = By.xpath("//div[@id='filterView']/div/div[8]/ul/li/label/span[1]");
