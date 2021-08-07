@@ -301,6 +301,25 @@ public class LoginStepDefination extends base
     	
     }
     
+    
+    //////////////////////WOMEN CATEGORY WITH FILTER//////////////
+    @Given("^Selection (.+) from women Category$")
+    public void selection_from_women_category(String womenfilterproduct) throws Throwable
+    {
+    	
+    }
+
+    @When("^product's filter (.+), (.+), (.+)$")
+    public void products_filter_(String womenfilterbrand, String womenfiltercolors, String womenfilterpricerange) throws Throwable
+    {
+    	
+    }
+
+    @Then("^(.+), (.+) and (.+) and then product added into cart$")
+    public void _and_and_then_product_added_into_cart(String womenfilterdiscount, String womenfilterproductname, String womenfiltersize) throws Throwable
+    {
+    	
+    }
 
     
     //////////////////////WOMEN CATEGORY/////////////////////////
