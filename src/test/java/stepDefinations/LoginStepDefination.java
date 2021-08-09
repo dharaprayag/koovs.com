@@ -30,7 +30,7 @@ public class LoginStepDefination extends base
 	WomenCategory women;
 	
 	
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario", order=1)
+	@Before(value="@menScenario,@womenScenario", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -39,7 +39,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	@Before(value="@menScenario,@womenScenario,@menScenarioWithFilter", order=2)
+	@Before(value="@menScenario,@womenScenario", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -53,7 +53,7 @@ public class LoginStepDefination extends base
         	login.getEnterPassword().sendKeys(Password);
         	login.getAcceptButton().click();
         	javascript.executeScript("scroll(0, 150);");
-        	Thread.sleep(6000);
+        	Thread.sleep(10000);
         	login.getLoginButton().click();   	
     }
 	
@@ -301,30 +301,9 @@ public class LoginStepDefination extends base
     	
     }
     
-    
-    //////////////////////WOMEN CATEGORY WITH FILTER//////////////
-    @Given("^Selection (.+) from women Category$")
-    public void selection_from_women_category(String womenfilterproduct) throws Throwable
-    {
-    	
-    }
-
-    @When("^product's filter (.+), (.+), (.+)$")
-    public void products_filter_(String womenfilterbrand, String womenfiltercolors, String womenfilterpricerange) throws Throwable
-    {
-    	
-    }
-
-    @Then("^(.+), (.+) and (.+) and then product added into cart$")
-    public void _and_and_then_product_added_into_cart(String womenfilterdiscount, String womenfilterproductname, String womenfiltersize) throws Throwable
-    {
-    	
-    }
-
-    
     //////////////////////WOMEN CATEGORY/////////////////////////
-    @Given("^Select (.+) and (.+) and (.+) click on add to bag$")
-    public void select_and_and_click_on_add_to_bag(String product, String productname, String size) throws Throwable
+    @Given("^(.+) and (.+) and (.+) click on add to bag$")
+    public void and_and_click_on_add_to_bag(String product, String productname, String size) throws Throwable
     {
     	women = new WomenCategory(driver);
     	action = new Actions(driver);
@@ -409,4 +388,26 @@ public class LoginStepDefination extends base
     	driver.quit();	
     }
     
+    	//////////////////////WOMEN CATEGORY WITH FILTER//////////////
+    @Given("^Selection (.+) from women Category$")
+    public void selection_from_women_category(String womenfilterproduct) throws Throwable
+    {
+    	System.out.println("Selection womenFilterProduct from women Category");
+    }
+
+    @When("^Product's filter (.+), (.+), (.+)$")
+    public void Products_filter_(String womenfilterbrand, String womenfiltercolors, String womenfilterpricerange) throws Throwable
+    {
+    	System.out.println("Product's filter womenFilterBrand, womenFilterColors, womenFilterPriceRange");
+    }
+
+    @Then("^(.+), (.+) and (.+) and then product added into cart$")
+    public void _and_and_then_product_added_into_cart(String womenfilterdiscount, String womenfilterproductname, String womenfiltersize) throws Throwable
+    {
+    	System.out.println("womenFilterDiscount, womenFilterproductName and womenFilterSize and then product added into cart");
+    }
+
+    
+    
+   
 }

@@ -7,15 +7,17 @@ When mouseHover on cart and verify number of items added into cart and badge dig
 Then clear cart
 Examples:
 |mensproduct|					|mensproductName|						|menssize|
-|Shirts|						|Short Sleeve Causal Shirt|				|M|
-|Jeans|							|Mid Rise Stretchable Jeans|			|32|
-|Shorts|						|Smart Utility Pocket Shorts|			|32|
+|Shirts|						|Twin Pocket Half Sleeve Shirt|			|M|
+|Jeans|							|Cut & Sew Mid-Wash Denim Jeans|		|32|
+|Shorts|						|Folded Hem Skinny Fit Day Shorts|		|34|
 
 #@menScenarioWithFilter
 #Scenario Outline: Select T-shirts,Trousers & Chinos and Coats & Jackets
 #Given Select <Product>
-#When Filter <Brand>, <colors>, <priceRange> and <Discount>
-#Then Select <mensproductName> and <mensSize> click on add to bag 
+#When Filter <Brand>, <colors>, <priceRange>
+#Then <Discount>, <mensproductName> and <mensSize> click on add to bag
 #Examples:
-#|Product|					|Brand|			|colors|		|priceRange|		|Discount|		|mensproductName|				|mensSize|
-#|T-Shirts & Polo Shirts|	|Blue Saint|	|Blue|			|Rs.401 - 550|		|30% - 39%|		|Solid Crew Neck T-shirt|		|M|
+#|Product|					|Brand|			|colors|		|priceRange|		|Discount|		|mensproductName|							|mensSize|
+#|T-Shirts & Polo Shirts|	|Blue Saint|	|Blue|			|Rs.401 - 500|		|30% - 39%|		|Slogan Graphic Print Round Neck T-shirt|	|M|
+#|Trousers & Chinos|			|KOOVS|			|Blue|			|Rs.1551 - 1750|	|20% - 29%|		|Utility Pocket Casual Trousers|			|32|
+#|Coats & Jackets|			|Blue Saint|	|Multi|			|Rs.1551 - 1900|	|0% - 9%|		|Button Down Jackets|						|L|
