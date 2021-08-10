@@ -39,7 +39,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	//@Before(value="@menScenario,@menScenarioWithFilter", order=2)
+	@Before(value="@menScenario,@menScenarioWithFilter", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -76,6 +76,7 @@ public class LoginStepDefination extends base
     	men = new MenCategory(driver);
     	action = new Actions(driver);
     	javascript = (JavascriptExecutor) driver;
+    	Thread.sleep(3000);
     	WebElement menL = men.getMensCategoryLink();
 		action.moveToElement(menL).build().perform();
         
@@ -87,7 +88,7 @@ public class LoginStepDefination extends base
   			if(text.equalsIgnoreCase(mensproduct))
    			{
   				men.getClickOnShirtsOrJeansLink().get(i).click();	
-  				Thread.sleep(3000);
+  				Thread.sleep(5000);
   				//SELECT PRODUCTNAME
   				int shirtCount = men.getTotalShirtOrJeansCount().size();
   				for(int a=0; a<shirtCount; a++)
@@ -122,14 +123,17 @@ public class LoginStepDefination extends base
   			break;  			
    		}
    		}
-       
+        System.out.println("Successfully added " + mensproductname + " into cart");
     }
 
     @When("^mouseHover on cart and verify number of items added into cart and badge digit are equal$")
     public void mousehover_on_cart_and_verify_number_of_items_added_into_cart_and_badge_digit_are_equal() throws Throwable
     {
+    	System.out.println("______________________________");
+    	//System.out.println("MouseHover on cart and verify number of items added into cart and badge digit are equal");
+    	
     	//MOUSE HOVER ON CART
-    	WebElement mouseHoverOncart = men.getMouseHoverOnCart();
+    	/*WebElement mouseHoverOncart = men.getMouseHoverOnCart();
     	action.moveToElement(mouseHoverOncart).build().perform();
     	
     	//VERIFY CART AND BUDGE DIGIT
@@ -138,13 +142,13 @@ public class LoginStepDefination extends base
     	int numberOfItemsInCart = men.getNumberOfItemsInCart().size();
     	System.out.println("Total Numbers of added items are " + numberOfItemsInCart);
     	
-    	//Assert.assertEquals(badgeText, Integer.toString(numberOfItemsInCart));    
+    	//Assert.assertEquals(badgeText, Integer.toString(numberOfItemsInCart));  */  
     }
     
     @Then("^clear cart$")
     public void clear_cart() throws Throwable
     {
-    	System.out.println("Mens scenario completed");
+    	
     	driver.quit();
     }
     	
@@ -178,12 +182,13 @@ public class LoginStepDefination extends base
     
     @Given("^Men scenario with filter (.+)$")
     public void Men_scenario_with_filter(String product) throws Throwable
-    {    	
-    	men = new MenCategory(driver);
+    {
+		men = new MenCategory(driver);
     	action = new Actions(driver);
     	javascript = (JavascriptExecutor) driver;
-    	WebElement menlink = men.getMensCategoryLink();
-		action.moveToElement(menlink).build().perform();
+    	Thread.sleep(3000);
+    	WebElement menL = men.getMensCategoryLink();
+		action.moveToElement(menL).build().perform();
 		
 		//SELECT PRODUCT SECTION
 		int count = men.getMenProductsLinksCount().size();
@@ -202,6 +207,7 @@ public class LoginStepDefination extends base
     @When("^Filter (.+), (.+), (.+)$")
     public void filter_(String brand, String colors, String pricerange) throws Throwable
     {
+    	Thread.sleep(5000);
     	men.getViewAllButton().click();
     	//SELECT BRAND
     	int brands = men.getBrands().size();
@@ -237,7 +243,7 @@ public class LoginStepDefination extends base
     	//SELECT PRICE RANGE
     	WebElement pricerangeSection = men.getPriceRangeSection();
     	javascript.executeScript("arguments[0].scrollIntoView(true);",pricerangeSection);
-    	
+    	Thread.sleep(3000);
     	int ranges = men.getPriceRanges().size();
     	for(int l=0; l<ranges; l++)
     	{
@@ -248,7 +254,7 @@ public class LoginStepDefination extends base
     			break;
     		}
     	}
-    	
+    	Thread.sleep(3000);
     	
     }
 
@@ -257,8 +263,10 @@ public class LoginStepDefination extends base
     public void _and_and_on_add_to_bag(String discount, String mensproductname, String menssize) throws Throwable
     {
     	//SELECT DISCOUNT
+    	Thread.sleep(3000);
     	WebElement discountSection = men.getDiscountSection();
     	javascript.executeScript("arguments[0].scrollIntoView(true);",discountSection);
+    	Thread.sleep(3000);
     	
     	int discounts = men.getDiscounts().size();
     	for(int m=0; m<discounts; m++)
@@ -302,7 +310,8 @@ public class LoginStepDefination extends base
 		}
     		
 		}
-    	
+    	System.out.println("Successfully added " + mensproductname + " into cart");
+    	driver.quit();
     }
     
     //////////////////////WOMEN CATEGORY/////////////////////////
