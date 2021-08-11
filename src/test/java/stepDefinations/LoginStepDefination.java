@@ -411,7 +411,8 @@ public class LoginStepDefination extends base
     {
     	women = new WomenCategory(driver);
     	action = new Actions(driver);
-        WebElement womenLink = women.getWomenLink();
+
+    	WebElement womenLink = women.getWomenLink();
         action.moveToElement(womenLink).build().perform();
         
         int count = women.getWomenProductsLinksCount().size();
@@ -461,7 +462,7 @@ public class LoginStepDefination extends base
 			}
 		}
     	
-		System.out.println("clicked on " + womenfilterbrand + womenfilterpricerange);
+		System.out.println("clicked on " + womenfilterbrand + " and " + womenfilterpricerange);
  
     }
 
@@ -503,7 +504,7 @@ public class LoginStepDefination extends base
       			    			break;
       			    		}
       			    	}
-      			    	
+      			    	Thread.sleep(2000);
       			    	women.getClickOnAddToBag().click();
       					Thread.sleep(4000);
       					women.getCloseProductPopup().click();
@@ -515,6 +516,9 @@ public class LoginStepDefination extends base
       			break;  			
        		}
        		}
+    	System.out.println("successfully " + womenfilterproductname + " added into cart");
+    	System.out.println("______________________________________");
+    	driver.quit();
            
     }
-        }
+}
