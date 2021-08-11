@@ -30,7 +30,7 @@ public class LoginStepDefination extends base
 	WomenCategory women;
 	
 	
-	@Before(value="@menScenario,@menScenarioWithFilter", order=1)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -39,7 +39,7 @@ public class LoginStepDefination extends base
 		driver.manage().window().maximize();
 		login = new Login(driver);
     }
-	@Before(value="@menScenario,@menScenarioWithFilter", order=2)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -315,7 +315,7 @@ public class LoginStepDefination extends base
     }
     
     //////////////////////WOMEN CATEGORY/////////////////////////
-    /*
+    
     @Given("^(.+) and (.+) and (.+) click on add to bag$")
     public void and_and_click_on_add_to_bag(String product, String productname, String size) throws Throwable
     {
@@ -386,7 +386,9 @@ public class LoginStepDefination extends base
     @Then("^Clear cart$")
     public void Clear_cart() throws Throwable
     {
-    	WebElement mouseHoverOncart = women.getMouseHoverOnCart();
+    	System.out.println("Clear cart");
+    	System.out.println("_______________________________________");
+    	/*WebElement mouseHoverOncart = women.getMouseHoverOnCart();
     	action.moveToElement(mouseHoverOncart).build().perform();
     	int closeButtonCount = women.getCloseButtoncount().size();
     	for(int i=0; i<closeButtonCount; i++)
@@ -399,30 +401,120 @@ public class LoginStepDefination extends base
     	}
     	System.out.println("Womens scenario competed");
     	System.out.println("Clear cart");
-    	driver.quit();	
-    }*/
+    	driver.quit();*/
+    }
     
     	//////////////////////WOMEN CATEGORY WITH FILTER//////////////
     
     @Given("^Selection (.+) from women Category$")
     public void selection_from_women_category(String womenfilterproduct) throws Throwable
     {
-    	System.out.println("Selection womenFilterProduct from women Category");
+    	women = new WomenCategory(driver);
+    	action = new Actions(driver);
+        WebElement womenLink = women.getWomenLink();
+        action.moveToElement(womenLink).build().perform();
+        
+        int count = women.getWomenProductsLinksCount().size();
+        for(int i=0; i<count; i++)
+   		{
+        	String text = women.getWomenProductsText().get(i).getText();
+  			if(text.equalsIgnoreCase(womenfilterproduct))
+   			{
+  				women.getWomenProductLink().get(i).click();
+  				break;
+   			}
+   		}
+    	
+    	System.out.println("Clicked on " + womenfilterproduct);
     }
 
-    @When("^Product's filter (.+), (.+), (.+)$")
-    public void Products_filter_(String womenfilterbrand, String womenfiltercolors, String womenfilterpricerange) throws Throwable
+    @When("^Product's filter (.+), (.+)$")
+    public void Products_filter_(String womenfilterbrand, String womenfilterpricerange) throws Throwable
     {
-    	System.out.println("Product's filter womenFilterBrand, womenFilterColors, womenFilterPriceRange");
+    	//SCROLL DOWN TO BRAND SECTION
+    	WebElement brandSection = women.getBrandSection();
+		javascript.executeScript("arguments[0].scrollIntoView(true);",brandSection);
+		
+		int brands = women.getBrandList().size();
+		for(int j=0; j<brands; j++)
+		{
+			String brand = women.getBrandText().get(j).getText();
+			if(brand.equalsIgnoreCase(womenfilterbrand))
+			{
+				women.getBrandCheckBox().get(j).click();
+				break;
+			}
+		}
+		
+		//SCROLL DOWN TO PRICE RANGE
+		WebElement priceRangeSection = women.getPriceRangeSection();
+		javascript.executeScript("arguments[0].scrollIntoView(true);",priceRangeSection);
+		
+		int ranges = women.getPriceRanges().size();
+		for(int k=0; k<ranges; k++)
+		{
+			String priceRange = women.getPriceRange().get(k).getText();
+			if(priceRange.equalsIgnoreCase(womenfilterpricerange))
+			{
+				women.getPriceRangeCheckBox().get(k).click();
+				break;
+			}
+		}
+    	
+		System.out.println("clicked on " + womenfilterbrand + womenfilterpricerange);
+ 
     }
 
     @Then("^(.+), (.+) and (.+) and then product added into cart$")
     public void _and_and_then_product_added_into_cart(String womenfilterdiscount, String womenfilterproductname, String womenfiltersize) throws Throwable
     {
-    	System.out.println("womenFilterDiscount, womenFilterproductName and womenFilterSize and then product added into cart");
+    	Thread.sleep(3000);
+    	WebElement discountSection = women.getDiscountSection();
+    	javascript.executeScript("arguments[0].scrollIntoView(true);",discountSection);
+    	Thread.sleep(3000);
+    	int discounts = women.getDiscounts().size();
+    	for(int m=0; m<discounts; m++)
+    	{
+    		String discountText = women.getDiscountText().get(m).getText();
+    		if(discountText.equalsIgnoreCase(womenfilterdiscount))
+    		{
+    			women.getDiscountCheckBox().get(m).click();
+    			
+    			//SCROLL TO TOP
+    			javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+    			int productName = women.getFilterProductCount().size();
+    			for(int n=0; n<productName; n++)
+    			{
+    				String filterProductName = women.getFilterProductName().get(n).getText();
+    				if(filterProductName.equalsIgnoreCase(womenfilterproductname))
+    				{
+    					WebElement mouseHoverOnProduct = women.getMouseHoverOnProduct().get(n);
+    					javascript.executeScript("arguments[0].scrollIntoView(true);",mouseHoverOnProduct);
+    					action.moveToElement(mouseHoverOnProduct).build().perform();
+    					women.getAddToCart().get(n).click();
+    					//SELECT SIZE
+    					int sizes = women.getTotalSize().size();
+      			    	for(int k=0; k<sizes; k++)
+      			    	{
+      			    		String Size = women.getSize().get(k).getText();
+      			    		if(Size.equalsIgnoreCase(womenfiltersize))
+      			    		{
+      			    			women.getTotalSize().get(k).click();
+      			    			break;
+      			    		}
+      			    	}
+      			    	
+      			    	women.getClickOnAddToBag().click();
+      					Thread.sleep(4000);
+      					women.getCloseProductPopup().click();
+      					break;
+      				}
+      				
+      			}
+      			javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+      			break;  			
+       		}
+       		}
+           
     }
-
-    
-    
-   
-}
+        }

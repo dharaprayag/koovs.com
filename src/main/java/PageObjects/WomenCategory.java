@@ -26,6 +26,21 @@ public class WomenCategory extends base
 	By mouseHoverOnCart = By.xpath("//*[@class='header__wishlist-bag']/div[2]/a/div");
 	By badgeDigit = By.xpath("//span[@id='cart_total_items']");
 	By numberOfItemsInCart = By.xpath("//div[@id='hcartItems']/div[1]/div[2]/div/div");
+	By brandSection = By.xpath("//div[@id='filterRow']/div[4]");
+	By brandList = By.xpath("//div[@id='filterRow']/div[4]/ul/li");
+	By brandText = By.xpath("//div[@id='filterRow']/div[4]/ul/li/label/span[1]");
+	By brandCheckBox = By.xpath("//div[@id='filterRow']/div[4]/ul/li/label/div");
+	By priceRangeSection =By.xpath("//div[@id='filterRow']/div[7]");
+	By priceRanges = By.xpath("//div[@id='filterRow']/div[8]/ul/li");
+	By priceRange = By.xpath("//div[@id='filterRow']/div[8]/ul/li/label/span[1]");
+	By priceRangeCheckBox = By.xpath("//div[@id='filterRow']/div[8]/ul/li/label/div");
+	By discountSection =By.xpath("//div[@id='filterRow']/div[9]");
+	By discounts = By.xpath("//div[@id='filterRow']/div[10]/ul/li");
+	By discountText = By.xpath("//div[@id='filterRow']/div[10]/ul/li/label/span[1]");
+	By discountCheckBox = By.xpath("//div[@id='filterRow']/div[10]/ul/li/label/div");
+	By filterProductCount = By.xpath("//ul[@id='prodBox']/li");
+	By filterProductName = By.xpath("//*[@id='prodBox']/li/div[3]/a/div[4]/span[2]");
+	
 	
 	
 	public WomenCategory(WebDriver driver) 
@@ -39,6 +54,50 @@ public class WomenCategory extends base
 	{
 		 return driver.findElements(numberOfItemsInCart);
 	}
+	public List<WebElement> getFilterProductName()
+	{
+		 return driver.findElements(filterProductName);
+	}
+	public List<WebElement> getFilterProductCount()
+	{
+		 return driver.findElements(filterProductCount);
+	}
+	public List<WebElement> getDiscountCheckBox()
+	{
+		 return driver.findElements(discountCheckBox);
+	}
+	public List<WebElement> getDiscountText()
+	{
+		 return driver.findElements(discountText);
+	}
+	public List<WebElement> getDiscounts()
+	{
+		 return driver.findElements(discounts);
+	}
+	public List<WebElement> getPriceRangeCheckBox()
+	{
+		 return driver.findElements(priceRangeCheckBox);
+	}
+	public List<WebElement> getPriceRange()
+	{
+		 return driver.findElements(priceRange);
+	}
+	public List<WebElement> getPriceRanges()
+	{
+		 return driver.findElements(priceRanges);
+	}
+	public List<WebElement> getBrandCheckBox()
+	{
+		 return driver.findElements(brandCheckBox);
+	}
+	public List<WebElement> getBrandText()
+	{
+		 return driver.findElements(brandText);
+	}
+	public List<WebElement> getBrandList()
+	{
+		 return driver.findElements(brandList);
+	}
 	public List<WebElement> getCloseButtoncount()
 	{
 		 return driver.findElements(closeButton);
@@ -46,6 +105,18 @@ public class WomenCategory extends base
 	public WebElement getBadgeDigit()
 	{
 		 return driver.findElement(badgeDigit);
+	}
+	public WebElement getDiscountSection()
+	{
+		 return driver.findElement(discountSection);
+	}
+	public WebElement getPriceRangeSection()
+	{
+		 return driver.findElement(priceRangeSection);
+	}
+	public WebElement getBrandSection()
+	{
+		 return driver.findElement(brandSection);
 	}
 	public WebElement getMouseHoverOnCart()
 	{
