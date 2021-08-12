@@ -11,7 +11,7 @@ import Resources.base;
 
 public class WomenCategory extends base
 {
-	By womenLink = By.xpath("//a[@href='/women']");
+	By womenLink = By.xpath("//*[text()='WOMEN']");
 	By womenProductsLinksCount = By.xpath("//*[@class='header_menu_Title']/li[2]/div/ul[1]/li[3]/div/ul/li");
 	By womenProductLink = By.xpath("//*[@class='header_menu_Title']/li[2]/div/ul[1]/li[3]/div/ul/li/a");
 	By totalNumberOfProductsCount = By.xpath("//*[@id='prodBox']/li");

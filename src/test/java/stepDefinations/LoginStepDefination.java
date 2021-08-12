@@ -188,6 +188,7 @@ public class LoginStepDefination extends base
     	javascript = (JavascriptExecutor) driver;
     	Thread.sleep(3000);
     	WebElement menL = men.getMensCategoryLink();
+    	Thread.sleep(2000);
 		action.moveToElement(menL).build().perform();
 		
 		//SELECT PRODUCT SECTION
@@ -198,6 +199,7 @@ public class LoginStepDefination extends base
   			if(text.equalsIgnoreCase(product))
    			{
   				men.getClickOnShirtsOrJeansLink().get(i).click();
+  				Thread.sleep(3000);
   				break;
    			}
    		}  
@@ -321,8 +323,10 @@ public class LoginStepDefination extends base
     {
     	women = new WomenCategory(driver);
     	action = new Actions(driver);
+    	Thread.sleep(5000);
         WebElement womenLink = women.getWomenLink();
         action.moveToElement(womenLink).build().perform();
+       
         
         int count = women.getWomenProductsLinksCount().size();
         for(int i=0; i<count; i++)
@@ -331,6 +335,7 @@ public class LoginStepDefination extends base
   			if(text.equalsIgnoreCase(product))
    			{
   				women.getWomenProductLink().get(i).click();
+  				Thread.sleep(3000);
    				
   		//SELECT TOP
   	    	int topCount = women.getTotalNumberOfProductsCount().size();
@@ -388,6 +393,7 @@ public class LoginStepDefination extends base
     {
     	System.out.println("Clear cart");
     	System.out.println("_______________________________________");
+    	driver.quit();
     	/*WebElement mouseHoverOncart = women.getMouseHoverOnCart();
     	action.moveToElement(mouseHoverOncart).build().perform();
     	int closeButtonCount = women.getCloseButtoncount().size();
@@ -443,6 +449,7 @@ public class LoginStepDefination extends base
 			if(brand.equalsIgnoreCase(womenfilterbrand))
 			{
 				women.getBrandCheckBox().get(j).click();
+				Thread.sleep(2000);
 				break;
 			}
 		}
@@ -458,6 +465,7 @@ public class LoginStepDefination extends base
 			if(priceRange.equalsIgnoreCase(womenfilterpricerange))
 			{
 				women.getPriceRangeCheckBox().get(k).click();
+				Thread.sleep(2000);
 				break;
 			}
 		}
@@ -480,6 +488,7 @@ public class LoginStepDefination extends base
     		if(discountText.equalsIgnoreCase(womenfilterdiscount))
     		{
     			women.getDiscountCheckBox().get(m).click();
+    			Thread.sleep(2000);
     			
     			//SCROLL TO TOP
     			javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
@@ -501,6 +510,7 @@ public class LoginStepDefination extends base
       			    		if(Size.equalsIgnoreCase(womenfiltersize))
       			    		{
       			    			women.getTotalSize().get(k).click();
+      			    			Thread.sleep(3000);
       			    			break;
       			    		}
       			    	}
