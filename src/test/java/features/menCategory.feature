@@ -2,14 +2,14 @@ Feature: select product from men's section
 
 @menScenario
 Scenario Outline: Select Shirt, Jeans, and shorts
-Given Select <mensproduct>, <mensproductName> and <menssize> click on add to bag
-When mouseHover on cart and verify number of items added into cart and badge digit are equal
-Then clear cart
+Given Select <mensproduct>
+When Choose <mensproductName>
+Then <menssize> click on add to bag
 Examples:
 |mensproduct|					|mensproductName|						|menssize|
 |Shirts|						|Acid-Wash Front Patch Pocket Shirt|	|L|
 |Jeans|							|Dark Wash Zipper Hem Skinny Jeans|		|32|
-|Shorts|						|Folded Hem Skinny Fit Day Shorts|		|34|
+|Shorts|						|Mid-Rise Denim Shorts|		|34|
 
 @menScenarioWithFilter
 Scenario Outline: Select T-shirts,Trousers & Chinos and Coats & Jackets

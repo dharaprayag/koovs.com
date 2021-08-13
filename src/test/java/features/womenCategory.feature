@@ -2,9 +2,10 @@ Feature: select product from women's section
 
 @womenScenario
 Scenario Outline: Select a top, Dress, JumpSuit, Oxolloxo and winter essential
-Given <product> and <productName> and <size> click on add to bag
-When MouseHover on cart and Verify number of items added into cart and badge digit are equal
-Then Clear cart
+
+Given Women product <product>
+When A women item <productName>
+Then Click on women product then add to bag <size>
 Examples:
 |product|					|productName|						|size|
 |Tops|						|Asymmetric Hem V-Neck Top|			|M|

@@ -6,7 +6,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 //@RunWith(Cucumber.class)
 	@CucumberOptions
 		(
-			features = "src/test/java/features/womenCategory.feature",
+			features = "src/test/java/features",
 			glue = "stepDefinations"
 		)
 
