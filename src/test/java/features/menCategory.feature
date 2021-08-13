@@ -9,7 +9,6 @@ Examples:
 |mensproduct|					|mensproductName|						|menssize|
 |Shirts|						|Acid-Wash Front Patch Pocket Shirt|	|L|
 |Jeans|							|Dark Wash Zipper Hem Skinny Jeans|		|32|
-|Shorts|						|Mid-Rise Denim Shorts|		|34|
 
 @menScenarioWithFilter
 Scenario Outline: Select T-shirts,Trousers & Chinos and Coats & Jackets

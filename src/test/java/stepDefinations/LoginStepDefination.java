@@ -66,6 +66,7 @@ public class LoginStepDefination extends base
     	System.out.println("Login Successful");
     	driver.quit();
     	//System.out.println(login.getNotification().getText());
+    
     }
     
     
@@ -474,7 +475,67 @@ public class LoginStepDefination extends base
        		}
     	System.out.println("successfully " + womenfilterproductname + " added into cart");
     	System.out.println("______________________________________");
-    	driver.quit();
-           
+    	driver.quit();    
     }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    					/////////////////////////CART FEATURE//////////////////////////////
+    
+ // int total = 0;
+	// for loop  (to iterate over all the items from the left side)
+	// Inside for loop, you will get price for each item as 'Ruppy 300'
+	// You need to trim first character, remove white spaces, and then convert it to inetegr - item price
+	//  total = total + item price
+	// how to remove first char ? : 
+// item price= interger.parseString("ruppe 450".substring(1).replaceAll("\\s+",""))
+	// 
+    
+    //////////@calculateTotalAmount////////
+    
+    @Given("^Click on cart icon$")
+    public void click_on_cart_icon() throws Throwable
+    {
+    	
+    }
+
+    @When("^Get items prices and convert into int$")
+    public void get_items_prices_and_convert_into_int() throws Throwable
+    {
+    	
+    }
+
+    @Then("^Get text of Bag total compare with when condition$")
+    public void get_text_of_bag_total_compare_with_when_condition() throws Throwable
+    {
+    	
+    }
+    
+    
+    
+    //////////////////@numberOfitemsInCart///////////////////
+    
+    @Given("^Mousehover on cart$")
+    public void mousehover_on_cart() throws Throwable
+    {
+    	
+    }
+
+    @When("^Total number items in cart and compare with Badge digit$")
+    public void total_number_items_in_cart_and_compare_with_badge_digit() throws Throwable
+    {
+    	    
+    }
+
+    @Then("^Clear cart$")
+    public void clear_cart() throws Throwable
+    {
+    	
+    }
+    
+    
+    
+    
+    
+    
 }
