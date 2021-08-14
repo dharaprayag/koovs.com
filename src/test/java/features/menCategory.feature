@@ -1,7 +1,7 @@
 Feature: select product from men's section
 
 @menScenario
-Scenario Outline: Select Shirt, Jeans, and shorts
+Scenario Outline: Select Shirt, Jeans, T-shirts & Polo Shirts, Trousers & Chinos and Coats & Jackets
 Given Select <mensproduct>
 When Choose <mensproductName>
 Then <menssize> click on add to bag

@@ -1,7 +1,7 @@
 Feature: select product from women's section
 
 @womenScenario
-Scenario Outline: Select a top, Dress, JumpSuit, Oxolloxo and winter essential
+Scenario Outline: Select a top, Dress, Sports & Active Wear, Skirts and Bags & Purses
 
 Given Women product <product>
 When A women item <productName>

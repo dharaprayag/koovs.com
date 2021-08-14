@@ -17,6 +17,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import PageObjects.Login;
 import PageObjects.MenCategory;
+import PageObjects.cart;
 import PageObjects.WomenCategory;
 import Resources.base;
 
@@ -28,6 +29,7 @@ public class LoginStepDefination extends base
 	Actions action;
 	JavascriptExecutor javascript;
 	WomenCategory women;
+	cart cart;
 	
 	
 	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter", order=1)
@@ -496,6 +498,15 @@ public class LoginStepDefination extends base
     @Given("^Click on cart icon$")
     public void click_on_cart_icon() throws Throwable
     {
+    	cart = new cart(driver);
+    	action = new Actions(driver);
+    	javascript = (JavascriptExecutor) driver;
+    	
+    	//click on cart icon 
+    	WebElement carticon = cart.getCartIcon();
+    	action.moveToElement(carticon);
+    	action.click().build().perform();
+    	
     	
     }
 
