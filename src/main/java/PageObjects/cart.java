@@ -14,6 +14,7 @@ public class cart extends base
 	By cartIcon = By.xpath("//div[@class='header-top-section']/div[2]/div[3]/div[2]/a/div");
 	By listOfItems = By.xpath("//div[@class='bag-left-section']/div/div[3]/div");
 	By prices = By.xpath("//div[@class='bag-left-section']/div/div[3]/div/div[2]/div[1]/div[2]/div/div/div[2]/div/div[1]/div[1]");
+	By bagTotalText = By.xpath("//div[@class='bag-checkout']/div[1]/div[1]/div[3]");
 	
 	
 	
@@ -30,6 +31,10 @@ public class cart extends base
 	public WebElement getCartIcon()
 	{
 		return driver.findElement(cartIcon);
+	}
+	public WebElement getBagTotalText()
+	{
+		return driver.findElement(bagTotalText);
 	}
 	public List<WebElement> getListOfItems()
 	{

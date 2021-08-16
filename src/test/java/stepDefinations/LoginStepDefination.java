@@ -511,9 +511,12 @@ public class LoginStepDefination extends base
     @When("^Get items prices and convert into int$")
     public void get_items_prices_and_convert_into_int() throws Throwable
     {
+   
     	// FOR LOOP FOR GET PRICE
     	
+    	
     	int listofitems = cart.getListOfItems().size();
+    	int total = 0;
     	for(int a=0; a<listofitems; a++)
     	{
     		String price = cart.getPrices().get(a).getText();
@@ -522,18 +525,34 @@ public class LoginStepDefination extends base
     		//STRING TO INTEGER
     		int priceInt = Integer.parseInt(item);
     		//SUM
-    		int total = 0;
-    		for(int i=0; i<total; i++)
-    		{
-    			int totalSum =  total + priceInt;	
-    			System.out.println(totalSum);
-    		}
+    		total =  total + priceInt;	
+    		System.out.println(total);
     	}
     	
+    	//GET TEXT OF BAG TOTAL
+    	String bagTotal = cart.getBagTotalText().getText();
+    	String removeRs = bagTotal.substring(1);
+    	String removeWhiteSpace = removeRs.replace(" ", "");
+ 
+    	//STRING TO INTEGER
+    	int bagTotalInt = Integer.parseInt(removeWhiteSpace);
+    	System.out.println(bagTotalInt);
+    	//System.out.println(bagTotalInt);
     	
+    	
+    	
+    	//Assert.assertEquals(total, bagTotalInt);
+    
     }
 
-    @Then("^Get text of Bag total compare with when condition$")
+
+	private boolean charRemoveAt(int bagTotalInt, int i) {
+		return false;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Then("^Get text of Bag total compare with when condition$")
     public void get_text_of_bag_total_compare_with_when_condition() throws Throwable
     {
     	
