@@ -32,7 +32,7 @@ public class LoginStepDefination extends base
 	cart cart;
 	
 	
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter", order=1)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -42,7 +42,7 @@ public class LoginStepDefination extends base
 		login = new Login(driver);
     }
 	
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter", order=2)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -505,14 +505,31 @@ public class LoginStepDefination extends base
     	//click on cart icon 
     	WebElement carticon = cart.getCartIcon();
     	action.moveToElement(carticon);
-    	action.click().build().perform();
-    	
-    	
+    	action.click().build().perform();   	
     }
 
     @When("^Get items prices and convert into int$")
     public void get_items_prices_and_convert_into_int() throws Throwable
     {
+    	// FOR LOOP FOR GET PRICE
+    	
+    	int listofitems = cart.getListOfItems().size();
+    	for(int a=0; a<listofitems; a++)
+    	{
+    		String price = cart.getPrices().get(a).getText();
+    		String itemprice = price.substring(1);
+    		String item = itemprice.replace(" ", "");
+    		//STRING TO INTEGER
+    		int priceInt = Integer.parseInt(item);
+    		//SUM
+    		int total = 0;
+    		for(int i=0; i<total; i++)
+    		{
+    			int totalSum =  total + priceInt;	
+    			System.out.println(totalSum);
+    		}
+    	}
+    	
     	
     }
 

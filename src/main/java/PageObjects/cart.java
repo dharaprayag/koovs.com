@@ -12,6 +12,8 @@ import Resources.base;
 public class cart extends base
 {
 	By cartIcon = By.xpath("//div[@class='header-top-section']/div[2]/div[3]/div[2]/a/div");
+	By listOfItems = By.xpath("//div[@class='bag-left-section']/div/div[3]/div");
+	By prices = By.xpath("//div[@class='bag-left-section']/div/div[3]/div/div[2]/div[1]/div[2]/div/div/div[2]/div/div[1]/div[1]");
 	
 	
 	
@@ -29,18 +31,16 @@ public class cart extends base
 	{
 		return driver.findElement(cartIcon);
 	}
-	
-	
-	/*
-	public List<WebElement> getSectionText()
+	public List<WebElement> getListOfItems()
 	{
-		 return driver.findElements(sectionText);
+		 return driver.findElements(listOfItems);
 	}
-	public WebElement getColorSection()
+	public List<WebElement> getPrices()
 	{
-		 return driver.findElement(colorSection);
+		 return driver.findElements(prices);
 	}
-	*/
+	
+
 
 
 }
