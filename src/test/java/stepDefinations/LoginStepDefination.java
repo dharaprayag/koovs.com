@@ -533,6 +533,7 @@ public class LoginStepDefination extends base
     	String bagTotal = cart.getBagTotalText().getText();
     	String removeRs = bagTotal.substring(1);
     	String removeWhiteSpace = removeRs.replace(" ", "");
+    	removeWhiteSpace = removeWhiteSpace.replace(",", "");
  
     	//STRING TO INTEGER
     	int bagTotalInt = Integer.parseInt(removeWhiteSpace);
@@ -541,16 +542,12 @@ public class LoginStepDefination extends base
     	
     	
     	
-    	//Assert.assertEquals(total, bagTotalInt);
+    	Assert.assertEquals(total, bagTotalInt);
     
     }
 
 
-	private boolean charRemoveAt(int bagTotalInt, int i) {
-		return false;
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Then("^Get text of Bag total compare with when condition$")
     public void get_text_of_bag_total_compare_with_when_condition() throws Throwable
