@@ -30,10 +30,9 @@ public class LoginStepDefination extends base
 	JavascriptExecutor javascript;
 	WomenCategory women;
 	cart cart;
-	int total;
 	
 	
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount", order=1)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -43,7 +42,7 @@ public class LoginStepDefination extends base
 		login = new Login(driver);
     }
 	
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount", order=2)
+	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=2)
     @When("^click on login link and Fill up Email and Password and click on log in button$")
     public void click_on_login_link_and_Fill_up_Email_and_Password_and_click_on_log_in_button() throws Throwable
     {
@@ -506,8 +505,7 @@ public class LoginStepDefination extends base
     	//click on cart icon 
     	WebElement carticon = cart.getCartIcon();
     	action.moveToElement(carticon).click().build().perform();
-    	Thread.sleep(4000);
-    	//action.click().build().perform();   	
+    	Thread.sleep(4000);   	
     }
 
     @When("^Get items prices and convert into int and text of Bag total compare with when condition$")
@@ -556,18 +554,45 @@ public class LoginStepDefination extends base
     @Given("^Mousehover on cart$")
     public void mousehover_on_cart() throws Throwable
     {
+    	cart = new cart(driver);
+    	action = new Actions(driver);
+    	javascript = (JavascriptExecutor) driver;
     	
+    	//click on cart icon 
+    	WebElement carticon = cart.getCartIcon();
+    	action.moveToElement(carticon).build().perform();
+    	Thread.sleep(2000); 
     }
 
     @When("^Total number items in cart and compare with Badge digit$")
     public void total_number_items_in_cart_and_compare_with_badge_digit() throws Throwable
     {
+    	    int numberOfItems = cart.getNumberOfItemsInCart().size();
+    	    System.out.println("Number Of items in cart are " + numberOfItems);
     	    
+    	    //GET BADGE DIGIT
+    	    String badgeDigit = cart.getBadgeDigit().getText();
+    	    System.out.println("Cart badge digit is " + badgeDigit);
+    	    //STRING TO INTEGER
+	    	int badgedigit = Integer.parseInt(badgeDigit);
+	    	
+	    	//NUMBEROFITEMS AND BADGEDIGIT ARE EQUAL
+	    	Assert.assertEquals(numberOfItems, badgedigit);
     }
 
     @Then("^Clear cart$")
     public void clear_cart() throws Throwable
     {
+    	WebElement carticon = cart.getCartIcon();
+    	action.moveToElement(carticon).click().build().perform();
+    	
+    	//CLEAR CART
+    	int numbers = cart.getItemsInCart().size();
+    	for(int a=0; a<numbers; a++)
+    	{
+    		cart.getItemDeleteIcon().click();
+    		break;
+    	}
     	
     }
     
