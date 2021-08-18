@@ -30,6 +30,7 @@ public class LoginStepDefination extends base
 	JavascriptExecutor javascript;
 	WomenCategory women;
 	cart cart;
+	int total;
 	
 	
 	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount", order=1)
@@ -504,12 +505,13 @@ public class LoginStepDefination extends base
     	
     	//click on cart icon 
     	WebElement carticon = cart.getCartIcon();
-    	action.moveToElement(carticon);
-    	action.click().build().perform();   	
+    	action.moveToElement(carticon).click().build().perform();
+    	Thread.sleep(4000);
+    	//action.click().build().perform();   	
     }
 
-    @When("^Get items prices and convert into int$")
-    public void get_items_prices_and_convert_into_int() throws Throwable
+    @When("^Get items prices and convert into int and text of Bag total compare with when condition$")
+    public void get_items_prices_and_convert_into_int_and_text_of_Bag_total_compare_with_when_condition() throws Throwable
     {
    
     	// FOR LOOP FOR GET PRICE
@@ -528,33 +530,25 @@ public class LoginStepDefination extends base
     		total =  total + priceInt;	
     		System.out.println(total);
     	}
+    	Thread.sleep(2000); 
     	
     	//GET TEXT OF BAG TOTAL
-    	String bagTotal = cart.getBagTotalText().getText();
-    	String removeRs = bagTotal.substring(1);
-    	String removeWhiteSpace = removeRs.replace(" ", "");
-    	removeWhiteSpace = removeWhiteSpace.replace(",", "");
- 
-    	//STRING TO INTEGER
-    	int bagTotalInt = Integer.parseInt(removeWhiteSpace);
-    	System.out.println(bagTotalInt);
-    	//System.out.println(bagTotalInt);
-    	
-    	
-    	
-    	Assert.assertEquals(total, bagTotalInt);
-    
-    }
-
-
-	
-
-	@Then("^Get text of Bag total compare with when condition$")
-    public void get_text_of_bag_total_compare_with_when_condition() throws Throwable
-    {
-    	
-    }
-    
+    			String bagTotal = cart.getBagTotalText().getText();
+    	    	String removeRs = bagTotal.substring(1);
+    	    	String removeWhiteSpace = removeRs.replace(" ", "");
+    	    	//REMOVE SPECIAL CHARACTER ','
+    	    	removeWhiteSpace = removeWhiteSpace.replace(",", "");
+    	 
+    	    	//STRING TO INTEGER
+    	    	int bagTotalInt = Integer.parseInt(removeWhiteSpace);
+    	    	System.out.println(bagTotalInt);
+    	    	//System.out.println(bagTotalInt);
+    	    	Thread.sleep(2000);
+    	    	Assert.assertEquals(total, bagTotalInt);
+    	    	System.out.println("Assert true");
+    	    	driver.quit();
+    			
+    }  
     
     
     //////////////////@numberOfitemsInCart///////////////////
