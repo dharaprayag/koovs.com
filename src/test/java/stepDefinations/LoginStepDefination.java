@@ -74,7 +74,7 @@ public class LoginStepDefination extends base
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     			///////////////////////////////////MEN SCENARIO////////////////////////////////////////////
-    
+    @Before(value="@calculateTotalAmount", order=3)
     @Given("^Select (.+)$")
     public void select(String mensproduct) throws Throwable 
     {
@@ -484,13 +484,13 @@ public class LoginStepDefination extends base
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     					/////////////////////////CART FEATURE//////////////////////////////
     
- // int total = 0;
+    // int total = 0;
 	// for loop  (to iterate over all the items from the left side)
 	// Inside for loop, you will get price for each item as 'Ruppy 300'
 	// You need to trim first character, remove white spaces, and then convert it to inetegr - item price
 	//  total = total + item price
 	// how to remove first char ? : 
-// item price= interger.parseString("ruppe 450".substring(1).replaceAll("\\s+",""))
+    // item price= interger.parseString("ruppe 450".substring(1).replaceAll("\\s+",""))
 	// 
     
     //////////@calculateTotalAmount////////
@@ -526,8 +526,9 @@ public class LoginStepDefination extends base
     		int priceInt = Integer.parseInt(item);
     		//SUM
     		total =  total + priceInt;	
-    		System.out.println(total);
+    		//System.out.println(total);
     	}
+    	System.out.println("Price of the items are " + total);
     	Thread.sleep(2000); 
     	
     	//GET TEXT OF BAG TOTAL
@@ -539,7 +540,7 @@ public class LoginStepDefination extends base
     	 
     	    	//STRING TO INTEGER
     	    	int bagTotalInt = Integer.parseInt(removeWhiteSpace);
-    	    	System.out.println(bagTotalInt);
+    	    	System.out.println("Badge digit is " + bagTotalInt);
     	    	//System.out.println(bagTotalInt);
     	    	Thread.sleep(2000);
     	    	Assert.assertEquals(total, bagTotalInt);
@@ -591,8 +592,8 @@ public class LoginStepDefination extends base
     	for(int a=0; a<numbers; a++)
     	{
     		cart.getItemDeleteIcon().click();
-    		break;
     	}
+    	driver.quit();
     	
     }
     
