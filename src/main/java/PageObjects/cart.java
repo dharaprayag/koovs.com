@@ -19,6 +19,7 @@ public class cart extends base
 	By badgeDigit = By.xpath("//div[@class='header-top-section']/div[2]/div[3]/div[2]/a/span[1]");
 	By itemsInCart = By.xpath("//div[@class='bag-left-section']/div/div[3]/div");
 	By itemDeleteIcon = By.xpath("//div[@class='bag-item']/div[2]/div[2]/div[1]/div/div");
+	By individualItem = By.xpath("//div[@class='bag-item-lists']/div");
 	
 	
 	
@@ -63,8 +64,10 @@ public class cart extends base
 	{
 		 return driver.findElements(numberOfItemsInCart);
 	}
+	public List<WebElement> getIndividualItem()
+	{
+		 return driver.findElements(individualItem);
+	}
 	
-
-
 
 }
