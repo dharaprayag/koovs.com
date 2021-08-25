@@ -536,10 +536,10 @@ public class LoginStepDefination extends base
     	int total = 0;
     	for(int a=0; a<listofitems; a++)
     	{
+    		try
+    		{
     		//WebElement individualItem = cart.getIndividualItem().get(a);
 			//javascript.executeScript("arguments[0].scrollIntoView(true);",individualItem);
-    		javascript.executeScript("window.scrollBy(0,200)");
-    		
     		String price = cart.getPrices().get(a).getText();
     		String itemprice = price.substring(1);
     		String item = itemprice.replace(" ", "");
@@ -548,8 +548,16 @@ public class LoginStepDefination extends base
     		//SUM
     		total =  total + priceInt;	
     		//System.out.println(total);
+    		
+    			javascript.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    		}
+    		catch(Exception e)
+    		{
+    			System.out.println(e.getStackTrace());
+    		}
     	}
     	
+    	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
     	System.out.println("Price of the items are " + total);
     	Thread.sleep(2000);
     	javascript.executeScript("window.scrollTo(0, -document.body.scrollHeight)");

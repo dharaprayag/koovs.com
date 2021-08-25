@@ -36,6 +36,10 @@ public class cart extends base
 	{
 		return driver.findElement(cartIcon);
 	}
+	public WebElement getPriceForScroll()
+	{
+		return driver.findElement(prices);
+	}
 	public WebElement getBadgeDigit()
 	{
 		return driver.findElement(badgeDigit);
