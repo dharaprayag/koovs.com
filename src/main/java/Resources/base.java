@@ -30,6 +30,7 @@ public class base
 	protected String jeansSize;
 	protected String womenProductCategory;
 	protected String topSize;
+	protected String signup;
 	
 	
 	
@@ -54,6 +55,7 @@ public class base
 		shirtSize = prop.getProperty("ShirtSize");
 		jeansSize = prop.getProperty("JeansSize");
 		womenProductCategory = prop.getProperty("WomenProductCategory");
+		signup = prop.getProperty("signup");
 		topSize = prop.getProperty("TopSize");
 		//titleName = prop.getProperty("titleName");
 		 

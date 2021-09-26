@@ -18,6 +18,7 @@ import org.testng.Assert;
 import PageObjects.Login;
 import PageObjects.MenCategory;
 import PageObjects.cart;
+import PageObjects.signup;
 import PageObjects.WomenCategory;
 import Resources.base;
 
@@ -30,9 +31,10 @@ public class LoginStepDefination extends base
 	JavascriptExecutor javascript;
 	WomenCategory women;
 	cart cart;
+	signup signup;
 	
 	
-	@Before(value="@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -71,6 +73,151 @@ public class LoginStepDefination extends base
     	//System.out.println(login.getNotification().getText());
     
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @getTitleSrNo.1 /////////////////////////////
+    @Given("^Initialize browser$")
+    public void initialize_browser() throws Throwable
+    {
+    	System.out.println("@getTitleSrNo.1");
+    	System.out.println("Initialized browser for get website title");
+    }
+
+    @Then("^Get text of website Title$")
+    public void get_text_of_website_title() throws Throwable
+    {
+        System.out.println("'@getTitleSrNo.1' Website title is " + driver.getTitle());
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.1 /////////////////////////////
+    
+    @Given("^Initialize browser for click on signup link and get title$")
+    public void initialize_browser_for_click_on_signup_link_and_get_title() throws Throwable
+    {
+    	signup = new signup(driver);
+    	System.out.println("@signupFunctionalitySrNo.2.1");
+    	System.out.println("Initialize browser for click on signup link and get title");
+    }
+
+    @When("^Click on sign up link$")
+    public void click_on_sign_up_link() throws Throwable
+    {
+    	signup.getSignupLink().click();
+    	System.out.println("Clicked on sign up link");
+    }
+
+    @Then("^Get title of sign up page$")
+    public void get_title_of_sign_up_page() throws Throwable
+    {
+    	String signupTitle = driver.getTitle();
+    	System.out.println("Signup page title is " + signupTitle);
+    	Assert.assertTrue(signupTitle.toLowerCase().contains("signup"));
+    	System.out.println("__________________________________________________________");
+    	
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.2 /////////////////////////////
+    
+    @Given("Initialize browser and click on signup link for get homepage title$")
+    public void initialize_browser_and_click_on_signup_link_for_get_homepage_title() throws Throwable
+    {
+    	System.out.println("@signupFunctionalitySrNo.2.2");
+    	System.out.println("Initialize browser and click on signup link for get homepage title");
+    	signup.getSignupLink().click();
+    }
+
+    @When("^Click on company logo$")
+    public void click_on_company_logo() throws Throwable
+    {
+        signup.getCompanyLogo().click();
+        
+    }
+
+    @Then("^Get title of homepage$")
+    public void get_title_of_homepage() throws Throwable
+    {
+        String homepageTitle = driver.getTitle();
+        System.out.println("Homepage title is " + homepageTitle);
+        Assert.assertTrue(homepageTitle.toLowerCase().contains("online shopping"));
+    	System.out.println("__________________________________________________________");
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.3 /////////////////////////////
+    @Given("^Initialize browser and click on signup link for login link title$")
+    public void initialize_browser_and_click_on_signup_link_for_login_link_title() throws Throwable
+    {
+    	System.out.println("@signupFunctionalitySrNo.2.3");
+    	System.out.println("Initialize browser and click on signup link for login link title");
+    	signup.getSignupLink().click();
+    	
+    }
+
+    @When("^Click on Login link$")
+    public void click_on_login_link() throws Throwable
+    {
+    	signup.getLoginLink().click();
+    }
+
+    @Then("^Get title of Login page$")
+    public void get_title_of_login_page() throws Throwable
+    {
+    	String loginpageTitle = driver.getTitle();
+    	System.out.println("Loginpage title is " + loginpageTitle);
+    	Assert.assertTrue(loginpageTitle.toLowerCase().contains("login"));
+    	System.out.println("__________________________________________________________");
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.4 /////////////////////////////
+    @Given("^Initialize browser and click on signup link for click on wishlist icon and get error message$")
+    public void initialize_browser_and_click_on_signup_link_for_click_on_wishlist_icon_and_get_error_message() throws Throwable
+    {
+    	System.out.println("@signupFunctionalitySrNo.2.4");
+    	System.out.println("Initialize browser and click on signup link for login link title");
+    	signup.getSignupLink().click();
+    }
+
+    @When("^Click on wishlist icon$")
+    public void click_on_wishlist_icon() throws Throwable
+    {
+    	action.moveToElement(signup.getWishlistIcon()).click();
+    	
+    }
+
+    @Then("^Get error message$")
+    public void get_error_message() throws Throwable
+    {
+    	String errorMsg = signup.getLoginErrorMsg().getText();
+    	Assert.assertTrue(errorMsg.toLowerCase().contains("Sign in to access your Orders"));
+    	System.out.println("__________________________________________________________");
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.5 /////////////////////////////
+    @Given("^Initialize browser and click on signup link for click on bag icon and get error message$")
+    public void initialize_browser_and_click_on_signup_link_for_click_on_bag_icon_and_get_error_message() throws Throwable
+    {
+    	System.out.println("@signupFunctionalitySrNo.2.5");
+    	System.out.println("Initialize browser and click on signup link for click on bag icon and get error message");
+    	signup.getSignupLink().click();
+    }
+
+    @When("^Click on bag icon$")
+    public void click_on_bag_icon() throws Throwable
+    {
+    	action.moveToElement(signup.getBagIcon()).click();
+    }
+
+    @Then("^Get bag error message$")
+    public void get_bag_error_message() throws Throwable
+    {
+    	String errorMsg = signup.getLoginErrorMsg().getText();
+    	Assert.assertTrue(errorMsg.toLowerCase().contains("Sign in to access your Orders"));
+    	System.out.println("__________________________________________________________");
+    }
+    
     
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
