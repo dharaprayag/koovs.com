@@ -5,7 +5,6 @@ Scenario: Get website title
 Given Initialize browser
 Then Get text of website Title
 
-
 @signupFunctionalitySrNo.2.1
 Scenario Outline: Click on Signup link and get title
 Given Initialize browser for click on signup link and get title
@@ -15,14 +14,13 @@ Examples:
 |expectedSignupTitle|
 |signup|
 
-
 @signupFunctionalitySrNo.2.2
 Scenario Outline: Click on Signup link and then click on company logo and get title
 Given Initialize browser and click on signup link for get homepage title
 When Click on company logo
 Then Get title of homepage <expectedHomepageTitle>
 Examples:
-|expectedSignupTitle|
+|expectedHomepageTitle|
 |online shopping|
 
 @signupFunctionalitySrNo.2.3
@@ -31,9 +29,8 @@ Given Initialize browser and click on signup link for login link title
 When Click on Login link
 Then Get title of Login page <expectedLoginTitle>
 Examples:
-|expectedSignupTitle|
+|expectedLoginTitle|
 |login|
-
 
 @signupFunctionalitySrNo.2.4
 Scenario Outline: Click on Signup link and then click on wishlist icon and get error message
@@ -41,9 +38,8 @@ Given Initialize browser and click on signup link for click on wishlist icon and
 When Click on wishlist icon
 Then Get error message <getErrorMsg>
 Examples:
-|expectedSignupTitle|
+|getErrorMsg|
 |sign in to access your orders|
-
 
 @signupFunctionalitySrNo.2.5
 Scenario Outline: Click on Signup link and then click on bag icon and get error message
@@ -73,33 +69,42 @@ Examples:
 |online shopping for women|
 
 @signupFunctionalitySrNo.2.8
-Scenario Outline: Click on Signup link and then click on CAMPAIGNS link
-Given Initialize browser for click on CAMPAIGNS link and click on signup link
-When click on CAMPAIGNS
-Then Landed on CAMPAIGNS page <getCampaigns>
+Scenario Outline: Click on Signup link and then click on THE BLOG link
+Given Initialize browser for click on THE BLOG link and click on signup link
+When click on THE BLOG
+Then Landed on Blog page <getBlogPgaeTitle>
 Examples:
-|getCampaigns|
-|koovs|
+|getBlogPgaeTitle|
+|latest fashion trends|
 
 @signupFunctionalitySrNo.2.9
-Scenario Outline: Click on Signup link and then click on THE EDIT link
-Given Initialize browser for click on THE EDIT link and click on signup link
-When click on THE EDIT
-Then Landed on THE EDIT page <getTheEditPageTitle>
+Scenario Outline: Click on Signup link and then click on KOOVSXYOU link
+Given Initialize browser for click on KOOVSXYOU link and click on signup link
+When click on KOOVSXYOU
+Then Landed on KOOVSXYOU page <getKoovsxyouPageTitle>
 Examples:
-|getTheEditPageTitle|
-|fashion|
+|getKoovsxyouPageTitle|
+|koovsxyou|
 
 @signupFunctionalitySrNo.2.10
-Scenario Outline: Enter input and click on search icon
-Given Initialize browser for click on Signuplink link
-When enter input in Search field <productSearch> and click on search icon
-Then Landed on page whatever enter in search field <getTitleBasedOnSearch>
+Scenario Outline: Click on Signup link and then click on IN STYLE OF link
+Given Initialize browser for click on IN STYLE OF link and click on signup link
+When click on IN STYLE OF
+Then Landed on IN STYLE OF page <getInStyleOfPageTitle>
 Examples:
-|productSearch|				|getTitleBasedOnSearch|
-|Dresses|					|shopping site in india|
+|getInStyleOfPageTitle|
+|fashion|
 
 @signupFunctionalitySrNo.2.11
+Scenario Outline: Enter an input in search field and then click on search icon
+Given Initialize browser and then click on signup link for enter a value in search field
+When click on Search icon with input <searchInput>
+Then landed on page which is based on search input and get text <searchedPageTitle>
+Examples:
+|searchInput|		|searchedPageTitle|
+|Dresses|			|for women & men|
+
+@signupFunctionalitySrNo.2.12
 Scenario Outline: Click on Search icon
 Given Initialize browser for click on Search icon and click on signup link
 When click on Search icon

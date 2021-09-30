@@ -34,7 +34,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -80,7 +80,6 @@ public class LoginStepDefination extends base
     public void initialize_browser() throws Throwable
     {
     	System.out.println("@getTitleSrNo.1");
-    	System.out.println("Initialized browser for get website title");
     }
 
     @Then("^Get text of website Title$")
@@ -97,23 +96,20 @@ public class LoginStepDefination extends base
     public void initialize_browser_for_click_on_signup_link_and_get_title() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.1");
-    	System.out.println("Initialize browser for click on signup link and get title");
     }
 
     @When("^Click on sign up link$")
     public void click_on_sign_up_link() throws Throwable
     {
     	signup.getSignupLink().click();
-    	System.out.println("Clicked on sign up link");
     }
 
     @Then("^Get title of sign up page (.+)$")
     public void get_title_of_sign_up_page(String expectedsignuptitle) throws Throwable
     {
     	String signupTitle = driver.getTitle();
-    	System.out.println("Signup page title is " + signupTitle);
     	Assert.assertTrue(signupTitle.toLowerCase().contains(expectedsignuptitle));
-    	System.out.println("Landed on Signup page");
+    	System.out.println("Assert True Landed on Signup page");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
@@ -125,24 +121,21 @@ public class LoginStepDefination extends base
     public void initialize_browser_and_click_on_signup_link_for_get_homepage_title() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.2");
-    	System.out.println("Initialize browser and click on signup link for get homepage title");
     	signup.getSignupLink().click();
     }
 
     @When("^Click on company logo$")
     public void click_on_company_logo() throws Throwable
     {
-        signup.getCompanyLogo().click();
-        
+        signup.getCompanyLogo().click();   
     }
 
     @Then("^Get title of homepage (.+)$")
     public void get_title_of_homepage(String expectedhomepagetitle) throws Throwable
     {
         String homepageTitle = driver.getTitle();
-        System.out.println("Homepage title is " + homepageTitle);
         Assert.assertTrue(homepageTitle.toLowerCase().contains(expectedhomepagetitle));
-        System.out.println("Landed on Homepage");
+        System.out.println("Assert true Landed on Homepage");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
@@ -153,9 +146,7 @@ public class LoginStepDefination extends base
     public void initialize_browser_and_click_on_signup_link_for_login_link_title() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.3");
-    	System.out.println("Initialize browser and click on signup link for login link title");
-    	signup.getSignupLink().click();
-    	
+    	signup.getSignupLink().click();    	
     }
 
     @When("^Click on Login link$")
@@ -168,9 +159,8 @@ public class LoginStepDefination extends base
     public void get_title_of_login_page(String expectedlogintitle) throws Throwable
     {
     	String loginpageTitle = driver.getTitle();
-    	System.out.println("Loginpage title is " + loginpageTitle);
     	Assert.assertTrue(loginpageTitle.toLowerCase().contains(expectedlogintitle));
-    	System.out.println("Landed on Login page");
+    	System.out.println("Assert true Landed on Login page");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
@@ -181,7 +171,6 @@ public class LoginStepDefination extends base
     public void initialize_browser_and_click_on_signup_link_for_click_on_wishlist_icon_and_get_error_message() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.4");
-    	System.out.println("Initialize browser and click on signup link for login link title");
     	signup.getSignupLink().click();
     }
 
@@ -196,7 +185,7 @@ public class LoginStepDefination extends base
     {
     	String errorMsg = signup.getLoginErrorMsg().getText();
     	Assert.assertTrue(errorMsg.toLowerCase().contains(geterrormsg));
-    	System.out.println("(WISHLIST)Landed on Login page and got login error message");
+    	System.out.println("Assert true (WISHLIST)Landed on Login page and got login error message");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
@@ -207,7 +196,6 @@ public class LoginStepDefination extends base
     public void initialize_browser_and_click_on_signup_link_for_click_on_bag_icon_and_get_error_message() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.5");
-    	System.out.println("Initialize browser and click on signup link for click on bag icon and get error message");
     	signup.getSignupLink().click();
     }
 
@@ -221,8 +209,8 @@ public class LoginStepDefination extends base
     public void get_bag_error_message(String geterrormsgforbag) throws Throwable
     {
     	String errorMsg = signup.getLoginErrorMsg().getText();
-    	Assert.assertTrue(errorMsg.toLowerCase().contains(""));
-    	System.out.println("(BAG)Landed on Login page and got login error message");
+    	Assert.assertTrue(errorMsg.toLowerCase().contains(geterrormsgforbag));
+    	System.out.println("Assert true (BAG)Landed on Login page and got login error message");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
@@ -234,7 +222,6 @@ public class LoginStepDefination extends base
     public void initialize_browser_and_click_on_signup_link() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.6");
-    	System.out.println("initialize browser and click on signup link");
     	signup.getSignupLink().click();
     }
 
@@ -249,7 +236,7 @@ public class LoginStepDefination extends base
     {
     	String mensTitle = driver.getTitle();
     	Assert.assertTrue(mensTitle.toLowerCase().contains(getmentitle));
-    	System.out.println("Landed on Men section");
+    	System.out.println("Assert true Landed on Men section");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }    
@@ -260,7 +247,6 @@ public class LoginStepDefination extends base
     public void initialize_browser_for_click_on_women_link_and_click_on_signup_link() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.7");
-    	System.out.println("Initialize browser for click on women link and click on signup link");
     	signup.getSignupLink().click();
     }
 
@@ -275,99 +261,120 @@ public class LoginStepDefination extends base
     {
     	String womenTitle = driver.getTitle();
     	Assert.assertTrue(womenTitle.toLowerCase().contains(getwomentitle));
-    	System.out.println("Landed on Women section");
+    	System.out.println("Assert true Landed on Women section");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////// @signupFunctionalitySrNo.2.8 /////////////////////////////
-    @Given("^Initialize browser for click on CAMPAIGNS link and click on signup link$")
-    public void initialize_browser_for_click_on_campaigns_link_and_click_on_signup_link() throws Throwable
+    @Given("^Initialize browser for click on THE BLOG link and click on signup link$")
+    public void initialize_browser_for_click_on_the_blog_link_and_click_on_signup_link() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.8");
-    	System.out.println("Initialize browser for click on CAMPAIGNS link and click on signup link");
     	signup.getSignupLink().click();
     }
 
-    @When("^click on CAMPAIGNS$")
-    public void click_on_campaigns() throws Throwable
+    @When("^click on THE BLOG$")
+    public void click_on_the_blog() throws Throwable
     {
     	signup.getTheBlogLink().click();
     }
 
-    @Then("^Landed on CAMPAIGNS page (.+)$")
-    public void landed_on_campaigns_page(String getcampaigns) throws Throwable
+    @Then("^Landed on Blog page (.+)$")
+    public void landed_on_blog_page(String getblogpagetitle) throws Throwable
     {
     	String blogTitle = driver.getTitle();
-    	Assert.assertTrue(blogTitle.toLowerCase().contains(getcampaigns));
-    	System.out.println("Landed on CAMPAIGNS page");
+    	Assert.assertTrue(blogTitle.toLowerCase().contains(getblogpagetitle));
+    	System.out.println("Assert true Landed on THE BLOG page");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////// @signupFunctionalitySrNo.2.9 /////////////////////////////
-    @Given("^Initialize browser for click on THE EDIT link and click on signup link$")
-    public void initialize_browser_for_click_on_the_edit_link_and_click_on_signup_link() throws Throwable
+    @Given("^Initialize browser for click on KOOVSXYOU link and click on signup link$")
+    public void initialize_browser_for_click_on_koovsxyou_link_and_click_on_signup_link() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.9");
-    	System.out.println("Initialize browser for click on THE EDIT link and click on signup link");
     	signup.getSignupLink().click();
     }
 
-    @When("^click on THE EDIT$")
-    public void click_on_the_edit() throws Throwable
+    @When("^click on KOOVSXYOU$")
+    public void click_on_koovsxyou() throws Throwable
     {
-    	signup.getInstyleofLink().click();
+    	signup.getKoovxyouLink().click();
     }
 
-    @Then("^Landed on THE EDIT page (.+)$")
-    public void landed_on_the_edit_page(String gettheeditpagetitle) throws Throwable
+    @Then("^Landed on KOOVSXYOU page (.+)$")
+    public void landed_on_koovsxyou_page(String getkoovsxyoupagetitle) throws Throwable
     {
-    	String instyleofLink = driver.getTitle();
-    	Assert.assertTrue(instyleofLink.toLowerCase().contains(gettheeditpagetitle));
-    	System.out.println("Landed on THE EDIT page");
+    	String koovsxyouLink = driver.getTitle();
+    	Assert.assertTrue(koovsxyouLink.toLowerCase().contains(getkoovsxyoupagetitle));
+    	System.out.println("Assert true Landed on KOOVSXYOU page");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////// @signupFunctionalitySrNo.2.10 /////////////////////////////
-    
-    @Given("^Initialize browser for click on Signuplink link$")
-    public void initialize_browser_for_click_on_signuplink_link() throws Throwable
+    @Given("^Initialize browser for click on IN STYLE OF link and click on signup link$")
+    public void initialize_browser_for_click_on_in_style_of_link_and_click_on_signup_link() throws Throwable
     {
     	System.out.println("@signupFunctionalitySrNo.2.10");
-    	System.out.println("Initialize browser for click on Signuplink link");
     	signup.getSignupLink().click();
     }
 
-    @When("^enter input in Search field (.+) and click on search icon$")
-    public void enter_input_in_search_field_and_click_on_search_icon(String productsearch) throws Throwable
+    @When("^click on IN STYLE OF$")
+    public void click_on_in_style_of() throws Throwable
     {
-    	signup.getSearchInput().sendKeys(productsearch);
-    	signup.getSearchIcon().click();
+    	signup.getInstyleofLink().click();
     }
 
-    @Then("^Landed on page whatever enter in search field (.+)$")
-    public void landed_on_page_whatever_enter_in_search_field(String gettitlebasedonsearch) throws Throwable
+    @Then("^Landed on IN STYLE OF page (.+)$")
+    public void landed_on_in_style_of_page(String getinstyleofpagetitle) throws Throwable
     {
-    	String SearchProduct = driver.getTitle();
-    	Assert.assertTrue(SearchProduct.toLowerCase().contains(gettitlebasedonsearch));
-    	System.out.println("Landed on Dresses page");
+    	String instyleofLink = driver.getTitle();
+    	Assert.assertTrue(instyleofLink.toLowerCase().contains(getinstyleofpagetitle));
+    	System.out.println("Assert true Landed on IN STYLE OF page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.11 /////////////////////////////
+    @Given("^Initialize browser and then click on signup link for enter a value in search field$")
+    public void initialize_browser_and_then_click_on_signup_link_for_enter_a_value_in_search_field() throws Throwable
+    {
+    	System.out.println("@signupFunctionalitySrNo.2.11");
+    	signup.getSignupLink().click();
+    }
+
+    @When("^click on Search icon with input (.+)$")
+    public void click_on_search_icon_with_input(String searchinput) throws Throwable
+    {
+    	signup.getSearchInput().sendKeys(searchinput);
+    	signup.getSearchIcon().click();
+    	
+    }
+
+    @Then("^landed on page which is based on search input and get text (.+)$")
+    public void landed_on_page_which_is_based_on_search_input_and_get_text(String searchedpagetitle) throws Throwable
+    {
+    	String searchedPageTitle = driver.getTitle();
+    	Assert.assertTrue(searchedPageTitle.toLowerCase().contains(searchedpagetitle));
+    	System.out.println("Assert true Landed on Dresses page");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
     
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////// @signupFunctionalitySrNo.2.11 /////////////////////////////    
+    ///////////////// @signupFunctionalitySrNo.2.12 /////////////////////////////
     @Given("^Initialize browser for click on Search icon and click on signup link$")
     public void initialize_browser_for_click_on_search_icon_and_click_on_signup_link() throws Throwable
     {
-    	System.out.println("@signupFunctionalitySrNo.2.11");
-    	System.out.println("Initialize browser for click on Search icon and click on signup link");
+    	System.out.println("@signupFunctionalitySrNo.2.12");
     	signup.getSignupLink().click();
     }
 
@@ -382,15 +389,10 @@ public class LoginStepDefination extends base
     {
     	String getTrendingText = signup.getTrendingText().getText();
     	Assert.assertTrue(getTrendingText.toLowerCase().contains(expectedtext));
-    	System.out.println("Get text is " + "'" + getTrendingText + "'" );
+    	System.out.println("Assert true get expected text");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     }
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////// @signupFunctionalitySrNo.2.12 /////////////////////////////
-    
-    
     
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

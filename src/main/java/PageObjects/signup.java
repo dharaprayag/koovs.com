@@ -23,10 +23,9 @@ public class signup extends base
 	By theBlogLink = By.cssSelector("a[title='THE BLOG']");
 	By koovsxyouLink = By.xpath("//*[@href='koovsxyou']");
 	By instyleofLink = By.xpath("//a[@title='IN STYLE OF']");
-	By searchInput = By.xpath("//div[@class='koovs-search-input']/input");
 	By searchIcon = By.xpath("//div[@class='koovs-search-btn']/div/div");
 	By trendingText = By.xpath("//div[text()='TRENDING SEARCHES']");
-	
+	By searchInput = By.xpath("//div[@class='koovs-search-input']/input");
 	
 	
 	public signup(WebDriver driver) 
@@ -37,6 +36,10 @@ public class signup extends base
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getSearchInput()
+	{
+		 return driver.findElement(searchInput);
+	}
 	public WebElement getTrendingText()
 	{
 		 return driver.findElement(trendingText);
@@ -44,10 +47,6 @@ public class signup extends base
 	public WebElement getSearchIcon()
 	{
 		 return driver.findElement(searchIcon);
-	}
-	public WebElement getSearchInput()
-	{
-		 return driver.findElement(searchInput);
 	}
 	public WebElement getInstyleofLink()
 	{
