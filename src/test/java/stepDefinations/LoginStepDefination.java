@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 import cucumber.api.junit.Cucumber;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import org.junit.runner.RunWith;
@@ -34,7 +35,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -392,6 +393,92 @@ public class LoginStepDefination extends base
     	System.out.println("Assert true get expected text");
     	System.out.println("__________________________________________________________");
     	driver.quit();
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////// @signupFunctionalitySrNo.2.13 /////////////////////////////
+    
+    @Given("^Initialize browser and click on signuplink$")
+    public void initialize_browser_and_click_on_signuplink() throws Throwable
+    {
+    	//System.out.println("@signupFunctionalitySrNo.2.12");
+    	signup.getSignupLink().click();
+    }
+
+    @Given("^functionality serial number (.+) and (.+)$")
+    public void functionality_serial_number_and(String srno, String scenario) throws Throwable
+    {
+    	System.out.println(srno);
+    	System.out.println(scenario);
+    }
+
+    @When("^Enter an input of Fullname (.+)$")
+    public void enter_an_input_of_fullname(String fullname) throws Throwable
+    {
+    	signup.getFullName().sendKeys(fullname);
+    }
+
+    @When("^Enter an input of Email (.+)$")
+    public void enter_an_input_of_email(String email) throws Throwable
+    {
+    	 Date date = new Date();
+         long timeMilli = date.getTime();
+         //System.out.println(timeMilli);
+         email = email + timeMilli + "@gmail.com";
+         //System.out.println(email);
+         signup.getEmail().sendKeys(email);
+    }
+
+    @When("^Enter an input of Password (.+)$")
+    public void enter_an_input_of_password(String password) throws Throwable
+    {
+    	signup.getPassword().sendKeys(password);
+    }
+
+    @When("^Input of MobileNumber (.+)$")
+    public void input_of_mobilenumber(String number) throws Throwable
+    {
+    	number = createRandomNumber(10);
+    	signup.getMobilenumber().sendKeys(number);
+    }
+
+    @When("^Click male or female radio button (.+)$")
+    public void click_male_or_female_radio_button(String maleorfemale) throws Throwable
+    {
+    	if(maleorfemale.equals("Male"))
+    	{
+    		signup.getMaleRadioButton().click();
+    	}
+    	else if(maleorfemale.equals("Female"))
+    	{
+    		signup.getFemaleRadioButton().click();
+    	}
+    }
+
+    @When("^Click on checkbox$")
+    public void click_on_checkbox() throws Throwable
+    {
+    	//signup.getCheckboxReferralCode().click();
+    }
+
+    @Then("^Click on SIGNUP button$")
+    public void click_on_signup_button() throws Throwable
+    {
+    	signup.getSignupButton().click();
+    }
+    
+    public final static String createRandomNumber(long len) {
+        if (len > 18)
+            throw new IllegalStateException("To many digits");
+        long tLen = (long) Math.pow(10, len - 1) * 9;
+
+        long number = (long) (Math.random() * tLen) + (long) Math.pow(10, len - 1) * 1;
+
+        String tVal = number + "";
+        if (tVal.length() != len) {
+            throw new IllegalStateException("The random number '" + tVal + "' is not '" + len + "' digits");
+        }
+        return tVal;
     }
     
     
