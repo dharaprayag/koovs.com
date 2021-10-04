@@ -13,6 +13,7 @@ import java.util.Random;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -35,7 +36,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@signupFunctionalitySrNo.2.13To2.24,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -401,7 +402,6 @@ public class LoginStepDefination extends base
     @Given("^Initialize browser and click on signuplink$")
     public void initialize_browser_and_click_on_signuplink() throws Throwable
     {
-    	//System.out.println("@signupFunctionalitySrNo.2.12");
     	signup.getSignupLink().click();
     }
 
@@ -409,13 +409,21 @@ public class LoginStepDefination extends base
     public void functionality_serial_number_and(String srno, String scenario) throws Throwable
     {
     	System.out.println(srno);
-    	System.out.println(scenario);
     }
-
-    @When("^Enter an input of Fullname (.+)$")
-    public void enter_an_input_of_fullname(String fullname) throws Throwable
+        
+    @When("^Input of FullName (.+)$")
+    public void input_of_FullName(String name) throws Throwable
     {
-    	signup.getFullName().sendKeys(fullname);
+    	//if((name != null && !name.trim().isEmpty()) || (name != "[blank]"))
+    	if(!name.equals("blank"))
+    	{
+    		signup.getFullName().sendKeys(name);
+    	}
+    	else
+    	{
+    		signup.getFullName().sendKeys(Keys.TAB);
+    		System.out.println(signup.getFullNameErrorMsg().getText());
+    	}
     }
 
     @When("^Enter an input of Email (.+)$")
@@ -426,7 +434,16 @@ public class LoginStepDefination extends base
          //System.out.println(timeMilli);
          email = email + timeMilli + "@gmail.com";
          //System.out.println(email);
-         signup.getEmail().sendKeys(email);
+         if(!email.contains("blank"))
+         {
+        	 signup.getEmail().sendKeys(email);
+         }
+         else
+         {
+        	 signup.getEmail().sendKeys(Keys.TAB);
+        	System.out.println(signup.getEmailErrorMsg().getText());
+         }
+         
     }
 
     @When("^Enter an input of Password (.+)$")
@@ -452,6 +469,10 @@ public class LoginStepDefination extends base
     	else if(maleorfemale.equals("Female"))
     	{
     		signup.getFemaleRadioButton().click();
+    	}
+    	else
+    	{
+    		    		
     	}
     }
 

@@ -34,6 +34,8 @@ public class signup extends base
 	By femaleRadioButton = By.xpath("//div[@class='form-check-fields']/div[2]/label/div");
 	By checkboxReferralCode = By.xpath("//div[@class='check-fields referral']/label/div");
 	By signupButton = By.xpath("//div[@class='kv-form-btn']/button");
+	By fullnameErrorMsg = By.xpath("//div[@class='signup-form']/form/div[1]/div");
+	By emailErrorMsg = By.xpath("//div[@class='signup-form']/form/div[2]/div");
 	
 	
 	public signup(WebDriver driver) 
@@ -44,6 +46,14 @@ public class signup extends base
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getEmailErrorMsg()
+	{
+		 return driver.findElement(emailErrorMsg);
+	}
+	public WebElement getFullNameErrorMsg()
+	{
+		 return driver.findElement(fullnameErrorMsg);
+	}
 	public WebElement getSignupButton()
 	{
 		 return driver.findElement(signupButton);
