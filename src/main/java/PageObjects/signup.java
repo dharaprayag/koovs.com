@@ -36,6 +36,9 @@ public class signup extends base
 	By signupButton = By.xpath("//div[@class='kv-form-btn']/button");
 	By fullnameErrorMsg = By.xpath("//div[@class='signup-form']/form/div[1]/div");
 	By emailErrorMsg = By.xpath("//div[@class='signup-form']/form/div[2]/div");
+	By passwordErrorMsg = By.xpath("//div[@class='signup-form']/form/div[3]/div");
+	By mobileNumberErrorMsg = By.xpath("//div[@class='signup-form']/form/div[4]/div");
+	By genderErrorMsg = By.xpath("//div[@class='signup-form']/form/div[5]/div[3]");
 	
 	
 	public signup(WebDriver driver) 
@@ -46,6 +49,18 @@ public class signup extends base
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getGenderErrorMsg()
+	{
+		 return driver.findElement(genderErrorMsg);
+	}
+	public WebElement getMobileNumberErrorMsg()
+	{
+		 return driver.findElement(mobileNumberErrorMsg);
+	}
+	public WebElement getPasswordErrorMsg()
+	{
+		 return driver.findElement(passwordErrorMsg);
+	}
 	public WebElement getEmailErrorMsg()
 	{
 		 return driver.findElement(emailErrorMsg);

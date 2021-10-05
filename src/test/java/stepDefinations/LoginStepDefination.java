@@ -441,7 +441,7 @@ public class LoginStepDefination extends base
          else
          {
         	 signup.getEmail().sendKeys(Keys.TAB);
-        	System.out.println(signup.getEmailErrorMsg().getText());
+        	 System.out.println(signup.getEmailErrorMsg().getText());
          }
          
     }
@@ -449,14 +449,32 @@ public class LoginStepDefination extends base
     @When("^Enter an input of Password (.+)$")
     public void enter_an_input_of_password(String password) throws Throwable
     {
-    	signup.getPassword().sendKeys(password);
+    	if(!password.contains("blank"))
+    	{
+    		signup.getPassword().sendKeys(password);
+    	}
+    	else
+    	{
+    		signup.getPassword().sendKeys(Keys.TAB);
+    		System.out.println(signup.getPasswordErrorMsg().getText());    		
+    	}
+    	
     }
 
     @When("^Input of MobileNumber (.+)$")
     public void input_of_mobilenumber(String number) throws Throwable
     {
-    	number = createRandomNumber(10);
-    	signup.getMobilenumber().sendKeys(number);
+    	if(!number.contains("blank"))
+    	{
+    		number = createRandomNumber(10);
+        	signup.getMobilenumber().sendKeys(number);
+    	}
+    	else
+    	{
+    		signup.getMobilenumber().sendKeys(Keys.TAB);
+    		System.out.println(signup.getMobileNumberErrorMsg().getText());
+    	}
+    	
     }
 
     @When("^Click male or female radio button (.+)$")
@@ -470,9 +488,10 @@ public class LoginStepDefination extends base
     	{
     		signup.getFemaleRadioButton().click();
     	}
-    	else
+    	else if(maleorfemale.contains("blank"))
     	{
-    		    		
+    		signup.getSignupButton().click();
+    		System.out.println(signup.getGenderErrorMsg().getText());
     	}
     }
 
@@ -485,7 +504,8 @@ public class LoginStepDefination extends base
     @Then("^Click on SIGNUP button$")
     public void click_on_signup_button() throws Throwable
     {
-    	signup.getSignupButton().click();
+    	//signup.getSignupButton().click();
+    	driver.quit();
     }
     
     public final static String createRandomNumber(long len) {

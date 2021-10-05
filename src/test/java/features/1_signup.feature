@@ -122,23 +122,23 @@ When Enter an input of Email <email>
 When Enter an input of Password <password>
 When Input of MobileNumber <number>
 When Click male or female radio button <maleOrFemale>
-When Click on checkbox
+#When Click on checkbox
 Then Click on SIGNUP button
 
 Examples:
-|srNo|									|scenario|																	|name|			|email|							|password|					|number|			|maleOrFemale|
-#|SignupFunctionalitySrNo.2.13|			|verify signup with valid credentials|										|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|0|					|Male|
-#|SignupFunctionalitySrNo.2.14|			|verify signup with invalid full name and another credentials valid|		|abcdefg|			|dharapatel|					|Dharapatel80085@|			|0|					|Female|
-#|SignupFunctionalitySrNo.2.15|			|Sign up with invalid Email and another credentials are valid|				|Dhara Patel|		|*****|							|Dharapatel80085@|			|0|					|Male|
-#|SignupFunctionalitySrNo.2.16|			|Sign up with invalid password and another credentials are valid|			|Dhara Patel|		|dharapatel|					|******|					|0|					|Female|
-#|SignupFunctionalitySrNo.2.17|			|Sign up with invalid Mobile number and another credentials are valid|		|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|****|				|Male|
-#|SignupFunctionalitySrNo.2.18|			|verify signup with all invalid credentials|								|12345|				|******|						|******|					|****|				||
-#|SignupFunctionalitySrNo.2.19|			|Sign up with full name field blank and another credentials are valid|		|blank|				|dharapatel|					|Dharapatel80085@|			|0|					|Female|
+|srNo|									|scenario|																	|name|				|email|							|password|					|number|			|maleOrFemale|
+|SignupFunctionalitySrNo.2.13|			|verify signup with valid credentials|										|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|0|					|Male|
+|SignupFunctionalitySrNo.2.14|			|verify signup with invalid full name and another credentials valid|		|abcdefg|			|dharapatel|					|Dharapatel80085@|			|0|					|Female|
+|SignupFunctionalitySrNo.2.15|			|Sign up with invalid Email and another credentials are valid|				|Dhara Patel|		|*****|							|Dharapatel80085@|			|0|					|Male|
+|SignupFunctionalitySrNo.2.16|			|Sign up with invalid password and another credentials are valid|			|Dhara Patel|		|dharapatel|					|******|					|0|					|Female|
+|SignupFunctionalitySrNo.2.17|			|Sign up with invalid Mobile number and another credentials are valid|		|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|****|				|Male|
+|SignupFunctionalitySrNo.2.18|			|verify signup with all invalid credentials|								|12345|				|******|						|******|					|****|				|blank|
+|SignupFunctionalitySrNo.2.19|			|Sign up with full name field blank and another credentials are valid|		|blank|				|dharapatel|					|Dharapatel80085@|			|0|					|Female|
 |SignupFunctionalitySrNo.2.20|			|Sign up with Email field blank and another credentials are valid|			|Dhara Patel|		|blank|							|Dharapatel80085@|			|0|					|Male|
-#|SignupFunctionalitySrNo.2.21|			|Sign up with Password field blank and another credentials are valid|		|Dhara Patel|		|dharapatel|					||							|0|					|Female|
-#|SignupFunctionalitySrNo.2.22|			|Sign up with Mobile number field blank and another credentials are valid|	|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			||					|Male|
-#|SignupFunctionalitySrNo.2.23|			|Sign up with Gender field blank and another credentials are valid|			|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|0|					||
-#|SignupFunctionalitySrNo.2.24|			|Leave blank all the field|													||					||								||							||					||
+|SignupFunctionalitySrNo.2.21|			|Sign up with Password field blank and another credentials are valid|		|Dhara Patel|		|dharapatel|					|blank|						|0|					|Female|
+|SignupFunctionalitySrNo.2.22|			|Sign up with Mobile number field blank and another credentials are valid|	|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|blank|				|Male|
+|SignupFunctionalitySrNo.2.23|			|Sign up with Gender field blank and another credentials are valid|			|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|0|					|blank|
+|SignupFunctionalitySrNo.2.24|			|Leave blank all the field|													|blank|				|blank|							|blank|						|blank|				|blank|
 
 
 
