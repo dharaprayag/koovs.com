@@ -16,6 +16,9 @@ public class Login
 	By AcceptButtton = By.xpath("//*[@id='app']/div/div/div/div[1]/div[3]/div[2]/div");
 	By notification = By.id("notification-wrapper");
 	By userName = By.xpath("//div[@class='account-links']/span");
+	By companyLogo = By.xpath("//div[@class='header-wrapper']/div[1]/div[1]");
+	By wishlistIcon = By.xpath("//div[@class='hright-section']/div[2]/div[1]/a/div");
+	By loginErrorMsg = By.xpath("//div[@class='login-section']/div[1]/div[2]/div");
 	
 	
 	
@@ -29,7 +32,18 @@ public class Login
 		PageFactory.initElements(driver, this);
 	}
 	
-	
+	public WebElement getLoginErrorMsg()
+	{
+		 return driver.findElement(loginErrorMsg);
+	}
+	public WebElement getWishlistIcon()
+	{
+		 return driver.findElement(wishlistIcon);
+	}
+	public WebElement getCompanyLogo()
+	{
+		 return driver.findElement(companyLogo);
+	}
 	public WebElement getLoginLink()
 	{
 		 return driver.findElement(loginLink);

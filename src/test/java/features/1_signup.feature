@@ -140,19 +140,3 @@ Examples:
 |SignupFunctionalitySrNo.2.23|			|Sign up with Gender field blank and another credentials are valid|			|Dhara Patel|		|dharapatel|					|Dharapatel80085@|			|0|					|blank|
 |SignupFunctionalitySrNo.2.24|			|Leave blank all the field|													|blank|				|blank|							|blank|						|blank|				|blank|
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

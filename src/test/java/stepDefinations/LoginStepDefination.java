@@ -36,7 +36,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@signupFunctionalitySrNo.2.13To2.24,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@signupFunctionalitySrNo.2.13To2.24,@signinfunctionality3.1,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -76,6 +76,110 @@ public class LoginStepDefination extends base
     	//System.out.println(login.getNotification().getText());
     
     }
+    
+    ///////////////////////////////////////////LOGIN/////////////////////////////////
+    /////////////////@loginfunctionality3.1/////////////////////
+    @Given("^Initialize browser for click on login link and get title (.+)$")
+    public void initialize_browser_for_click_on_login_link_and_get_title(String websitetitle) throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.1");
+    	String title = driver.getTitle();
+    	title.toLowerCase().contains(websitetitle);
+    }
+
+    @When("^Click on login link from homepage$")
+    public void click_on_login_link_from_homepage() throws Throwable
+    {
+    	login.getLoginLink().click();
+    }
+
+    @Then("^Get text of login page title (.+)$")
+    public void get_text_of_login_page_title(String loginPageTitle) throws Throwable
+    {
+    	String loginPage = driver.getTitle();
+    	Assert.assertTrue(loginPage.toLowerCase().contains(loginPageTitle));
+    	System.out.println("Assert true Landed on Login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    /////////////////@loginfunctionality3.2/////////////////////
+    @Given("^Initialize browser and click on login link then click on company logo$")
+    public void initialize_browser_and_click_on_login_link_then_click_on_company_logo() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.2");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Click on company logo to verify from login page$")
+    public void click_on_company_logo_to_verify_from_login_page() throws Throwable
+    {
+    	login.getCompanyLogo().click();
+    }
+
+    @Then("^Get text of homepage title (.+)$")
+    public void get_text_of_homepage_title(String loginhomepagetitle) throws Throwable
+    {
+    	String loginCompanyLogo = driver.getTitle();
+    	Assert.assertTrue(loginCompanyLogo.toLowerCase().contains(loginhomepagetitle));
+    	System.out.println("Assert true Landed on HomePage from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    /////////////////@loginfunctionality3.3/////////////////////
+    @Given("^Initialize browser and click on login link then click on again login link$")
+    public void initialize_browser_and_click_on_login_link_then_click_on_again_login_link() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.3");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Again click on login link to verify from login page$")
+    public void again_click_on_login_link_to_verify_from_login_page() throws Throwable
+    {
+    	login.getLoginLink().click();
+    }
+
+    @Then("^Get text of login title (.+)$")
+    public void get_text_of_login_title(String loginlogintitle) throws Throwable
+    {
+    	String loginLoginLink = driver.getTitle();
+    	Assert.assertTrue(loginLoginLink.toLowerCase().contains(loginlogintitle));
+    	System.out.println("Assert true again Landed on Login Page from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    /////////////////@loginfunctionality3.4/////////////////////
+    @Given("^Initialize browser and click on login link for click on wishlist icon$")
+    public void initialize_browser_and_click_on_login_link_for_click_on_wishlist_icon() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.4");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Click on Wishlist icon from login link$")
+    public void click_on_wishlist_icon_from_login_link() throws Throwable
+    {
+    	login.getWishlistIcon().click();
+    }
+
+    @Then("^Get Text of login error message (.+)$")
+    public void get_text_of_login_error_message(String loginerrormsg) throws Throwable
+    {
+    	String loginErrorText = login.getLoginErrorMsg().getText();
+    	Assert.assertTrue(loginErrorText.toLowerCase().contains(loginerrormsg));
+    	System.out.println("Assert true successfully get login error msg from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    /////////////////@loginfunctionality3.5/////////////////////
+    
+    
+    
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////// @getTitleSrNo.1 /////////////////////////////
     @Given("^Initialize browser$")
@@ -521,7 +625,6 @@ public class LoginStepDefination extends base
         }
         return tVal;
     }
-    
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     			///////////////////////////////////MEN SCENARIO////////////////////////////////////////////
