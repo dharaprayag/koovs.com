@@ -176,7 +176,105 @@ public class LoginStepDefination extends base
     }
     
     /////////////////@loginfunctionality3.5/////////////////////
+    @Given("^Initialize browser and click on login link for click on BAG icon$")
+    public void initialize_browser_and_click_on_login_link_for_click_on_bag_icon() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.5");
+    	login.getLoginLink().click();
+    }
+
+    @When("^click on BAG icon from login link$")
+    public void click_on_bag_icon_from_login_link() throws Throwable
+    {
+    	login.getBagIcon().click();
+    }
+
+    @Then("^Get Text of BAG error message from login (.+)$")
+    public void get_text_of_bag_error_message_from_login(String loginbagerrormsg) throws Throwable
+    {
+    	String loginBagErrorMsg = login.getLoginErrorMsg().getText();
+    	Assert.assertTrue(loginBagErrorMsg.toLowerCase().contains(loginbagerrormsg));
+    	System.out.println("Assert true successfully get login eroor msg while click on bag icon from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
     
+    ///////////////@loginfunctionality3.6/////////////////////
+    @Given("^Initialize browser and click on login link for click on MEN link$")
+    public void initialize_browser_and_click_on_login_link_for_click_on_men_link() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.6");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Click on MEN link from login page$")
+    public void click_on_men_link_from_login_page() throws Throwable
+    {
+    	login.getMenLink().click();
+    }
+
+    @Then("^Get text of Men's title (.+)$")
+    public void get_text_of_mens_title(String loginmentitle) throws Throwable
+    {
+    	String menPageTitle = driver.getTitle();
+    	Assert.assertTrue(menPageTitle.toLowerCase().contains(loginmentitle));
+    	System.out.println("Assert true successfully click on MEN link from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////@loginfunctionality3.7/////////////////////
+    @Given("^Initialize browser and click on login link for click on WOMEN link$")
+    public void initialize_browser_and_click_on_login_link_for_click_on_women_link() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.7");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Click on WOMEN link from login page$")
+    public void click_on_women_link_from_login_page() throws Throwable
+    {
+    	login.getWomenLink().click();
+    }
+
+    @Then("^Get text of Women's title (.+)$")
+    public void get_text_of_womens_title(String loginwomentitle) throws Throwable
+    {
+    	String womenPageTitle = driver.getTitle();
+    	Assert.assertTrue(womenPageTitle.toLowerCase().contains(loginwomentitle));
+    	System.out.println("Assert true successfully click on WOMEN link from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////@loginfunctionality3.8/////////////////////
+    
+    
+    ///////////////@loginfunctionality3.9/////////////////////
+    @Given("^Initialize browser and click on login link for click on KOOVSXYOU link$")
+    public void initialize_browser_and_click_on_login_link_for_click_on_koovsxyou_link() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.9");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Click on KOOVSXYOU link from login page$")
+    public void click_on_koovsxyou_link_from_login_page() throws Throwable
+    {
+    	login.getKoovxyouLink().click();
+    }
+
+    @Then("^Get text of KOOVSXYOU's title (.+)$")
+    public void get_text_of_koovsxyous_title(String loginkoovsxyoutitle) throws Throwable
+    {
+    	String koovsxyouPageTitle = driver.getTitle();
+    	Assert.assertTrue(koovsxyouPageTitle.toLowerCase().contains(loginkoovsxyoutitle));
+    	System.out.println("Assert true successfully click on KOOVSXYOU link from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////@loginfunctionality3.10/////////////////////
     
     
     

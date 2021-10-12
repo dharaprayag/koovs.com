@@ -42,6 +42,87 @@ Examples:
 |loginErrorMsg|
 |sign in to access your orders|
 
+@signinfunctionality3.5
+Scenario Outline: Verify in Login page, BAG icon should be clickable and landed to login page with error message
+Given Initialize browser and click on login link for click on BAG icon
+When click on BAG icon from login link
+Then Get Text of BAG error message from login <loginBagErrorMsg>
+Examples:
+|loginBagErrorMsg|
+|sign in to access your orders|
+
+@signinfunctionality3.6
+Scenario Outline: verify in Login page MEN link should be clickable and landed into its relevant page
+Given Initialize browser and click on login link for click on MEN link
+When Click on MEN link from login page
+Then Get text of Men's title <loginMenTitle>
+Examples:
+|loginMenTitle|
+|online shopping for men|
+
+@signinfunctionality3.7
+Scenario Outline: verify in Login page WOMEN link should be clickable and landed into its relevant page
+Given Initialize browser and click on login link for click on WOMEN link
+When Click on WOMEN link from login page
+Then Get text of Women's title <loginWomenTitle>
+Examples:
+|loginWomenTitle|
+|online shopping for women|
+
+#@signinfunctionality3.8
+#Scenario Outline: verify in Login page CAMPAIGNS link should be clickable and landed into its relevant page
+#Given Initialize browser and click on login link for click on CAMPAIGNS link
+#When Click on CAMPAIGNS link from login page
+#Then Get text of campaigns title <loginCampaignsTitle>
+#Examples:
+#|loginCampaignsTitle|
+#|campaigns|
+
+@signinfunctionality3.9
+Scenario Outline: verify in Login page KOOVSXYOU link should be clickable and landed into its relevant page
+Given Initialize browser and click on login link for click on KOOVSXYOU link
+When Click on KOOVSXYOU link from login page
+Then Get text of KOOVSXYOU's title <loginKoovsxyouTitle>
+Examples:
+|loginKoovsxyouTitle|
+|koovsxyou|
+
+@signinfunctionality3.10
+Scenario Outline: verify in Login page THE EDIT link should be clickable and landed into its relevant page
+Given Initialize browser and click on login link for click on KOOVSXYOU link
+When Click on KOOVSXYOU link from login page
+Then Get text of KOOVSXYOU's title <loginKoovsxyouTitle>
+Examples:
+|loginKoovsxyouTitle|
+|koovsxyou|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
