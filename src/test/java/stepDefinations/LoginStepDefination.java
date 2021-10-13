@@ -36,7 +36,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@signupFunctionalitySrNo.2.13To2.24,@signinfunctionality3.1,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -275,6 +275,139 @@ public class LoginStepDefination extends base
     }
     
     ///////////////@loginfunctionality3.10/////////////////////
+    @Given("^Initialize browser and click on login link for click on IN STYLE OF link$")
+    public void initialize_browser_and_click_on_login_link_for_click_on_in_style_of_link() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.10");
+    	login.getLoginLink().click();
+    }
+
+    @When("^Click on IN STYLE OF link from login page$")
+    public void click_on_in_style_of_link_from_login_page() throws Throwable
+    {
+    	login.getInstyleofLink().click();
+    }
+
+    @Then("^Get text of IN STYLE OF's title (.+)$")
+    public void get_text_of_in_style_ofs_title(String logininstyleoftitle) throws Throwable
+    {
+    	String instyleofPageTitle = driver.getTitle();
+    	Assert.assertTrue(instyleofPageTitle.toLowerCase().contains(logininstyleoftitle));
+    	System.out.println("Assert true successfully click on IN STYLE OF link from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////@loginfunctionality3.11/////////////////////
+    @Given("^Initialize browser and then click on login link for enter a value in search field$")
+    public void initialize_browser_and_then_click_on_login_link_for_enter_a_value_in_search_field() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.11");
+    	login.getLoginLink().click();
+    }
+
+    @When("^click on Search icon with enter input from login page (.+)$")
+    public void click_on_search_icon_with_enter_input_from_login_page(String searchinputfromlogin) throws Throwable
+    {
+    	login.getSearchInput().sendKeys(searchinputfromlogin);
+    	login.getSearchIcon().click();
+    }
+
+    @Then("^landed on page which is based on input and get text (.+)$")
+    public void landed_on_page_which_is_based_on_input_and_get_text(String loginsearchedpagetitle) throws Throwable
+    {
+    	String searchPageTitle = driver.getTitle();
+    	Assert.assertTrue(searchPageTitle.toLowerCase().contains(loginsearchedpagetitle));
+    	System.out.println("Assert true successfully get Text of Searched Product from login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    	
+    }
+    
+    ////////////////@loginfunctionality3.12/////////////////////
+    @Given("^Initialize browser for click on Search icon from login page$")
+    public void initialize_browser_for_click_on_search_icon_from_login_page() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.12");
+    	login.getLoginLink().click();
+    }
+
+    @When("^click on Search icon from login page$")
+    public void click_on_search_icon_from_login_page() throws Throwable
+    {
+    	login.getSearchIcon().click();
+    	
+    }
+
+    @Then("^Get pop up and get text from login page (.+)$")
+    public void get_pop_up_and_get_text_from_login_page(String expectedtext) throws Throwable
+    {
+    	String getTrendingTextLoginPage = login.getTrendingText().getText();
+    	Assert.assertTrue(getTrendingTextLoginPage.toLowerCase().contains(expectedtext));
+    	System.out.println("Assert true get expected text");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ////////////////@loginfunctionality3.13/////////////////////
+    @Given("^Initialize browser for click on Google Link from login page$")
+    public void initialize_browser_for_click_on_google_link_from_login_page() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.13");
+    	login.getLoginLink().click();
+    }
+
+    @Then("^Click on Google Link$")
+    public void click_on_google_link() throws Throwable
+    {
+    	login.getGoogleLink().click();
+    }
+    
+    ////////////////@loginfunctionality3.14/////////////////////
+    @Given("^Initialize browser for click on Facebook Link from login page$")
+    public void initialize_browser_for_click_on_facebook_link_from_login_page() throws Throwable
+    {
+    	System.out.println("@loginfunctionality3.14");
+    	login.getLoginLink().click();
+    }
+    
+    @Then("^Click on Facebook Link$")
+    public void click_on_facebook_link() throws Throwable
+    {
+    	login.getFacebookLink().click();
+    }
+    
+    //////////////////////////@loginFunctionalitySrNo.3.15To3.25////////////////////////
+    
+    @Given("^Initialize browser and click on login link (.+)$")
+    public void initialize_browser_and_click_on_login_link(String scenario) throws Throwable {
+        throw new PendingException();
+    }
+
+    @When("^Enter an email (.+)$")
+    public void enter_an_email(String loginemail) throws Throwable {
+        throw new PendingException();
+    }
+
+    @When("^Enter a password (.+)$")
+    public void enter_a_password(String loginpassword) throws Throwable {
+        throw new PendingException();
+    }
+
+    @When("^Click on SHOW or HIDE link in password field (.+)$")
+    public void click_on_show_or_hide_link_in_password_field(String showorhide) throws Throwable {
+        throw new PendingException();
+    }
+
+    @Then("^Click on LOGIN button (.+)$")
+    public void click_on_login_button(String loginbuttonclick) throws Throwable {
+        throw new PendingException();
+    }
+    
+    
+    
+    
+    
     
     
     

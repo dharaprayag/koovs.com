@@ -23,6 +23,12 @@ public class Login
 	By menLink = By.xpath("//*[@href='/men']");
 	By womenLink = By.xpath("//*[@href='/women']");
 	By koovsxyouLink = By.xpath("//*[@href='koovsxyou']");
+	By instyleofLink = By.xpath("//a[@title='IN STYLE OF']");
+	By searchInput = By.xpath("//div[@class='koovs-search-input']/input");
+	By searchIcon = By.xpath("//div[@class='koovs-search-btn']/div/div");
+	By trendingText = By.xpath("//div[text()='TRENDING SEARCHES']");
+	By googleLink = By.id("customBtn");
+	By facebookLink = By.xpath("//div[@class='koovs-fblock']");
 	
 	
 	
@@ -36,6 +42,30 @@ public class Login
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getFacebookLink()
+	{
+		return driver.findElement(facebookLink);
+	}
+	public WebElement getGoogleLink()
+	{
+		return driver.findElement(googleLink);
+	}
+	public WebElement getTrendingText()
+	{
+		 return driver.findElement(trendingText);
+	}
+	public WebElement getSearchIcon()
+	{
+		 return driver.findElement(searchIcon);
+	}
+	public WebElement getSearchInput()
+	{
+		 return driver.findElement(searchInput);
+	}
+	public WebElement getInstyleofLink()
+	{
+		 return driver.findElement(instyleofLink);
+	}
 	public WebElement getKoovxyouLink()
 	{
 		 return driver.findElement(koovsxyouLink);
