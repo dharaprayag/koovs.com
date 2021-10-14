@@ -3,6 +3,7 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.support.PageFactory;
 
 public class Login 
@@ -29,7 +30,9 @@ public class Login
 	By trendingText = By.xpath("//div[text()='TRENDING SEARCHES']");
 	By googleLink = By.id("customBtn");
 	By facebookLink = By.xpath("//div[@class='koovs-fblock']");
-	
+	By emailInput = By.cssSelector("*[id='login-email']");
+	By passwordInput = By.cssSelector("*[id='login-pswd']");
+	By showOrHideLink = By.xpath("//*[@id='login-pswd']/following-sibling::span");
 	
 	
 	
@@ -42,6 +45,18 @@ public class Login
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getShowOrHide()
+	{
+		return driver.findElement(showOrHideLink);
+	}
+	public WebElement getPasswordInput()
+	{
+		return driver.findElement(passwordInput);
+	}
+	public WebElement getEmailInput()
+	{
+		return driver.findElement(emailInput);
+	}
 	public WebElement getFacebookLink()
 	{
 		return driver.findElement(facebookLink);

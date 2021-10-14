@@ -17,7 +17,7 @@ Examples:
 
 @loginfunctionality3.2
 Scenario Outline: verify in Login page company logo should be clickable and its landed to home page
-Given Initialize browser and click on login link then click on company logo
+Given Login click on company logo
 When Click on company logo to verify from login page
 Then Get text of homepage title <loginHomepageTitle>
 Examples:
@@ -26,7 +26,7 @@ Examples:
 
 @loginfunctionality3.3
 Scenario Outline: Verify in Login page LOGIN link should be clickable and landed to login page
-Given Initialize browser and click on login link then click on again login link
+Given Login click on again login link
 When Again click on login link to verify from login page
 Then Get text of login title <loginLoginTitle>
 Examples:
@@ -35,7 +35,7 @@ Examples:
 
 @loginfunctionality3.4
 Scenario Outline: verify in Login page, WISHLIST icon should be clickable and landed to login page with error message
-Given Initialize browser and click on login link for click on wishlist icon
+Given Login click on wishlist icon
 When Click on Wishlist icon from login link
 Then Get Text of login error message <loginErrorMsg>
 Examples:
@@ -44,7 +44,7 @@ Examples:
 
 @loginfunctionality3.5
 Scenario Outline: Verify in Login page, BAG icon should be clickable and landed to login page with error message
-Given Initialize browser and click on login link for click on BAG icon
+Given Login click on BAG icon
 When click on BAG icon from login link
 Then Get Text of BAG error message from login <loginBagErrorMsg>
 Examples:
@@ -89,7 +89,7 @@ Examples:
 
 @loginfunctionality3.10
 Scenario Outline: verify in Login page IN STYLE OF link should be clickable and landed into its relevant page
-Given Initialize browser and click on login link for click on IN STYLE OF link
+Given click on IN STYLE OF link
 When Click on IN STYLE OF link from login page
 Then Get text of IN STYLE OF's title <loginInstyleOfTitle>
 Examples:
@@ -126,14 +126,15 @@ Then Click on Facebook Link
 
 @loginFunctionalitySrNo.3.15To3.25
 Scenario Outline: Verify Login form
-Given Initialize browser and click on login link <scenario>
+Given Initialize browser and click on login link <srNo> <scenario>
 When Enter an email <loginEmail>
 When Enter a password <loginPassword>
 When Click on SHOW or HIDE link in password field <showorhide>
 Then Click on LOGIN button <loginButtonClick>
 Examples:
-|sr.No|									|scenario|															|loginEmail|			|loginPassword|				|showorhide|			|loginButtonClick|
-|loginFunctionalitySrNo.2.13|			|valid email and valid password which is used during sign up|
+|srNo|									|scenario|															|loginEmail|					|loginPassword|				|showorhide|			|loginButtonClick|
+|loginFunctionalitySrNo.3.15|			|valid email and valid password which is used during sign up|		|dharapatel80085@gmail.com|		|Dharapatel80085@|			|click|					|click|
+
 
 
 
