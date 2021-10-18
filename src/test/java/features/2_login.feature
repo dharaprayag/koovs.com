@@ -134,6 +134,10 @@ Then Click on LOGIN button <loginButtonClick>
 Examples:
 |srNo|									|scenario|															|loginEmail|					|loginPassword|				|showorhide|			|loginButtonClick|
 |loginFunctionalitySrNo.3.15|			|valid email and valid password which is used during sign up|		|dharapatel80085@gmail.com|		|Dharapatel80085@|			|click|					|click|
+|loginFunctionalitySrNo.3.16|			|Invalid email and invalid password|								|dharapatel@gmail.com|			|dharapatel@|				|not|					|click|
+|loginFunctionalitySrNo.3.17|			|Login with both empty fields|										|blank|							|blank|						|not|					|click|
+|loginFunctionalitySrNo.3.18|			|leave blank email field and use valid password|					|blank|							|Dharapatel80085@|			|click|					|click|
+|loginFunctionalitySrNo.3.19|			||
 
 
 

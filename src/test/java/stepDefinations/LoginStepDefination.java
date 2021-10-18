@@ -390,13 +390,33 @@ public class LoginStepDefination extends base
     @When("^Enter an email (.+)$")
     public void enter_an_email(String loginemail) throws Throwable
     {
-    	login.getEmailInput().sendKeys(loginemail);
+    	if(!loginemail.contains("blank"))
+    	{
+    		login.getEmailInput().sendKeys(loginemail);
+    	}
+    	else
+    	{
+    		login.getEmailInput().sendKeys(Keys.TAB);
+    		String emailErrorMsg = login.getEmailErrorMsg().getText();
+    		System.out.println(emailErrorMsg);
+    	}
+  
     }
 
     @When("^Enter a password (.+)$")
     public void enter_a_password(String loginpassword) throws Throwable
     {
-    	login.getPasswordInput().sendKeys(loginpassword);
+    	if(!loginpassword.contains("blank"))
+    	{
+    		login.getPasswordInput().sendKeys(loginpassword);
+    	}
+    	else
+    	{
+    		login.getPasswordInput().sendKeys(Keys.TAB);
+    		String passwordErrorMsg = login.getPasswordErrorMsg().getText();
+    		System.out.println(passwordErrorMsg);
+    	}
+    	
     }
 
     @When("^Click on SHOW or HIDE link in password field (.+)$")

@@ -33,6 +33,8 @@ public class Login
 	By emailInput = By.cssSelector("*[id='login-email']");
 	By passwordInput = By.cssSelector("*[id='login-pswd']");
 	By showOrHideLink = By.xpath("//*[@id='login-pswd']/following-sibling::span");
+	By emailErrorMsg = By.xpath("//div[@class='login-form']/div[1]/div");
+	By passwordErrorMsg = By.xpath("//div[@class='login-form']/div[2]/div");
 	
 	
 	
@@ -45,6 +47,14 @@ public class Login
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getPasswordErrorMsg()
+	{
+		return driver.findElement(passwordErrorMsg);
+	}
+	public WebElement getEmailErrorMsg()
+	{
+		return driver.findElement(emailErrorMsg);
+	}
 	public WebElement getShowOrHide()
 	{
 		return driver.findElement(showOrHideLink);
