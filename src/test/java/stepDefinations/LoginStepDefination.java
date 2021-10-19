@@ -438,6 +438,19 @@ public class LoginStepDefination extends base
     	if(loginbuttonclick.contains("click"))
     	{
     		login.getLoginButton().click();
+    		
+    		if(login.getEmailErrorMsg().isDisplayed())
+    		{
+    			String emailError = login.getEmailErrorMsg().getText();
+    			System.out.println(emailError);
+    		}
+    		
+    		else if(login.getPasswordErrorMsg().isDisplayed())
+    		{
+    			String passwordError = login.getPasswordErrorMsg().getText();
+    			System.out.println(passwordError);
+    		}
+    		
     	}
     	else
     	{

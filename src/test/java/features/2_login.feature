@@ -6,7 +6,7 @@ Given Initialize browser with chrome and navigate to site
 When click on login link and Fill up Email and Password and click on log in button
 Then Landed into home page
 
-@loginfunctionality3.1
+#@loginfunctionality3.1
 Scenario Outline: Verify Login link should be clickable and its redirect to login page
 Given Initialize browser for click on login link and get title <websiteTitle>
 When Click on login link from homepage
@@ -15,7 +15,7 @@ Examples:
 |websiteTitle|		|loginPageTitle|
 |koovs|				|login|
 
-@loginfunctionality3.2
+#@loginfunctionality3.2
 Scenario Outline: verify in Login page company logo should be clickable and its landed to home page
 Given Login click on company logo
 When Click on company logo to verify from login page
@@ -24,7 +24,7 @@ Examples:
 |loginHomepageTitle|
 |koovs|
 
-@loginfunctionality3.3
+#@loginfunctionality3.3
 Scenario Outline: Verify in Login page LOGIN link should be clickable and landed to login page
 Given Login click on again login link
 When Again click on login link to verify from login page
@@ -33,7 +33,7 @@ Examples:
 |loginLoginTitle|
 |login|
 
-@loginfunctionality3.4
+#@loginfunctionality3.4
 Scenario Outline: verify in Login page, WISHLIST icon should be clickable and landed to login page with error message
 Given Login click on wishlist icon
 When Click on Wishlist icon from login link
@@ -132,12 +132,19 @@ When Enter a password <loginPassword>
 When Click on SHOW or HIDE link in password field <showorhide>
 Then Click on LOGIN button <loginButtonClick>
 Examples:
-|srNo|									|scenario|															|loginEmail|					|loginPassword|				|showorhide|			|loginButtonClick|
-|loginFunctionalitySrNo.3.15|			|valid email and valid password which is used during sign up|		|dharapatel80085@gmail.com|		|Dharapatel80085@|			|click|					|click|
-|loginFunctionalitySrNo.3.16|			|Invalid email and invalid password|								|dharapatel@gmail.com|			|dharapatel@|				|not|					|click|
-|loginFunctionalitySrNo.3.17|			|Login with both empty fields|										|blank|							|blank|						|not|					|click|
-|loginFunctionalitySrNo.3.18|			|leave blank email field and use valid password|					|blank|							|Dharapatel80085@|			|click|					|click|
-|loginFunctionalitySrNo.3.19|			||
+|srNo|									|scenario|																|loginEmail|					|loginPassword|				|showorhide|			|loginButtonClick|
+|loginFunctionalitySrNo.3.15|			|valid email and valid password which is used during sign up|			|dharapatel80085@gmail.com|		|Dharapatel80085@|			|click|					|click|
+|loginFunctionalitySrNo.3.16|			|Invalid email and invalid password|									|dharapatel@gmail.com|			|dharapatel@|				|not|					|click|
+|loginFunctionalitySrNo.3.17|			|Login with both empty fields|											|blank|							|blank|						|not|					|click|
+|loginFunctionalitySrNo.3.18|			|leave blank email field and use valid password|						|blank|							|Dharapatel80085@|			|click|					|click|
+|loginFunctionalitySrNo.3.19|			|valid email and leave blank password field|							|dharapatel80085@gmail.com|		|blank|						|click|					|click|
+|loginFunctionalitySrNo.3.20|			|leave blank email and invalid password|								|blank|							|dhara@80085|				|not|					|not|
+|loginFunctionalitySrNo.3.21|			|invalid email and leave blank password|								|dhara@gmail.com|				|blank|						|click|					|not|
+|loginFunctionalitySrNo.3.22|			|Invalid (wrong) email and Valid password|								|abcd@mail|						|Dharapatel80085@|			|not|					|not|
+|loginFunctionalitySrNo.3.23|			|valid email and invalid password|										|dharapatel80085@gmail.com|		|abc|						|click|					|click|
+|loginFunctionalitySrNo.3.24|			|invalid email (use alphanumeric and special char) and valid password|	|****dhar800@gmai.cmo|			|Dharapatel80085@|			|not|					|not|
+|loginFunctionalitySrNo.3.25|			|Valid email and invalid password (use alphanumeric and special char)|	|dharapatel80085@gmail.com|		|12*abc@123|				|click|					|click|
+
 
 
 
