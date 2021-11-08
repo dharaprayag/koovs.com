@@ -36,7 +36,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginfunctionality3.12,@loginfunctionality3.13,@loginfunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -70,7 +70,7 @@ public class LoginStepDefination extends base
     {
     	Thread.sleep(2000);
     	System.out.println("Username is " + login.getUserName().getText());
-    	System.out.println("Login Successful");
+    	System.out.println("Login Scenario");
     	System.out.println("__________________________________________________________");
     	driver.quit();
     	//System.out.println(login.getNotification().getText());

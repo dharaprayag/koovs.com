@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class base 
 {
@@ -66,8 +68,14 @@ public class base
 		if(browserName.equals("chrome"))
 		{
 			//It executes in Chrome Browser
+			
+			//SSL Certificate
+			ChromeOptions handlingSSL = new ChromeOptions();
+			handlingSSL.setAcceptInsecureCerts(true);
+			
 			System.setProperty("webdriver.chrome.driver", prop.getProperty("chromePath"));
-			driver = new ChromeDriver(notification);
+			//driver = new ChromeDriver(notification);
+			driver = new ChromeDriver(handlingSSL);
 		}
 		else if(browserName.equals("firefox"))
 		{
