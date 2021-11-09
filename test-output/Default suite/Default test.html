@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Nov 08 13:33:25 EST 2021</td>
+<td>Started on:</td><td>Tue Nov 09 12:18:48 EST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>385 seconds (385452 ms)</td>
+<tr><td>Total time:</td><td>30 seconds (30568 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,7 +76,8 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='testRunner.testRunner.feature()'><b>feature</b><br>Test class: testRunner.testRunner<br>Test method: Runs Cucumber Feature<br>Parameters: Login into Application</td>
-<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [true] but found [false]
+<td><div><pre>cucumber.runtime.CucumberException: cucumber.runtime.CucumberException: Arity mismatch: Step Definition &apos;stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/&apos; with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -107,15 +108,22 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at stepDefinations.LoginStepDefination.get_text_of_login_page_title(LoginStepDefination.java:100)
-	at ?.Then Get text of login page title &lt;loginpageTitle&gt;(src/test/java/features/2_login.feature:13)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2089054322", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2089054322'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [true] but found [false]
+Caused by: cucumber.runtime.CucumberException: Arity mismatch: Step Definition &apos;stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/&apos; with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
+	at cucumber.runtime.StepDefinitionMatch.arityMismatch(StepDefinitionMatch.java:102)
+	at cucumber.runtime.StepDefinitionMatch.transformedArgs(StepDefinitionMatch.java:60)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+	... 29 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace884111637", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace884111637'><pre>cucumber.runtime.CucumberException: cucumber.runtime.CucumberException: Arity mismatch: Step Definition &apos;stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/&apos; with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -146,15 +154,21 @@ Caused by: java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at stepDefinations.LoginStepDefination.get_text_of_login_page_title(LoginStepDefination.java:100)
-	at ?.Then Get text of login page title &lt;loginpageTitle&gt;(src/test/java/features/2_login.feature:13)
+Caused by: cucumber.runtime.CucumberException: Arity mismatch: Step Definition &apos;stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/&apos; with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
+	at cucumber.runtime.StepDefinitionMatch.arityMismatch(StepDefinitionMatch.java:102)
+	at cucumber.runtime.StepDefinitionMatch.transformedArgs(StepDefinitionMatch.java:60)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+	... 29 more
 </pre></div></td>
-<td>384</td>
+<td>30</td>
 <td>testRunner.testRunner@6989da5e</td></tr>
 </table><p>
 </body>

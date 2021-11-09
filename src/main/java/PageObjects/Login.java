@@ -14,7 +14,7 @@ public class Login
 	By enterEmail = By.cssSelector("input[id='login-email']");
 	By enterPassword = By.cssSelector("input[id='login-pswd']");
 	By loginButton = By.xpath("//button[@type='submit']");
-	By AcceptButtton = By.xpath("//*[@id='app']/div/div/div/div[1]/div[3]/div[2]/div");
+	By AcceptButtton = By.xpath("//div[@class='login-wrapper']/div[1]/div[3]/div[2]/div");
 	By notification = By.id("notification-wrapper");
 	By userName = By.xpath("//div[@class='account-links']/span");
 	By companyLogo = By.xpath("//div[@class='header-wrapper']/div[1]/div[1]");
@@ -54,6 +54,14 @@ public class Login
 	public WebElement getEmailErrorMsg()
 	{
 		return driver.findElement(emailErrorMsg);
+	}
+	public boolean isEmailErrorMessageAvilable() 
+	{
+		return !driver.findElements(emailErrorMsg).isEmpty();
+	}
+	public boolean isPasswordErrorMessageAvailable()
+	{
+		return !driver.findElements(passwordErrorMsg).isEmpty();
 	}
 	public WebElement getShowOrHide()
 	{

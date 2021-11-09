@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\dhara\AppData\Local\Temp\testng-eclipse-832652571\testng-customsuite.xml</span>
+                    <span>C:\Users\dhara\AppData\Local\Temp\testng-eclipse-1777786419\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -131,7 +131,8 @@
                   </a> <!-- feature(Login into Application) -->
                   <span class="method-name">feature</span>
                   <span class="parameters">(Login into Application)</span>
-                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: expected [true] but found [false]
+                  <div class="stack-trace">cucumber.runtime.CucumberException: cucumber.runtime.CucumberException: Arity mismatch: Step Definition &apos;stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/&apos; with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -162,13 +163,19 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at stepDefinations.LoginStepDefination.get_text_of_login_page_title(LoginStepDefination.java:100)
-	at ✽.Then Get text of login page title &lt;loginpageTitle&gt;(src/test/java/features/2_login.feature:13)
+Caused by: cucumber.runtime.CucumberException: Arity mismatch: Step Definition &apos;stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/&apos; with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
+	at cucumber.runtime.StepDefinitionMatch.arityMismatch(StepDefinitionMatch.java:102)
+	at cucumber.runtime.StepDefinitionMatch.transformedArgs(StepDefinitionMatch.java:60)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+	... 29 more
 
 </div> <!-- stack-trace -->
                   <em>
@@ -180,7 +187,7 @@ Caused by: java.lang.AssertionError: expected [true] but found [false]
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dhara\AppData\Local\Temp\testng-eclipse-832652571\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dhara\AppData\Local\Temp\testng-eclipse-1777786419\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -241,12 +248,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'testRunner.testRunner')
-data.setCell(0, 3, 384712);
+data.setCell(0, 3, 30185);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 minutes</span>
+              <span class="suite-total-time">Total running time: 30 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -281,11 +288,11 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">feature(Login into Application)</span>
-                <span class="method-start">671 ms</span>
+                <span class="method-start">356 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">385395 ms</span>
+                <span class="method-start">30545 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

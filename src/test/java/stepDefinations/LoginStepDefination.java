@@ -36,7 +36,7 @@ public class LoginStepDefination extends base
 	signup signup;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginfunctionality3.12,@loginfunctionality3.13,@loginfunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginFunctionality3.12,@loginFunctionality3.13,@loginFunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -200,8 +200,8 @@ public class LoginStepDefination extends base
     }
     
     ///////////////@loginfunctionality3.6/////////////////////
-    @Given("^Initialize browser and click on login link for click on MEN link$")
-    public void initialize_browser_and_click_on_login_link_for_click_on_men_link() throws Throwable
+    @Given("^Initialize browser and click on login MEN link$")
+    public void initialize_browser_and_click_on_login_men_link() throws Throwable
     {
     	System.out.println("@loginfunctionality3.6");
     	login.getLoginLink().click();
@@ -224,8 +224,8 @@ public class LoginStepDefination extends base
     }
     
     ///////////////@loginfunctionality3.7/////////////////////
-    @Given("^Initialize browser and click on login link for click on WOMEN link$")
-    public void initialize_browser_and_click_on_login_link_for_click_on_women_link() throws Throwable
+    @Given("^Initialize browser and click login link for click WOMEN link$")
+    public void initialize_browser_and_click_login_link_for_click_women_link() throws Throwable
     {
     	System.out.println("@loginfunctionality3.7");
     	login.getLoginLink().click();
@@ -251,8 +251,8 @@ public class LoginStepDefination extends base
     
     
     ///////////////@loginfunctionality3.9/////////////////////
-    @Given("^Initialize browser and click on login link for click on KOOVSXYOU link$")
-    public void initialize_browser_and_click_on_login_link_for_click_on_koovsxyou_link() throws Throwable
+    @Given("^Initialize browser and click on KOOVSXYOU link$")
+    public void initialize_browser_and_click_on_koovsxyou_link() throws Throwable
     {
     	System.out.println("@loginfunctionality3.9");
     	login.getLoginLink().click();
@@ -361,6 +361,7 @@ public class LoginStepDefination extends base
     public void click_on_google_link() throws Throwable
     {
     	login.getGoogleLink().click();
+    	driver.quit();
     }
     
     ////////////////@loginfunctionality3.14/////////////////////
@@ -375,19 +376,20 @@ public class LoginStepDefination extends base
     public void click_on_facebook_link() throws Throwable
     {
     	login.getFacebookLink().click();
+    	driver.quit();
     }
     
     //////////////////////////@loginFunctionalitySrNo.3.15To3.25////////////////////////
     
-    @Given("^Initialize browser and click on login link (.+)$")
+    @Given("^Initialize browser and click on login link(.+) (.+)$")
     public void initialize_browser_and_click_on_login_link(String srno, String scenario) throws Throwable
     {
-    	System.out.println(srno);
-    	System.out.println(scenario);    	
+    	System.out.println(srno + scenario);
+    	//System.out.println(scenario);    	
     	login.getLoginLink().click();
     }
 
-    @When("^Enter an email (.+)$")
+    @When("^Enter an email(.+)$")
     public void enter_an_email(String loginemail) throws Throwable
     {
     	if(!loginemail.contains("blank"))
@@ -403,7 +405,7 @@ public class LoginStepDefination extends base
   
     }
 
-    @When("^Enter a password (.+)$")
+    @When("^Enter a password(.+)$")
     public void enter_a_password(String loginpassword) throws Throwable
     {
     	if(!loginpassword.contains("blank"))
@@ -419,7 +421,7 @@ public class LoginStepDefination extends base
     	
     }
 
-    @When("^Click on SHOW or HIDE link in password field (.+)$")
+    @When("^Click on SHOW or HIDE link in password field(.+)$")
     public void click_on_show_or_hide_link_in_password_field(String showorhide) throws Throwable
     {
     	if(showorhide.contains("click"))
@@ -431,33 +433,56 @@ public class LoginStepDefination extends base
     		System.out.println("Not click on showOrHide link");
     	}
     }
-
-    @Then("^Click on LOGIN button (.+)$")
-    public void click_on_login_button(String loginbuttonclick) throws Throwable
+    
+    @Then("^Click on LOGIN button(.+) (.+)$")
+    public void click_on_login_button(String loginbuttonclick, String errorMsg) throws Throwable
     {
+    	login.getAcceptButton().click();
     	if(loginbuttonclick.contains("click"))
     	{
     		login.getLoginButton().click();
-    		
-    		if(login.getEmailErrorMsg().isDisplayed())
-    		{
-    			String emailError = login.getEmailErrorMsg().getText();
-    			System.out.println(emailError);
-    		}
-    		
-    		else if(login.getPasswordErrorMsg().isDisplayed())
-    		{
-    			String passwordError = login.getPasswordErrorMsg().getText();
-    			System.out.println(passwordError);
-    		}
-    		
+			/*
+			 * if(errorMsg.contains("blank")) { if(login.getEmailErrorMsg().isDisplayed()) {
+			 * String emailError = login.getEmailErrorMsg().getText();
+			 * System.out.println(emailError); }
+			 * 
+			 * else if(login.getPasswordErrorMsg().isDisplayed()) { String passwordError =
+			 * login.getPasswordErrorMsg().getText(); System.out.println(passwordError); } }
+			 */
     	}
     	else
     	{
     		System.out.println("Not click on login button");
     	}
-    	
     }
+    
+	@Then("^Find error message(.+)$") 
+	public void find_error_message(String errorMsg) throws Throwable
+	{
+		if(errorMsg.contains("blank"))
+		{
+			if(login.isEmailErrorMessageAvilable())
+			{
+				String emailError = login.getEmailErrorMsg().getText();
+				System.out.println(emailError);
+			}
+			else if(login.isPasswordErrorMessageAvailable())
+			{
+				String passwordError = login.getPasswordErrorMsg().getText();
+				System.out.println(passwordError);
+			}
+			else
+			{
+				System.out.println("Not found any Error");
+			}
+		}
+  	
+		else
+		{
+			System.out.println("Not found any Error");
+		}
+		driver.quit();
+	}
     
     
     

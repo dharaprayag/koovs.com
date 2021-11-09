@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="385452" started-at="2021-11-08T13:33:25 EST" finished-at="2021-11-08T13:39:51 EST">
+  <suite name="Default suite" duration-ms="30568" started-at="2021-11-09T12:18:48 EST" finished-at="2021-11-09T12:19:19 EST">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.testRunner@6989da5e]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="385452" started-at="2021-11-08T13:33:25 EST" finished-at="2021-11-08T13:39:51 EST">
+    <test name="Default test" duration-ms="30568" started-at="2021-11-09T12:18:48 EST" finished-at="2021-11-09T12:19:19 EST">
       <class name="testRunner.testRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="setUpClass" is-config="true" duration-ms="514" started-at="2021-11-08T13:33:25 EST" finished-at="2021-11-08T13:33:26 EST">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="setUpClass" is-config="true" duration-ms="268" started-at="2021-11-09T12:18:48 EST" finished-at="2021-11-09T12:18:49 EST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.testRunner@6989da5e]" name="feature" duration-ms="384712" started-at="2021-11-08T13:33:26 EST" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-11-08T13:39:51 EST">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.testRunner@6989da5e]" name="feature" duration-ms="30185" started-at="2021-11-09T12:18:49 EST" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-11-09T12:19:19 EST">
           <params>
             <param index="0">
               <value>
@@ -24,10 +24,12 @@
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]]]>
+              <![CDATA[cucumber.runtime.CucumberException: Arity mismatch: Step Definition 'stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/' with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: expected [true] but found [false]
+              <![CDATA[cucumber.runtime.CucumberException: cucumber.runtime.CucumberException: Arity mismatch: Step Definition 'stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/' with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
 at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -58,20 +60,26 @@ at org.testng.TestNG.run(TestNG.java:1037)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at org.testng.Assert.assertTrue(Assert.java:55)
-at stepDefinations.LoginStepDefination.get_text_of_login_page_title(LoginStepDefination.java:100)
-at ✽.Then Get text of login page title <loginpageTitle>(src/test/java/features/2_login.feature:13)
+Caused by: cucumber.runtime.CucumberException: Arity mismatch: Step Definition 'stepDefinations.LoginStepDefination.initialize_browser_and_click_on_login_link(String,String) in file:/C:/Users/dhara/eclipse-workspace/koovs.com/target/test-classes/' with pattern [^Initialize browser and click on login link (.+)$] is declared with 2 parameters. However, the gherkin step has 1 arguments [loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up]. 
+Step: Given Initialize browser and click on login link loginFunctionalitySrNo.3.15 valid email and valid password which is used during sign up
+at cucumber.runtime.StepDefinitionMatch.arityMismatch(StepDefinitionMatch.java:102)
+at cucumber.runtime.StepDefinitionMatch.transformedArgs(StepDefinitionMatch.java:60)
+at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+... 29 more
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="tearDownClass" is-config="true" duration-ms="21" started-at="2021-11-08T13:39:51 EST" finished-at="2021-11-08T13:39:51 EST">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testRunner.testRunner@6989da5e]" name="tearDownClass" is-config="true" duration-ms="4" started-at="2021-11-09T12:19:19 EST" finished-at="2021-11-09T12:19:19 EST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
