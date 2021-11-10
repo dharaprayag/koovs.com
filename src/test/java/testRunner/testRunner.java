@@ -6,7 +6,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 //@RunWith(Cucumber.class)
 	@CucumberOptions
 		(
-			features = "src/test/java/features/2_login.feature",
+			features = "src/test/java/features/4_resetPassword.feature",
 			glue = "stepDefinations"
 		)
 
