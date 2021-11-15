@@ -18,6 +18,57 @@ Examples:
 |resetPasswordHomePageTitle|
 |online shopping|
 
+@ResetPasswordScenario4.3
+Scenario Outline: verify in sign up page LOGIN link should be clickable and landed to login page
+Then Again click on Login link <resetPasswordLoginpageTitle>
+Examples:
+|resetPasswordLoginpageTitle|
+|login customer|
+
+@ResetPasswordScenario4.4
+Scenario Outline: verify in sign up page, WISHLIST icon should be clickable and landed to login page with error message
+Then Click on Wishlist Icon <resetPasswordWishlistErrorMsg>
+Examples:
+|resetPasswordWishlistErrorMsg|
+|sign in to access your orders, wishlist|
+
+@ResetPasswordScenario4.5
+Scenario Outline: verify in sign up page, BAG icon should be clickable and landed to login page with error message
+Then Click on BAG icon <resetPasswordBagErrorMsg>
+Examples:
+|resetPasswordBagErrorMsg|
+|sign in to access your orders, wishlist|
+
+@ResetPasswordScenario4.6
+Scenario Outline: verify in sign up page MEN link should be clickable and landed into its relevant page
+Then Click on Men link <menTitlePage>
+Examples:
+|menTitlePage|
+|online shopping for men|
+
+@ResetPasswordScenario4.7
+Scenario Outline: verify in sign up page WOMEN link should be clickable and landed into its relevant page
+Then Click on Women link <womenTitlePage>
+Examples:
+|womenTitlePage|
+|online shopping for women|
+
+@ResetPasswordScenario4.8
+Scenario Outline: verify in sign up page CAMPAIGNS link should be clickable and landed into its relevant page
+Then Click on THE BLOG link <blogTitlePage>
+Examples:
+|blogTitlePage|
+|latest fashion trends, styles and news online|
+
+
+
+
+
+
+
+
+
+
 
 
 

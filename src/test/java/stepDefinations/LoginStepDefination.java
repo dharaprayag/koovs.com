@@ -38,7 +38,7 @@ public class LoginStepDefination extends base
 	resetPassword resetpass;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginFunctionality3.12,@loginFunctionality3.13,@loginFunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@ResetPasswordScenario4.1,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginFunctionality3.12,@loginFunctionality3.13,@loginFunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@ResetPasswordScenario4.1,@ResetPasswordScenario4.2,@ResetPasswordScenario4.3,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -114,10 +114,10 @@ public class LoginStepDefination extends base
     }
     
 	////////////////////@ResetPasswordScenario4.2/////////////////////
+    @Before(value="@ResetPasswordScenario4.3,@ResetPasswordScenario4.4,@ResetPasswordScenario4.5,@ResetPasswordScenario4.6,@ResetPasswordScenario4.7,@ResetPasswordScenario4.8", order=2)
     @Given("^Click on Login link then click on Reset Password link$")
     public void click_on_login_link_then_click_on_reset_password_link() throws Throwable
     {
-    	System.out.println("@ResetPasswordScenario4.2");
     	resetpass.getLoginLink().click();
     	login.getAcceptButton().click();
     	resetpass.getResetPasswordLink().click();
@@ -135,9 +135,84 @@ public class LoginStepDefination extends base
     	String forgotPasswordPage = driver.getTitle();
     	Assert.assertTrue(forgotPasswordPage.toLowerCase().contains(resetpasswordhomepagetitle));
     	System.out.println("Assert true redirect to Home page from Forgot password page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
     } 
     
-	////////////////////@ResetPasswordScenario4.3///////////////////////
+	//////////////////////@ResetPasswordScenario4.3///////////////////////
+    @Then("^Again click on Login link (.+)$")
+    public void again_click_on_login_link(String resetpasswordloginpagetitle) throws Throwable
+    {
+    	resetpass.getLoginLink().click();
+    	String loginPageTitleResetPassword = driver.getTitle();
+    	Assert.assertTrue(loginPageTitleResetPassword.toLowerCase().contains(resetpasswordloginpagetitle));
+    	System.out.println("Assert true Landed on Login page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    	
+    }
+    
+	//////////////////////@ResetPasswordScenario4.4///////////////////////
+    @Then("^Click on Wishlist Icon (.+)$")
+    public void click_on_wishlist_icon(String resetpasswordwishlistpagetitle) throws Throwable
+    {
+    	resetpass.getWishlistIcon().click();
+    	String wishlistErrorMsg = resetpass.getLoginErrorMsg().getText();
+    	Assert.assertTrue(wishlistErrorMsg.toLowerCase().contains(resetpasswordwishlistpagetitle));
+    	System.out.println("Assert true got error message while click on wishlist icon");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    	
+    }
+    
+    //////////////////////@ResetPasswordScenario4.5///////////////////////
+   @Then("^Click on BAG icon (.+)$")
+    public void click_on_bag_icon(String resetpasswordbagerrormsg) throws Throwable
+    {
+    	resetpass.getBagIcon().click();
+    	String bagErrorMsg = resetpass.getLoginErrorMsg().getText();
+    	Assert.assertTrue(bagErrorMsg.toLowerCase().contains(resetpasswordbagerrormsg));
+    	System.out.println("Assert true got error message while click on Bag icon");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    //////////////////////@ResetPasswordScenario4.6////////////////////////
+    @Then("^Click on Men link (.+)$")
+    public void click_on_men_link(String mentitlepage) throws Throwable
+    {
+    	resetpass.getMenLink().click();
+    	String menPageTitle = driver.getTitle();
+    	Assert.assertTrue(menPageTitle.toLowerCase().contains(menPageTitle));
+    	System.out.println("Redirected to Men's shopping page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////////////@ResetPasswordScenario4.7////////////////////////
+    @Then("^Click on Women link (.+)$")
+    public void click_on_women_link(String womentitlepage) throws Throwable
+    {
+    	resetpass.getWomenLink().click();
+    	String womenPageTitle = driver.getTitle();
+    	Assert.assertTrue(womenPageTitle.toLowerCase().contains(womentitlepage));
+    	System.out.println("Redirected to women's shopping page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////////////@ResetPasswordScenario4.8////////////////////////
+    @Then("^Click on THE BLOG link (.+)$")
+    public void click_on_the_blog_link(String blogtitlepage) throws Throwable
+    {
+    	resetpass.getTheBlogLink().click();
+    	String theBlogPageTitle = driver.getTitle();
+    	Assert.assertTrue(theBlogPageTitle.toLowerCase().contains(blogtitlepage));
+    	System.out.println("Redirected to Blog page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
     
     
     
