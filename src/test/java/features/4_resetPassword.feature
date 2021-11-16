@@ -60,6 +60,61 @@ Examples:
 |blogTitlePage|
 |latest fashion trends, styles and news online|
 
+@ResetPasswordScenario4.9
+Scenario Outline: verify in sign up page KOOVSXYOU link should be clickable and landed into its relevant page
+Then Click on KOOVSXYOU link <koovsxyouTitlePage>
+Examples:
+|koovsxyouTitlePage|
+|koovsxyou|
+
+@ResetPasswordScenario4.10
+Scenario Outline: verify in sign up page IN STYLE OF link should be clickable and landed into its relevant page
+Then Click on IN STYLE OF link <instyleofTitlePage>
+Examples:
+|instyleofTitlePage|
+|online fashion shopping|
+
+@ResetPasswordScenario4.11
+Scenario Outline: verify user should be able to enter input and click on search icon
+Then Enter input and click on search icon and get searched page <search> <searchedPage>
+Examples:
+|search|			|searchedPage|
+|jeans|				|buy jeans online in india|
+
+@ResetPasswordScenario4.12
+Scenario Outline: verify user should be able to click search icon without any input and pop up should be open
+Then click on search icon without an enter value and open a pop up and get text <popupText>
+Examples:
+|popupText|
+|trending searches|
+
+@ResetPasswordScenario4.13
+Scenario Outline: Enter valid email id (dharapatel80085@gmail.com) and then click on reset password button
+Then Enter a valid email id and click on reset password button and get text <validEmail> <emailTextMsg>
+Examples:
+|validEmail|												|emailTextMsg|
+|dharapatel80085@gmail.com|									|your password request has been successfully registered. please check your mail|
+
+@ResetPasswordScenario4.14
+Scenario Outline: Enter wrong email (dharagmail.com) and then click on reset password button
+Then Enter an invalid email and click on reset password button and get text <invalidEmail> <emailErrorMsg>
+Examples:
+|invalidEmail|								|emailErrorMsg|
+|dharagmail.com|							|please enter valid email|
+
+@ResetPasswordScenario4.15
+Scenario Outline: Enter wrong email with special char (****@gmai.cmo) and  then click on reset password button
+Then enter an incorrect email id with special character <incorrectEmail> <errorMsg>
+Examples:
+|incorrectEmail|				|errorMsg|
+|****@gmail.com|				|invalid email id|
+
+@ResetPasswordScenario4.16
+Scenario Outline: Enter email with numeric char (123456@gmail.com) and then click on reset password button
+Then Enter a numeric char email id then click on reset password button and get text <numericEmail> <numericEmailErrorMsg>
+Examples:
+|numericEmail|							|numericEmailErrorMsg|
+|123456@gmail.com|						|your password request has been successfully registered. please check your mail|
 
 
 
@@ -72,28 +127,6 @@ Examples:
 
 
 
-
-
-
-
-
-
-#4.1			Verify click on Login link an get page title
-#4.2			verify in sign up page company logo should be clickable and its landed to home page
-#4.3			verify in sign up page LOGIN link should be clickable and landed to login page
-#4.4			verify in sign up page, WISHLIST icon should be clickable and landed to login page with error message
-#4.5			verify in sign up page, BAG icon should be clickable and landed to login page with error message
-#4.6			verify in sign up page MEN link should be clickable and landed into its relevant page
-#4.7			verify in sign up page WOMEN link should be clickable and landed into its relevant page
-#4.8			verify in sign up page CAMPAIGNS link should be clickable and landed into its relevant page
-#4.9			verify in sign up page KOOVSXYOU link should be clickable and landed into its relevant page
-#4.10 		verify in sign up page IN STYLE OF link should be clickable and landed into its relevant page
-#4.11		verify user should be able to enter input and click on search icon
-#4.12		verify user should be able to click search icon without any input and pop up should be open
-#4.13		Enter valid email id (dharapatel80085@gmail.com) and then click on reset password button
-#4.14		Enter wrong email (dhara@gmail.com) and then click on reset password button
-#4.15		Enter wrong email with special char (****dhar800@gmai.cmo) and  then click on reset password button
-#4.16		Enter email with numeric char (123456@gmail.com) and then click on reset password button
 
 
 

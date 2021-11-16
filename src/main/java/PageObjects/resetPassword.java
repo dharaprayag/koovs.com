@@ -22,6 +22,12 @@ public class resetPassword extends base
 	By koovsxyouLink = By.xpath("//*[@href='koovsxyou']");
 	By instyleofLink = By.xpath("//a[@title='IN STYLE OF']");
 	By theBlogLink = By.linkText("THE BLOG");
+	By searchInput = By.xpath("//div[@class='koovs-search-input']/input");
+	By searchIcon = By.xpath("//div[@class='koovs-search-btn']/div/div");
+	By trendingText = By.xpath("//div[text()='TRENDING SEARCHES']");
+	By resetPasswordEmail = By.id("fp-email");
+	By resetpasswordButton = By.xpath("//*[@class='fp-form-btn']/button");
+	By passwordErrorMsg = By.xpath("//*[@class='fp-form']/div[1]/div");
 	
 	
 	
@@ -34,6 +40,30 @@ public class resetPassword extends base
 		PageFactory.initElements(driver, this);
 	}
 	
+	public WebElement getPasswordErrorMsg()
+	{
+		return driver.findElement(passwordErrorMsg);
+	}
+	public WebElement getResetpasswordButton()
+	{
+		return driver.findElement(resetpasswordButton);
+	}
+	public WebElement getResetPasswordEmail()
+	{
+		return driver.findElement(resetPasswordEmail);
+	}
+	public WebElement getTrendingText()
+	{
+		 return driver.findElement(trendingText);
+	}
+	public WebElement getSearchIcon()
+	{
+		 return driver.findElement(searchIcon);
+	}
+	public WebElement getSearchInput()
+	{
+		 return driver.findElement(searchInput);
+	}
 	public WebElement getTheBlogLink()
 	{
 		 return driver.findElement(theBlogLink);

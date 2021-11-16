@@ -38,7 +38,7 @@ public class LoginStepDefination extends base
 	resetPassword resetpass;
 	
 	
-	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginFunctionality3.12,@loginFunctionality3.13,@loginFunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@ResetPasswordScenario4.1,@ResetPasswordScenario4.2,@ResetPasswordScenario4.3,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
+	@Before(value="@getTitleSrNo.1,@signupFunctionalitySrNo.2.1,@signupFunctionalitySrNo.2.2,@signupFunctionalitySrNo.2.3,@signupFunctionalitySrNo.2.4,@signupFunctionalitySrNo.2.5,@signupFunctionalitySrNo.2.6,@signupFunctionalitySrNo.2.7,@signupFunctionalitySrNo.2.8,@signupFunctionalitySrNo.2.9,@signupFunctionalitySrNo.2.10,@signupFunctionalitySrNo.2.11,@signupFunctionalitySrNo.2.12,@signupFunctionalitySrNo.2.13To2.24,@loginfunctionality3.1,@loginfunctionality3.2,@loginfunctionality3.3,@loginfunctionality3.4,@loginfunctionality3.5,@loginfunctionality3.6,@loginfunctionality3.7,@loginfunctionality3.8,@loginfunctionality3.9,@loginfunctionality3.10,@loginfunctionality3.11,@loginFunctionality3.12,@loginFunctionality3.13,@loginFunctionality3.14,@loginFunctionalitySrNo.3.15To3.25,@ResetPasswordScenario4.1,@ResetPasswordScenario4.2,@ResetPasswordScenario4.3,@ResetPasswordScenario4.4,@ResetPasswordScenario4.5,@ResetPasswordScenario4.6,@ResetPasswordScenario4.7,@ResetPasswordScenario4.8,@ResetPasswordScenario4.9,@ResetPasswordScenario4.10,@menScenario,@menScenarioWithFilter,@womenScenario,@womenScenarioWithFilter,@calculateTotalAmount,@numberOfitemsInCart", order=1)
 	@Given("^Initialize browser with chrome and navigate to site$")
     public void initialize_browser_with_chrome_and_navigate_to_site() throws Throwable 
 	{
@@ -114,7 +114,7 @@ public class LoginStepDefination extends base
     }
     
 	////////////////////@ResetPasswordScenario4.2/////////////////////
-    @Before(value="@ResetPasswordScenario4.3,@ResetPasswordScenario4.4,@ResetPasswordScenario4.5,@ResetPasswordScenario4.6,@ResetPasswordScenario4.7,@ResetPasswordScenario4.8", order=2)
+    @Before(value="@ResetPasswordScenario4.3,@ResetPasswordScenario4.4,@ResetPasswordScenario4.5,@ResetPasswordScenario4.6,@ResetPasswordScenario4.7,@ResetPasswordScenario4.8,@ResetPasswordScenario4.9,@ResetPasswordScenario4.10", order=2)
     @Given("^Click on Login link then click on Reset Password link$")
     public void click_on_login_link_then_click_on_reset_password_link() throws Throwable
     {
@@ -213,8 +213,106 @@ public class LoginStepDefination extends base
     	driver.quit();
     }
     
+    ///////////////////////@ResetPasswordScenario4.9/////////////////////////
+    @Then("^Click on KOOVSXYOU link (.+)$")
+    public void click_on_koovsxyou_link(String koovsxyoutitlepage) throws Throwable
+    {
+    	resetpass.getKoovxyouLink().click();
+    	String koovsxyouPageTitle = driver.getTitle();
+    	Assert.assertTrue(koovsxyouPageTitle.toLowerCase().contains(koovsxyoutitlepage));
+    	System.out.println("Redirected to Koovsxyou page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
     
+    ///////////////////////@ResetPasswordScenario4.10/////////////////////////
+    @Then("^Click on IN STYLE OF link (.+)$")
+    public void click_on_in_style_of_link(String instyleoftitlepage) throws Throwable
+    {
+    	resetpass.getInstyleofLink().click();
+    	String instyleofPageTitle = driver.getTitle();
+    	Assert.assertTrue(instyleofPageTitle.toLowerCase().contains(instyleoftitlepage));
+    	System.out.println("Redirected to In style of page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
     
+    ///////////////////////@ResetPasswordScenario4.11/////////////////////////
+    @Then("^Enter input and click on search icon and get searched page (.+) (.+)$")
+    public void enter_input_and_click_on_search_icon_and_get_searched_page(String search, String searchedpage) throws Throwable
+    {
+    	resetpass.getSearchInput().sendKeys(search);
+    	resetpass.getSearchIcon().click();
+    	String searchedPageTitle = driver.getTitle();
+    	Assert.assertTrue(searchedPageTitle.toLowerCase().contains(searchedpage));
+    	System.out.println("Redirected to searched page");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();    	
+    }
+    
+    ///////////////////////@ResetPasswordScenario4.12/////////////////////////
+    @Then("^click on search icon without an enter value and open a pop up and get text (.+)$")
+    public void click_on_search_icon_without_an_enter_value_and_open_a_pop_up_and_get_text(String popuptext) throws Throwable
+    {
+    	resetpass.getSearchIcon().click();
+    	String popup = resetpass.getTrendingText().getText();
+    	Assert.assertTrue(popup.toLowerCase().contains(popuptext));
+    	System.out.println("Get text of Trending Search");
+    	System.out.println("__________________________________________________________");
+    	driver.quit(); 
+    }
+    
+    ///////////////////////@ResetPasswordScenario4.13/////////////////////////
+    @Then("^Enter a valid email id and click on reset password button and get text (.+) (.+)$")
+    public void enter_a_valid_email_id_and_click_on_reset_password_button_and_get_text(String validemail, String emailtextmsg) throws Throwable
+    {
+    	resetpass.getResetPasswordEmail().sendKeys(validemail);
+    	resetpass.getResetpasswordButton().click();
+    	String validEmailErrorMsg = resetpass.getPasswordErrorMsg().getText();
+    	Assert.assertTrue(validEmailErrorMsg.toLowerCase().contains(emailtextmsg));
+    	System.out.println("Get valid email text related to Reset password msg");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////////////@ResetPasswordScenario4.14/////////////////////////
+    @Then("^Enter an invalid email and click on reset password button and get text (.+) (.+)$")
+    public void enter_an_invalid_email_and_click_on_reset_password_button_and_get_text(String invalidemail, String emailerrormsg) throws Throwable
+    {
+    	resetpass.getResetPasswordEmail().sendKeys(invalidemail);
+    	resetpass.getResetpasswordButton().click();
+    	String invalidEmailErrorMsg = resetpass.getPasswordErrorMsg().getText();
+    	Assert.assertTrue(invalidEmailErrorMsg.toLowerCase().contains(emailerrormsg));
+    	System.out.println("Get invalid email text related to Reset password msg");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+       
+    ///////////////////////@ResetPasswordScenario4.15/////////////////////////
+    @Then("^enter an incorrect email id with special character (.+) (.+)$")
+    public void enter_an_incorrect_email_id_with_special_character(String incorrectemail, String errormsg) throws Throwable
+    {
+    	resetpass.getResetPasswordEmail().sendKeys(incorrectemail);
+    	resetpass.getResetpasswordButton().click();
+    	String incorrectEmailErrorMsg = resetpass.getPasswordErrorMsg().getText();
+    	Assert.assertTrue(incorrectEmailErrorMsg.toLowerCase().contains(errormsg));
+    	System.out.println("Get incorrect email text related to Reset password msg");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
+    
+    ///////////////////////@ResetPasswordScenario4.16/////////////////////////
+    @Then("^Enter a numeric char email id then click on reset password button and get text (.+) (.+)$")
+    public void enter_a_numeric_char_email_id_then_click_on_reset_password_button_and_get_text(String numericemail, String numericemailerrormsg) throws Throwable
+    {
+    	resetpass.getResetPasswordEmail().sendKeys(numericemail);
+    	resetpass.getResetpasswordButton().click();
+    	String numEmailErrorMsg = resetpass.getPasswordErrorMsg().getText();
+    	Assert.assertTrue(numEmailErrorMsg.toLowerCase().contains(numericemailerrormsg));
+    	System.out.println("Get incorrect email text related to Reset password msg");
+    	System.out.println("__________________________________________________________");
+    	driver.quit();
+    }
     
     
     ///////////////////////////////////////////LOGIN/////////////////////////////////
